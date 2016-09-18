@@ -26,20 +26,39 @@
         android:textSize="22sp"
         android:textAlignment="center" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/btnNew"
-        android:layout_gravity="right|center_vertical"
-        android:textColor="#ffffff"
-        android:background="@drawable/bk_boton_plano" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="left|center_vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
-        android:layout_gravity="right|bottom" />
+        <Button
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Crear_Partida"
+            android:id="@+id/btnNew"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffff"
+            android:background="@drawable/bk_boton_plano"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
+        android:layout_gravity="center_horizontal|bottom">
+
+        <Button
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Join_Partida"
+            android:id="@+id/btnjoin"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@drawable/bk_boton_plano"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </FrameLayout>

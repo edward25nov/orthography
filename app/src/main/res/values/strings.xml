@@ -14,4 +14,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logo_para_amigos">logo para amigos</string>
     <string name="mensaje_amigos">¡Hola! puedes elegir una de nuestras modalidades...</string>
+    <string name="Crear_Partida">Crear Partida</string>
+    <string name="Join_Partida">Unirse</string>
 </resources>
