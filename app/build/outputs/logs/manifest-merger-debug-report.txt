@@ -79,6 +79,22 @@ MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStud
 MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:8:9-41
 	android:supportsRtl
@@ -177,6 +193,22 @@ MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStud
 MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:recyclerview-v7:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-v4:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-ui:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58

@@ -9,4 +9,9 @@
     <string name="imagen_logo">imagen logo</string>
     <string name="nombreLogo">ABC</string>
     <string name="logo_de_la_app">logo de la app</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo_para_amigos">logo para amigos</string>
+    <string name="mensaje_amigos">¡Hola! puedes elegir una de nuestras modalidades...</string>
 </resources>

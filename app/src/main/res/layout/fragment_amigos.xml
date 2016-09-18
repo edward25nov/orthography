@@ -1,0 +1,45 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.edward.orthography.AmigosFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/icon_add_friends"
+        android:layout_gravity="left|top"
+        android:src="@drawable/amigos"
+        android:contentDescription="@string/logo_para_amigos" />
+
+    <TextView
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:text="@string/mensaje_amigos"
+        android:id="@+id/textView2"
+        android:layout_gravity="right|top"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:singleLine="false"
+        android:textSize="22sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/btnNew"
+        android:layout_gravity="right|center_vertical"
+        android:textColor="#ffffff"
+        android:background="@drawable/bk_boton_plano" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button2"
+        android:layout_gravity="right|bottom" />
+
+</FrameLayout>
