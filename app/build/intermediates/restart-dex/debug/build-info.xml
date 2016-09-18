@@ -4,7 +4,7 @@
     api-level="16"
     density="hdpi"
     format="7"
-    timestamp="26471862170742"
+    timestamp="30313527993714"
     token="-6262087174352271567" >
 
     <task
@@ -24,7 +24,7 @@
         location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="26471862170742" >
+    <build timestamp="30313527993714" >
         <artifact
             location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />

@@ -1,5 +1,6 @@
 package com.example.edward.orthography;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,8 +44,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //agregamos las pestañas al activity principal
         agregarPestañas();
-
+        //aqui agregamos el fragmento amigos al tab2
         AmigosFragment nuevoFragment = new AmigosFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
 
             /***Reemplanzado el layout principal por un fragmento***/
@@ -125,15 +127,21 @@ public class MainActivity extends AppCompatActivity
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.Layout_a_ser_reemplazado,nuevoFragment,nuevoFragment.getTag()).commit();
             */
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_perfil) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_progreso) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_ajustes) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_acercade) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_salir) {
+
+            finish();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
 
         }
 

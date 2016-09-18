@@ -60,12 +60,12 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/layout/notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/layout/notification_template_big_media_narrow.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",

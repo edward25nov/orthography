@@ -16,4 +16,13 @@
     <string name="mensaje_amigos">¡Hola! puedes elegir una de nuestras modalidades...</string>
     <string name="Crear_Partida">Crear Partida</string>
     <string name="Join_Partida">Unirse</string>
+    <string name="sera_el_avatar_del_usuario">Sera el avatar del usuario</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="android_studio_android_com">android.studio@android.com</string>
+    <string name="inicio">Inicio</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="mi_progreso">Mi progreso</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="about">About</string>
 </resources>
