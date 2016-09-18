@@ -1,0 +1,3 @@
+CHANGED,/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/edward/orthography/Splash$override.class
+CHANGED,/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/edward/orthography/R$id$override.class
