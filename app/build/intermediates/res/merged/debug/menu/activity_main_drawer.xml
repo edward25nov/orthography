@@ -14,23 +14,20 @@
             android:id="@+id/nav_progreso"
             android:icon="@drawable/progreso"
             android:title="@string/mi_progreso" />
+        <item
+            android:id="@+id/nav_ajustes"
+            android:icon="@drawable/settingss"
+            android:title="@string/ajustes" />
+        <item
+            android:id="@+id/nav_acercade"
+            android:icon="@drawable/about"
+            android:title="@string/about" />
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/cerrar"
+            android:title="@string/cerrar_sesi_n" />
     </group>
 
-  <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nav_ajustes"
-                android:icon="@drawable/settingss"
-                android:title="@string/ajustes" />
-            <item
-                android:id="@+id/nav_acercade"
-                android:icon="@drawable/about"
-                android:title="@string/about" />
-            <item
-                android:id="@+id/nav_salir"
-                android:icon="@drawable/cerrar"
-                android:title="@string/cerrar_sesi_n" />
-        </menu>
-    </item>
+
 
 </menu>

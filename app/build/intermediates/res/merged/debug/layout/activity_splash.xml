@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.edward.orthography.Splash"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/azul500">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +20,8 @@
         android:textColor="#ffffff"
         android:textSize="@dimen/notification_large_icon_height"
         android:textStyle="bold"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        tools:ignore="PrivateResource" />
 
     <ImageView
         android:layout_width="wrap_content"
