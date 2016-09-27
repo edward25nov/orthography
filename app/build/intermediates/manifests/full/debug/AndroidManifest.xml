@@ -38,8 +38,25 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.edward.orthography.Login"
-            android:label="@string/title_activity_login" />
-        <activity android:name="com.example.edward.orthography.Registrar1" />
+            android:label="@string/title_activity_login" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Presentacion" />
+        </activity>
+        <activity
+            android:name="com.example.edward.orthography.Registrar1"
+            android:label="@string/title_activity_registrar1" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Presentacion" />
+        </activity>
+        <activity
+            android:name="com.example.edward.orthography.Registrar2"
+            android:label="@string/title_activity_registrar1" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Presentacion" />
+        </activity>
     </application>
 
 </manifest>

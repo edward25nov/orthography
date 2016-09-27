@@ -27,11 +27,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Presentacion"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Login" android:label="@string/title_activity_login" />
-        <activity android:name=".Registrar1"></activity>
+
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login" >
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Presentacion"/>
+        </activity>
+
+        <activity
+            android:name=".Registrar1"
+            android:label="@string/title_activity_registrar1">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Presentacion"/>
+        </activity>
+
+        <activity
+            android:name=".Registrar2"
+            android:label="@string/title_activity_registrar1">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Presentacion"/>
+       </activity>
     </application>
 
 </manifest>

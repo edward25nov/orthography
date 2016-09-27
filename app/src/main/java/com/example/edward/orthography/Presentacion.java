@@ -24,7 +24,7 @@ public class Presentacion extends AppCompatActivity {
         nueva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Presentacion.this,MainActivity.class));
+                startActivity(new Intent(Presentacion.this,Registrar1.class));
             }
         });
     }

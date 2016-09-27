@@ -8,6 +8,78 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.edward.orthography.Registrar1">
+    tools:context="com.example.edward.orthography.Registrar1"
+    android:background="@color/azul100">
 
+    <TextView
+        android:text="@string/Registrar1_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txtregistrar1"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="28sp" />
+
+    <TextView
+        android:text="@string/Registrar11_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtregistrar1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/txtregistrar11"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/tamanio_titulos"
+        tools:ignore="InvalidId" />
+
+    <TextView
+        android:text="@string/contenidoregistrar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtregistrar11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/txtreg1"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="@string/crearperfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="107dp"
+        android:id="@+id/btnregistrar1"
+        android:background="@drawable/bk_boton_plano"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text="@string/contenidoregistrar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtreg1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/txtreg2"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="@string/contenidoregistrar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtreg2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/txtreg3"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAlignment="center" />
 </RelativeLayout>

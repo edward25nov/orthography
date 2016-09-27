@@ -30,6 +30,7 @@
     <string name="SoyNuevo">Soy Nuevo</string>
     <string name="tengoCuenta">Tengo Cuenta</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_registrar1">Registrar</string>
 
     <string name="login">Iniciar sesión</string>
     <string name="hint1">E-mail</string>
@@ -37,4 +38,12 @@
     <string name="restablecer"><u>Restablecer contraseña</u> </string>
     <string name="stringAvatar">Edward Gómez</string>
     <string name="stringCorreoAvatar">edward25nov@gmail.com</string>
+    <string name="Registrar1_txt">Bienvenido, ahora</string>
+    <string name="Registrar11_txt">crearemos tu perfil</string>
+    <string name="contenidoregistrar1">Con tu perfil podrás</string>
+    <string name="contenidoregistrar2">guardar tu progreso</string>
+    <string name="contenidoregistrar3">y continuar aprendiendo</string>
+
+    <string name="crearperfil">Crear perfil</string>
+    <string name="e_mail">E-mail</string>
 </resources>

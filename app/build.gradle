@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
     compile files('libs/ksoap2-android-assembly-2.6.0-jar-with-dependencies.jar')
+    compile files('libs/android-saripaar-2.0.2.jar')
 }
