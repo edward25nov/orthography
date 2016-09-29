@@ -31,6 +31,7 @@
     <string name="tengoCuenta">Tengo Cuenta</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_registrar1">Registrar</string>
+    <string name="title_activity_registrar3">Selecciona tu avatar</string>
 
     <string name="login">Iniciar sesión</string>
     <string name="hint1">E-mail</string>
@@ -46,4 +47,5 @@
 
     <string name="crearperfil">Crear perfil</string>
     <string name="e_mail">E-mail</string>
+    <string name="nuevo_avatarstr">Elegir avatar</string>
 </resources>

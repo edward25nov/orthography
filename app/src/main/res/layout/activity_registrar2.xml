@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_registrar2"
     android:layout_width="match_parent"
@@ -22,7 +23,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,7 +39,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -50,18 +55,46 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold" />
 
     <Button
         android:text="@string/crearperfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="21dp"
         android:id="@+id/btncrearperfil"
         android:background="@drawable/bk_boton_plano"
         android:textColor="@android:color/white"
         android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/avatar2"
+        android:id="@+id/btnAvatar"
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/regConfPass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ck_avatar"
+        android:text="@string/nuevo_avatarstr"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textStyle="normal|bold"
+        android:translationX="90sp"
+        android:layout_below="@+id/btnAvatar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
 </RelativeLayout>

@@ -601,6 +601,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="nombreLogo">ABC</string>
+    <string name="nuevo_avatarstr">Elegir avatar</string>
     <string name="presentacion1">Aprende y mejora</string>
     <string name="presentacion2">tu ortografía jugando</string>
     <string name="restablecer"><u>Restablecer contraseña</u> </string>
@@ -612,6 +613,7 @@
     <string name="tengoCuenta">Tengo Cuenta</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_registrar1">Registrar</string>
+    <string name="title_activity_registrar3">Selecciona tu avatar</string>
     <string name="tituloSplash">ABC</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

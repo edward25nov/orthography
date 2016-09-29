@@ -24,12 +24,12 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_borderless_material.xml"
     },
     {
-        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
-        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
-    },
-    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/perfil.png",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/perfil.png"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml",
@@ -114,6 +114,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/bk_boton_plano.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/bk_boton_plano.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/avatar2.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/avatar2.png"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",

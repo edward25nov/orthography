@@ -106,9 +106,11 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
 
         //http://www.tesis2016.somee.com/ManejoUsuario.asmx?WSDL
 
-        String resultado;
+        int [] resultado;
         String correo;
         String contrasenia;
+        String ex;
+        //estado,idusuario,nivel
         ServiceLogin(String correo, String contrasenia){
             this.correo =correo;
             this.contrasenia=contrasenia;
@@ -116,6 +118,9 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
 
         @Override
         protected Boolean doInBackground(String... params) {
+            if(android.os.Debug.isDebuggerConnected())
+                android.os.Debug.waitForDebugger();
+
             final String SOAP_ACTION = "http://tempuri.org/logIn";
             final String METHOD_NAME = "logIn";
             final String NAMESPACE = "http://tempuri.org/";
@@ -135,13 +140,21 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
 
                 androidHttpTransport.call(SOAP_ACTION, envelope);
 
+                SoapObject resSoap =(SoapObject)envelope.getResponse();
+                resultado = new int[3];
+
+                resultado[0] = Integer.valueOf(resSoap.getProperty(0).toString());
+                resultado[1] = Integer.valueOf(resSoap.getProperty(1).toString());
+                resultado[2] = Integer.valueOf(resSoap.getProperty(2).toString());
+
                 // Esta sección está destina si el Métdo del WS retorna valores
-                SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
-                resultado = resultado_xml.toString();
+                //SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
+                //resultado = resultado_xml.toString();
 
             } catch (Exception e) {
                  resul = false;
-                  resultado = e.getMessage();
+                ex = e.getMessage();
+                  //resultado = e.getMessage();
 
                 // MensajeBox(e.getMessage());
             }
@@ -150,9 +163,9 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
 
         protected void onPostExecute(Boolean result) {
             if (result) {
-               // MensajeBox(resultado);
+               MensajeBox(resultado[0] + " "+ resultado[1] + " " + resultado[2]);
 
-                StringTokenizer st = new StringTokenizer(resultado, "|");
+              /*  StringTokenizer st = new StringTokenizer(resultado, "|");
                 String a1 = st.nextToken();
                 String a2 = st.nextToken();
                 if(a1.equals("exito")){
@@ -160,9 +173,9 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
                     startActivity(new Intent(Login.this,MainActivity.class));
                 }else{
                     MensajeBox("Correo o password incorrectos.");
-                }
+                }*/
             }else {
-                MensajeBox("Error: "+resultado);
+                MensajeBox("Error: "+ex);
             }
         }
     }//fin de clase ServiceLogin
@@ -172,7 +185,7 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
 
     public class ServiceJuego extends AsyncTask<String,Integer,Boolean> {
 
-        //http://www.tesis2016.somee.com/ManejoUsuario.asmx?WSDL
+        //http://www.tesis2016.somee.com/ManejoJuegos.asmx?WSDL
         String resultado;
         String[] parametros;
         int nivel;

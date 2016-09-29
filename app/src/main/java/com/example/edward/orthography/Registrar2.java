@@ -1,5 +1,6 @@
 package com.example.edward.orthography;
 
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,11 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Checked;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
@@ -24,12 +28,18 @@ import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class Registrar2 extends AppCompatActivity implements Validator.ValidationListener {
 
-    @NotEmpty
+    public static String correo = "";
+    public static String pass1 ="";
+    public static String pass2 = "";
+    public static int idavatar=0;
+
+    @NotEmpty(message = "Este campo es requerido")
     @Email(message = "Email incorrecto")
     EditText txtEmail;
 
@@ -39,6 +49,8 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
     @ConfirmPassword(message = "Passwords no coinciden")
     EditText txtCofirmarPass;
 
+    @Checked(message = "Debes seleccionar un avatar.")
+    CheckBox seleccionAvatar;
     /*
     *
     * @Checked(message = "You must agree to the terms.")
@@ -47,6 +59,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
     /*scheme = Password.Scheme.ALPHA_NUMERIC_MIXED_CASE_SYMBOLS , este es un parametro del password*/
     Button confirmar;
     Validator validator;
+    ImageButton elegirAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +70,21 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         txtPass = (EditText) findViewById(R.id.regPass);
         txtCofirmarPass = (EditText) findViewById(R.id.regConfPass);
         confirmar = (Button) findViewById(R.id.btncrearperfil);
+        elegirAvatar = (ImageButton) findViewById(R.id.btnAvatar);
+        seleccionAvatar = (CheckBox)findViewById(R.id.ck_avatar);
 
         validator = new Validator(this);
         validator.setValidationListener(this);
+        /*asignare datos por defecto, para cuando regresen de elegir su avatar*/
+        txtEmail.setText(Avatars.correo);
+        txtPass.setText(Avatars.pass1);
+        txtCofirmarPass.setText(Avatars.pass2);
+        idavatar = Avatars.idAvatar;
+
+        elegirAvatar.setImageResource(idavatar);
+
         valida();
+        desicionAvatar();
     }
 
     public void valida(){
@@ -73,13 +97,43 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         });
     }
 
+    public void desicionAvatar(){
+
+        elegirAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String c = txtEmail.getText().toString();
+                String p = txtPass.getText().toString();
+                String p2 = txtCofirmarPass.getText().toString();
+                correo = c;
+                pass1 = p;
+                pass2 = p2;
+                idavatar = Avatars.idAvatar;
+
+                Avatars.correo = Registrar2.correo;
+                Avatars.pass1 = Registrar2.pass1;
+                Avatars.pass2 = Registrar2.pass2;
+                Avatars.idAvatar = Registrar2.idavatar;
+
+                startActivity(new Intent(Registrar2.this, Avatars.class));
+            }
+        });
+    }
+
+
+
     @Override
     public void onValidationSucceeded() {
         //Toast.makeText(this, "Datos ingresados correctamente", Toast.LENGTH_SHORT).show();
         String c = txtEmail.getText().toString();
         String p = txtPass.getText().toString();
-        int im = 1;
-        ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,1);
+        String p2 = txtCofirmarPass.getText().toString();
+        correo = c;
+        pass1 = p;
+        pass2 = p2;
+        idavatar = Avatars.idAvatar;
+
+        ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,idavatar);
         consumirWS.execute();
     }
 
@@ -114,6 +168,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         AlertDialog alert = builder.create();
         alert.show();
     }
+
 
 
 
@@ -160,8 +215,6 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
             } catch (Exception e) {
                 resul = false;
                 resultado = e.getMessage();
-
-                // MensajeBox(e.getMessage());
             }
             return resul;
         }
@@ -175,7 +228,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
 
                 if(a1.toString().equals("exito")){
                     MensajeBox("Bienvenido "+ a2);
-                    startActivity(new Intent(Registrar2.this,MainActivity.class));
+                    startActivity(new Intent(Registrar2.this,Login.class));
                 }else{
                     MensajeBox("El correo ya existe, por favor ingrese sus datos nuevamente.");
                 }
