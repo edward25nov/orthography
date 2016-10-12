@@ -3,22 +3,17 @@ package com.example.edward.orthography;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by root on 28/09/16.
- */
-
-public class Avatars extends AppCompatActivity {
+public class avatar extends AppCompatActivity {
     private ListView lista;
     public static String correo = "";
     public static String pass1 ="";
@@ -29,7 +24,7 @@ public class Avatars extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_avatars);
+        setContentView(R.layout.activity_avatar);
 
         ArrayList<lista_entrada> datos = new ArrayList<lista_entrada>();
 
@@ -37,7 +32,7 @@ public class Avatars extends AppCompatActivity {
         datos.add(new lista_entrada(R.drawable.avatar2, "avatar 2", "descripción 2"));
         datos.add(new lista_entrada(R.drawable.amigos, "avatar 3", "descripción 3"));
 
-        lista = (ListView) findViewById(R.id.listaview_avatars);
+        lista = (ListView) findViewById(R.id.lista_avatars);
         lista.setAdapter(new lista_adaptador(this, R.layout.layout_entrada, datos){
             @Override
             public void onEntrada(Object entrada, View view) {
@@ -52,24 +47,23 @@ public class Avatars extends AppCompatActivity {
             }
         });
 
-        lista.setOnItemClickListener(new OnItemClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> pariente, View view, int posicion, long id) {
                 lista_entrada elegido = (lista_entrada) pariente.getItemAtPosition(posicion);
 
-               // CharSequence texto = "Seleccionado: " + elegido.get_textoEncima() + "idImagen: "+elegido.get_idImagen();
+                // CharSequence texto = "Seleccionado: " + elegido.get_textoEncima() + "idImagen: "+elegido.get_idImagen();
                 idAvatar = elegido.get_idImagen();
-                Registrar2.correo = Avatars.correo;
-                Registrar2.pass1 = Avatars.pass1;
-                Registrar2.pass2 = Avatars.pass2;
-                Registrar2.idavatar = Avatars.idAvatar;
+                Registrar2.correo = avatar.correo;
+                Registrar2.pass1 = avatar.pass1;
+                Registrar2.pass2 = avatar.pass2;
+                Registrar2.idavatar = avatar.idAvatar;
 
                 Generardesicion();
                 //Toast toast = Toast.makeText(Avatars.this, texto, Toast.LENGTH_LONG);
                 //toast.show();
             }
         });
-
     }
 
 
@@ -97,9 +91,8 @@ public class Avatars extends AppCompatActivity {
     }
 
     public void aceptar(){
-        startActivity(new Intent(Avatars.this,Registrar2.class));
+        startActivity(new Intent(avatar.this,Registrar2.class));
+        finish();
     }
-
-
 
 }

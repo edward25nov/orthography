@@ -19,10 +19,16 @@ import android.widget.TabHost;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    sessionManager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        manager = new sessionManager();
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,8 +56,6 @@ public class MainActivity extends AppCompatActivity
         AmigosFragment nuevoFragment = new AmigosFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
-
-
 
     }
 
@@ -81,15 +85,29 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
+   @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
+            this.finish();
+            Intent intent = new Intent(getApplicationContext(),Splash.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+
+          /*  manager.setPreferences(MainActivity.this, "status", "1");
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+            System.exit(0);*/
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,9 +118,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -137,11 +152,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_salir) {
 
+            manager.setPreferences(MainActivity.this, "status", "0");
             finish();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
 
         }
 
@@ -150,3 +162,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 }
+
+
+/**
+ *
+ * Puede cerrar todas las actividades de fondo y cuando se vuelva a abrir la aplicación Se parte de la primera actividad
+
+ this.finish();
+ Intent intent = new Intent(getApplicationContext(), CloseApp.class);
+ intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+ startActivity(intent);
+
+ Puede cerrar todas las actividades de fondo y cuando se vuelva a abrir la aplicación Se parte de la actividad en pausa [ donde cerró ] actividad
+
+ this.finish();
+ Intent intent = new Intent(Intent.ACTION_MAIN);
+ intent.addCategory(Intent.CATEGORY_HOME);
+ intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+ startActivity(intent);
+
+ *
+ */

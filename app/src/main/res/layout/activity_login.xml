@@ -76,6 +76,7 @@
         android:layout_alignEnd="@+id/txtPass"
         android:hint="@string/hint1"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
+        android:textColorHint="#ffffff"
+        android:textStyle="normal|bold" />
 
 </RelativeLayout>

@@ -76,10 +76,10 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         validator = new Validator(this);
         validator.setValidationListener(this);
         /*asignare datos por defecto, para cuando regresen de elegir su avatar*/
-        txtEmail.setText(Avatars.correo);
-        txtPass.setText(Avatars.pass1);
-        txtCofirmarPass.setText(Avatars.pass2);
-        idavatar = Avatars.idAvatar;
+        txtEmail.setText(avatar.correo);
+        txtPass.setText(avatar.pass1);
+        txtCofirmarPass.setText(avatar.pass2);
+        idavatar = avatar.idAvatar;
 
         elegirAvatar.setImageResource(idavatar);
 
@@ -108,14 +108,15 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                 correo = c;
                 pass1 = p;
                 pass2 = p2;
-                idavatar = Avatars.idAvatar;
+                idavatar = avatar.idAvatar;
 
-                Avatars.correo = Registrar2.correo;
-                Avatars.pass1 = Registrar2.pass1;
-                Avatars.pass2 = Registrar2.pass2;
-                Avatars.idAvatar = Registrar2.idavatar;
+                avatar.correo = Registrar2.correo;
+                avatar.pass1 = Registrar2.pass1;
+                avatar.pass2 = Registrar2.pass2;
+                avatar.idAvatar = Registrar2.idavatar;
 
-                startActivity(new Intent(Registrar2.this, Avatars.class));
+                startActivity(new Intent(Registrar2.this, avatar.class));
+
             }
         });
     }
@@ -131,7 +132,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         correo = c;
         pass1 = p;
         pass2 = p2;
-        idavatar = Avatars.idAvatar;
+        idavatar = avatar.idAvatar;
 
         ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,idavatar);
         consumirWS.execute();
