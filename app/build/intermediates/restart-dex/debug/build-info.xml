@@ -5,7 +5,7 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.1"
-    timestamp="21745012522751"
+    timestamp="27234165762629"
     token="2006604749640707115"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -27,7 +27,7 @@
         type="MAIN" />
 
     <build
-        timestamp="21745012522751"
+        timestamp="27234165762629"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"

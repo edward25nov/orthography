@@ -68,7 +68,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
     Button confirmar;
     Validator validator;
     ImageButton elegirAvatar;
-    ListView miLista;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,15 +82,13 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         elegirAvatar = (ImageButton) findViewById(R.id.btnAvatar);
         seleccionAvatar = (CheckBox)findViewById(R.id.ck_avatar);
 
-        miLista = new ListView(this);
-        miLista.setChoiceMode(ListView.CHOICE_MODE_SINGLE); //para que solo permita seleccionar uno
-        miLista.setSelector(R.drawable.itemseleccion);
+
 
 
 
         validator = new Validator(this);
         validator.setValidationListener(this);
-        elegirAvatar.setImageResource(R.drawable.avatar);
+        elegirAvatar.setImageResource(R.drawable.avatar1);
 
         valida();
         desicionAvatar();
@@ -122,11 +120,15 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
 
                ArrayList<lista_entrada> datos = new ArrayList<lista_entrada>();
 
-                datos.add(new lista_entrada(R.drawable.avatar, "avatar 1", "descripción 1"));
+                datos.add(new lista_entrada(R.drawable.avatar1, "avatar 1", "descripción 1"));
                 datos.add(new lista_entrada(R.drawable.avatar2, "avatar 2", "descripción 2"));
-                datos.add(new lista_entrada(R.drawable.amigos, "avatar 3", "descripción 3"));
+                datos.add(new lista_entrada(R.drawable.avatar3, "avatar 3", "descripción 3"));
+                datos.add(new lista_entrada(R.drawable.avatar4, "avatar 4", "descripción 4"));
+                datos.add(new lista_entrada(R.drawable.avatar5, "avatar 5", "descripción 5"));
 
-
+                final ListView  miLista = new ListView(v.getContext());
+                miLista.setChoiceMode(ListView.CHOICE_MODE_SINGLE); //para que solo permita seleccionar uno
+                miLista.setSelector(R.drawable.itemseleccion);
 
                 miLista.setAdapter(new lista_adaptador(v.getContext(), R.layout.layout_entrada, datos){
                     @Override
@@ -147,17 +149,10 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                     @Override
                     public void onItemClick(AdapterView<?> pariente, View view, int posicion, long id) {
                         lista_entrada elegido = (lista_entrada) pariente.getItemAtPosition(posicion);
-
-                        /*String texto = "Seleccionado: " + elegido.get_textoEncima() + "idImagen: "+elegido.get_idImagen();
-                        Log.i("edward",texto);*/
-                      //miLista.setItemChecked(posicion, true);
-                        miLista.setSelection(posicion);
-
-
+                        miLista.setSelection(posicion); //asignar el item que esta seleccionado
 
                         elegirAvatar.setImageResource(elegido.get_idImagen());
                         idavatar = elegido.get_idImagen();
-                        Log.i("ed","el actual es"+idavatar);
                     }
 
 

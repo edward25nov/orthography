@@ -229,7 +229,14 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
                     manager.setPreferences(Login.this, "status", "1");
                     String status=manager.getPreferences(Login.this,"status");
                     Log.d("status", status);
-                    startActivity(new Intent(Login.this,MainActivity.class));
+               //     startActivity(new Intent(Login.this,MainActivity.class));
+
+                    Intent i = new Intent (Login.this, MainActivity.class);
+                    i.putExtra("correo", txtParametro1.getText()+"");
+                    i.putExtra("nombre", txtParametro2.getText()+"");
+                    i.putExtra("imagen",2130837590);
+                    startActivity(i);
+
                 }else{
 
                     MensajeBox("Correo o password incorrectos.","Información");
