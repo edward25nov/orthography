@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 public class Presentacion extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,10 @@ public class Presentacion extends AppCompatActivity {
         setContentView(R.layout.activity_presentacion);
         NuevaCuenta();
         Cuentaold();
+
+        YoYo.with(Techniques.ZoomInDown)
+                .duration(1000)
+                .playOn(findViewById(R.id.layoutpptx));
     }
 
 

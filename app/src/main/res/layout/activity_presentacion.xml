@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="131dp">
+        android:layout_marginBottom="131dp"
+        android:id="@+id/layoutpptx">
 
         <Button
             android:layout_width="137dp"
