@@ -54,13 +54,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Presentacion" />
         </activity>
-        <activity
-            android:name=".avatar"
-            android:label="@string/title_activity_registrar3">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Registrar2" />
-        </activity>
     </application>
 
 </manifest>

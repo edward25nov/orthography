@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="c10a85f2bb3562ab34cc22d3cd266c8362cf4c2a">
+        sha1="3890fae76b58c231bdf9e19d0d29284f25e628fd">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c9b2959a39c3a1c149b202bb523ac8526bba27f1.jar" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="bb1f075b0fde10fc803a94d495ced580ba7f152a">
+        sha1="245578b7aa94329b41fad5e8ff78d81c0e9991d5">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run_18546ed30300e6d369cd05cd49289e51f8842375.jar" />
     </item>
     <item

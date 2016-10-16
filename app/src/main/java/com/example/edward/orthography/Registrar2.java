@@ -2,16 +2,23 @@ package com.example.edward.orthography;
 
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -29,6 +36,7 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -60,6 +68,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
     Button confirmar;
     Validator validator;
     ImageButton elegirAvatar;
+    ListView miLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +82,15 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         elegirAvatar = (ImageButton) findViewById(R.id.btnAvatar);
         seleccionAvatar = (CheckBox)findViewById(R.id.ck_avatar);
 
+        miLista = new ListView(this);
+        miLista.setChoiceMode(ListView.CHOICE_MODE_SINGLE); //para que solo permita seleccionar uno
+        miLista.setSelector(R.drawable.itemseleccion);
+
+
+
         validator = new Validator(this);
         validator.setValidationListener(this);
-        /*asignare datos por defecto, para cuando regresen de elegir su avatar*/
-        txtEmail.setText(avatar.correo);
-        txtPass.setText(avatar.pass1);
-        txtCofirmarPass.setText(avatar.pass2);
-        idavatar = avatar.idAvatar;
-
-        elegirAvatar.setImageResource(idavatar);
+        elegirAvatar.setImageResource(R.drawable.avatar);
 
         valida();
         desicionAvatar();
@@ -101,21 +110,65 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
 
         elegirAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String c = txtEmail.getText().toString();
-                String p = txtPass.getText().toString();
-                String p2 = txtCofirmarPass.getText().toString();
-                correo = c;
-                pass1 = p;
-                pass2 = p2;
-                idavatar = avatar.idAvatar;
+            public void onClick(final View v) {
 
-                avatar.correo = Registrar2.correo;
-                avatar.pass1 = Registrar2.pass1;
-                avatar.pass2 = Registrar2.pass2;
-                avatar.idAvatar = Registrar2.idavatar;
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle("Selecciona tu Avatar")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener()  {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
 
-                startActivity(new Intent(Registrar2.this, avatar.class));
+               ArrayList<lista_entrada> datos = new ArrayList<lista_entrada>();
+
+                datos.add(new lista_entrada(R.drawable.avatar, "avatar 1", "descripción 1"));
+                datos.add(new lista_entrada(R.drawable.avatar2, "avatar 2", "descripción 2"));
+                datos.add(new lista_entrada(R.drawable.amigos, "avatar 3", "descripción 3"));
+
+
+
+                miLista.setAdapter(new lista_adaptador(v.getContext(), R.layout.layout_entrada, datos){
+                    @Override
+                    public void onEntrada(Object entrada, View view) {
+                        TextView texto_superior_entrada = (TextView) view.findViewById(R.id.txtsuperior);
+                        texto_superior_entrada.setText(((lista_entrada) entrada).get_textoEncima());
+
+                        TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.txtinferior);
+                        texto_inferior_entrada.setText(((lista_entrada) entrada).get_textoDebajo());
+
+                        ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imgviewAvatar);
+                        imagen_entrada.setImageResource(((lista_entrada) entrada).get_idImagen());
+                    }
+
+                });
+
+                miLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> pariente, View view, int posicion, long id) {
+                        lista_entrada elegido = (lista_entrada) pariente.getItemAtPosition(posicion);
+
+                        /*String texto = "Seleccionado: " + elegido.get_textoEncima() + "idImagen: "+elegido.get_idImagen();
+                        Log.i("edward",texto);*/
+                      //miLista.setItemChecked(posicion, true);
+                        miLista.setSelection(posicion);
+
+
+
+                        elegirAvatar.setImageResource(elegido.get_idImagen());
+                        idavatar = elegido.get_idImagen();
+                        Log.i("ed","el actual es"+idavatar);
+                    }
+
+
+                });
+
+
+
+
+                builder.setView(miLista);
+                final Dialog dialog = builder.create();
+                dialog.show();
 
             }
         });
@@ -132,7 +185,6 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         correo = c;
         pass1 = p;
         pass2 = p2;
-        idavatar = avatar.idAvatar;
 
         ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,idavatar);
         consumirWS.execute();
@@ -170,6 +222,27 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         alert.show();
     }
 
+    public void MensajeDecision(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("¿Confirma la acción seleccionada?")
+                .setTitle("Confirmación")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener()  {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
 
 
 

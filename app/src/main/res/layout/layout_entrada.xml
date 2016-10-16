@@ -11,6 +11,7 @@
         android:layout_height="78dp"
         app:srcCompat="@drawable/avatar"
         android:id="@+id/imgviewAvatar"
+        android:background="@drawable/itemseleccion"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
@@ -27,6 +28,7 @@
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:layout_weight="0.43"
+            android:background="@drawable/itemseleccion"
             tools:ignore="HardcodedText,InefficientWeight" />
 
         <TextView
@@ -36,6 +38,8 @@
             android:id="@+id/txtinferior"
             android:textSize="18sp"
             android:textStyle="normal|bold"
+            android:layout_weight="0.59"
+            android:background="@drawable/itemseleccion"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 </LinearLayout>

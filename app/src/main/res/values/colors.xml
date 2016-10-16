@@ -12,4 +12,11 @@
 
     <!-- Paleta #2 -->
     <color name="rosa500">#EC407A</color>
+
+    <!-- para item sin seleccionar -->
+    <color name="blanco">#ffffff</color>
+
+    <!-- para item seleccionado -->
+    <color name="amarillo">#f5f05e</color>
+
 </resources>
