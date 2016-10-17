@@ -55,8 +55,16 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        // el menu explandigle el nav_view es donde aparece el nombre la imagen y correo
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //obtengo la vista o contexto del menu expandible
+        View hView =  navigationView.getHeaderView(0);
+        imgavatar = (ImageView) hView.findViewById(R.id.imgAvatar);
+        txtnameUser = (TextView) hView.findViewById(R.id.txtNameUser);
+        txtcorreoUser = (TextView) hView.findViewById(R.id.txtCorreoUsuario);
+
+
 
         //agregamos las pestañas al activity principal
         agregarPestañas();
@@ -67,9 +75,6 @@ public class MainActivity extends AppCompatActivity
 
 
         //agregando los datos al menu hamburguesa y recuperando datos del intent
-        imgavatar = (ImageView) findViewById(R.id.imgAvatar);
-        txtnameUser = (TextView) findViewById(R.id.txtNameUser);
-        txtcorreoUser = (TextView) findViewById(R.id.txtCorreoUsuario);
 
         String correo = getIntent().getStringExtra("correo");
         String nombre = getIntent().getStringExtra("nombre");

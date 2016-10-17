@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
             final String SOAP_ACTION = "http://tempuri.org/logIn";
             final String METHOD_NAME = "logIn";
             final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoUsuario.asmx";
+            final String URL = "http://www.tesis2016.somee.com/ManejoUsuarioS.asmx";
             boolean resul = true;
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);

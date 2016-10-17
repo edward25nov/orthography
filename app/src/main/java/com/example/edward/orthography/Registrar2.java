@@ -260,7 +260,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
             final String SOAP_ACTION = "http://tempuri.org/crearUsuario";
             final String METHOD_NAME = "crearUsuario";
             final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoUsuario.asmx";
+            final String URL = "http://www.tesis2016.somee.com/ManejoUsuarioS.asmx";
             boolean resul = true;
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
@@ -296,7 +296,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                 String a2 = st.nextToken();
 
                 if(a1.toString().equals("exito")){
-                    MensajeBox("Bienvenido "+ a2);
+                   // MensajeBox("Bienvenido "+ a2);
                     startActivity(new Intent(Registrar2.this,Login.class));
                 }else{
                     MensajeBox("El correo ya existe, por favor ingrese sus datos nuevamente.");
