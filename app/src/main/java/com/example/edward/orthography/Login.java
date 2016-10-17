@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
@@ -234,12 +236,18 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
                     Intent i = new Intent (Login.this, MainActivity.class);
                     i.putExtra("correo", txtParametro1.getText()+"");
                     i.putExtra("nombre", txtParametro2.getText()+"");
-                    i.putExtra("imagen",2130837590);
+                    i.putExtra("imagen",2130837591);
                     startActivity(i);
 
                 }else{
+                     MensajeBox("Correo o password incorrectos.","Información");
+                    YoYo.with(Techniques.Swing)
+                            .duration(1000)
+                            .playOn(findViewById(R.id.txtPass));
+                    YoYo.with(Techniques.Swing)
+                            .duration(1000)
+                            .playOn(findViewById(R.id.txtEmail));
 
-                    MensajeBox("Correo o password incorrectos.","Información");
                 }
             }else {
                 MensajeBox("No se ha podido conectar con el servidor." +

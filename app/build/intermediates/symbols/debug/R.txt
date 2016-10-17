@@ -704,11 +704,11 @@ int id bottom 0x7f0c0022
 int id btnAvatar 0x7f0c0085
 int id btnNew 0x7f0c009d
 int id btnNuevaCuenta 0x7f0c0077
-int id btnRestablecer 0x7f0c0070
+int id btnRestablecer 0x7f0c0071
 int id btnTengoCuenta 0x7f0c0078
 int id btncrearperfil 0x7f0c0084
 int id btnjoin 0x7f0c009e
-int id btnlogin 0x7f0c006f
+int id btnlogin 0x7f0c0070
 int id btnregistrar1 0x7f0c007d
 int id buttonPanel 0x7f0c0047
 int id cancel_action 0x7f0c00a7
@@ -762,7 +762,7 @@ int id layoutpptx 0x7f0c0076
 int id left 0x7f0c0028
 int id line1 0x7f0c00ab
 int id line3 0x7f0c00af
-int id linearLayout 0x7f0c006e
+int id linearLayout 0x7f0c006f
 int id listMode 0x7f0c000b
 int id list_item 0x7f0c0044
 int id media_actions 0x7f0c00a9
@@ -842,10 +842,10 @@ int id top 0x7f0c002b
 int id topPanel 0x7f0c004a
 int id touch_outside 0x7f0c0091
 int id txtCorreoUsuario 0x7f0c00a5
-int id txtEmail 0x7f0c0071
+int id txtEmail 0x7f0c006d
 int id txtLogo 0x7f0c0087
 int id txtNameUser 0x7f0c00a4
-int id txtPass 0x7f0c006d
+int id txtPass 0x7f0c006e
 int id txtinferior 0x7f0c00a1
 int id txtpresentacion 0x7f0c0074
 int id txtpresentacion2 0x7f0c0075

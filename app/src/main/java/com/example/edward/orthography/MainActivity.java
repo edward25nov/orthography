@@ -118,18 +118,20 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
 
-            this.finish();
+           /*** this.finish();
             Intent intent = new Intent(getApplicationContext(),Splash.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-
-          /*  manager.setPreferences(MainActivity.this, "status", "1");
+            *esto funcionaba bien
+            **/
+            moveTaskToBack(true);
+         /*   finish();
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            finish();
-            System.exit(0);*/
+*/
+
         }
     }
 
@@ -177,9 +179,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_salir) {
 
-            manager.setPreferences(MainActivity.this, "status", "0");
-            finish();
-
+            manager.setPreferences(this, "status", "0");
+            this.finish();
+            Intent intent = new Intent(MainActivity.this, Splash.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

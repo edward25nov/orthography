@@ -2655,11 +2655,11 @@ containing a value of this type.
         public static final int btnAvatar=0x7f0c0085;
         public static final int btnNew=0x7f0c009d;
         public static final int btnNuevaCuenta=0x7f0c0077;
-        public static final int btnRestablecer=0x7f0c0070;
+        public static final int btnRestablecer=0x7f0c0071;
         public static final int btnTengoCuenta=0x7f0c0078;
         public static final int btncrearperfil=0x7f0c0084;
         public static final int btnjoin=0x7f0c009e;
-        public static final int btnlogin=0x7f0c006f;
+        public static final int btnlogin=0x7f0c0070;
         public static final int btnregistrar1=0x7f0c007d;
         public static final int buttonPanel=0x7f0c0047;
         public static final int cancel_action=0x7f0c00a7;
@@ -2713,7 +2713,7 @@ containing a value of this type.
         public static final int left=0x7f0c0028;
         public static final int line1=0x7f0c00ab;
         public static final int line3=0x7f0c00af;
-        public static final int linearLayout=0x7f0c006e;
+        public static final int linearLayout=0x7f0c006f;
         public static final int listMode=0x7f0c000b;
         public static final int list_item=0x7f0c0044;
         public static final int media_actions=0x7f0c00a9;
@@ -2793,10 +2793,10 @@ containing a value of this type.
         public static final int topPanel=0x7f0c004a;
         public static final int touch_outside=0x7f0c0091;
         public static final int txtCorreoUsuario=0x7f0c00a5;
-        public static final int txtEmail=0x7f0c0071;
+        public static final int txtEmail=0x7f0c006d;
         public static final int txtLogo=0x7f0c0087;
         public static final int txtNameUser=0x7f0c00a4;
-        public static final int txtPass=0x7f0c006d;
+        public static final int txtPass=0x7f0c006e;
         public static final int txtinferior=0x7f0c00a1;
         public static final int txtpresentacion=0x7f0c0074;
         public static final int txtpresentacion2=0x7f0c0075;
