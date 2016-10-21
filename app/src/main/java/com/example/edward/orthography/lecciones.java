@@ -51,6 +51,7 @@ public class lecciones extends Fragment {
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 2",0f));
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 3",0f));
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 4",0f));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 5",0f));
 
         miLista.setAdapter(new lista_adaptador(getContext(), R.layout.layout_entradalecciones, datos){
             @Override

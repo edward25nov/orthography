@@ -68,20 +68,53 @@ public class MainActivity extends AppCompatActivity
 
         //agregamos las pestañas al activity principal
         agregarPestañas();
-        //aqui agregamos el fragmento amigos al tab2
-        AmigosFragment nuevoFragment = new AmigosFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
         //aqui agregamos el fragmento lecciones al tab1
         lecciones m = new lecciones();
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
+        //aqui agregamos el fragmento amigos al tab2
+        AmigosFragment nuevoFragment = new AmigosFragment();
+        FragmentManager mg = getSupportFragmentManager();
+        mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
 
-        //agregando los datos al menu hamburguesa y recuperando datos del intent
 
+        //agregando los datos al menu hamburguesa y recuperando datos del intent o  variables de sesión
         String correo = getIntent().getStringExtra("correo");
-        String nombre = getIntent().getStringExtra("nombre");
-        int idimagen = getIntent().getIntExtra("imagen",0);
+        if(correo==null){//si no lo recupero por variables de sesión
+            correo = manager.getPreferences(this, "correo");
+        }
+
+        int nivel = getIntent().getIntExtra("nivel",-1);
+        if(nivel==-1){ //si no lo recupero por variables de sesión
+            nivel = Integer.valueOf(manager.getPreferences(this,"nivel"));
+        }
+
+        int idUsuario = getIntent().getIntExtra("idUsuario",-1);
+        if(idUsuario==-1){
+            idUsuario = Integer.valueOf(manager.getPreferences(this,"idUsuario"));
+        }
+
+        int puntos = getIntent().getIntExtra("puntos",-1);
+        if(puntos==-1){
+            puntos = Integer.valueOf(manager.getPreferences(this,"puntos"));
+        }
+
+        double estrellas = getIntent().getDoubleExtra("Estrellas",-1);
+        if(estrellas==-1){
+            estrellas = Double.valueOf(manager.getPreferences(this,"Estrellas"));
+        }
+
+        String nombre = getIntent().getStringExtra("Nombre");
+        if(nombre==null){
+            nombre = manager.getPreferences(this, "Nombre");
+        }
+
+        int idimagen = getIntent().getIntExtra("Imagen",-1);
+        if(idimagen==-1){
+            idimagen = Integer.valueOf(manager.getPreferences(this,"Imagen"));
+        }
+
+
         txtnameUser.setText(nombre);
         txtcorreoUser.setText(correo);
         imgavatar.setImageResource(idimagen);
