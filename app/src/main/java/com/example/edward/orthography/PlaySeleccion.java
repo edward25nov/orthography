@@ -37,6 +37,14 @@ public class PlaySeleccion extends AppCompatActivity {
     LinearLayout layout;
     int AvancePreguntas;
     int Score;
+    //variables que vienen del fragmento
+    String fcorreo;
+    int fnivel;
+    int fidUsuario;
+    int fpuntos;
+    double festrellas;
+    String fnombre;
+    int fidimagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +57,21 @@ public class PlaySeleccion extends AppCompatActivity {
         ProgressBarScore.setProgress(0);
         btnCalificarSeleccion.setEnabled(false);
 
-         //voy a traer el idpartida
+        fcorreo = getIntent().getStringExtra("correo");
+        fnivel = getIntent().getIntExtra("nivel",-1);
+        fidUsuario = getIntent().getIntExtra("idUsuario",-1);
+        fpuntos = getIntent().getIntExtra("puntos",-1);
+        festrellas = getIntent().getDoubleExtra("Estrellas",-1);
+        fnombre = getIntent().getStringExtra("Nombre");
+        fidimagen = getIntent().getIntExtra("Imagen",-1);
+
         try {
             CrearPartida a = new CrearPartida();
-            SoapPrimitive idp = (SoapPrimitive) a.execute(1,1).get();
+            SoapPrimitive idp = (SoapPrimitive) a.execute(fidUsuario,fnivel).get();
             idPartida = Integer.valueOf(idp.toString());
 
             juegoSeleccion cons = new juegoSeleccion();
-            SoapObject resSoap = cons.execute(1,idPartida).get();
+            SoapObject resSoap = cons.execute(fnivel,idPartida).get();
             correctaActual = resSoap.getProperty(0).toString();
             SoapObject items = (SoapObject)resSoap.getProperty(1);
             MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
@@ -84,10 +99,15 @@ public class PlaySeleccion extends AppCompatActivity {
                         try {
                             TerminarPartida a = new TerminarPartida();
                             SoapObject idp = null;
-                            idp = (SoapObject) a.execute(1,idPartida,Score).get();
+                            idp = (SoapObject) a.execute(fidUsuario,idPartida,Score).get();
                             int Nivel = Integer.valueOf(idp.getProperty(0).toString());
                             double Estrellas = Double.valueOf(idp.getProperty(1).toString());
                             int Puntos = Integer.valueOf(idp.getProperty(2).toString());
+
+                            fnivel = Nivel;
+                            festrellas = Estrellas;
+                            fpuntos = Puntos;
+
 
                             YoYo.with(Techniques.Tada)
                                     .duration(1000)
@@ -281,7 +301,16 @@ public class PlaySeleccion extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 if(bandera){
-                                    startActivity(new Intent(PlaySeleccion.this,MainActivity.class));
+                                    Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
+                                    i.putExtra("correo",fcorreo);
+                                    i.putExtra("nivel",fnivel);
+                                    i.putExtra("idUsuario",fidUsuario);
+                                    i.putExtra("puntos",fpuntos);
+                                    i.putExtra("Estrellas",festrellas);
+                                    i.putExtra("Nombre",fnombre);
+                                    i.putExtra("Imagen",fidimagen);
+                                    startActivity(i);
+
                                 }else{
                                     AvancePreguntas = AvancePreguntas + 10;
                                     ProgressBarScore.setProgress(AvancePreguntas);
@@ -290,7 +319,7 @@ public class PlaySeleccion extends AppCompatActivity {
                                     juegoSeleccion cons = new juegoSeleccion();
                                     SoapObject resSoap = null;
                                     try {
-                                        resSoap = cons.execute(1,idPartida).get();
+                                        resSoap = cons.execute(fnivel,idPartida).get();
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     } catch (ExecutionException e) {

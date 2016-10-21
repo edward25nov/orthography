@@ -4,7 +4,7 @@
     <!-- Sombra -->
     <item android:top="4dp">
         <shape>
-            <solid android:color="@color/rosa500" />
+            <solid android:color="@color/colorAccent" />
             <corners android:radius="4dip" />
         </shape>
     </item>

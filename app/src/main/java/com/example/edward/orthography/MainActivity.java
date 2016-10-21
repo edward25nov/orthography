@@ -64,20 +64,6 @@ public class MainActivity extends AppCompatActivity
         txtnameUser = (TextView) hView.findViewById(R.id.txtNameUser);
         txtcorreoUser = (TextView) hView.findViewById(R.id.txtCorreoUsuario);
 
-
-
-        //agregamos las pestañas al activity principal
-        agregarPestañas();
-        //aqui agregamos el fragmento lecciones al tab1
-        lecciones m = new lecciones();
-        FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
-        //aqui agregamos el fragmento amigos al tab2
-        AmigosFragment nuevoFragment = new AmigosFragment();
-        FragmentManager mg = getSupportFragmentManager();
-        mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
-
-
         //agregando los datos al menu hamburguesa y recuperando datos del intent o  variables de sesión
         String correo = getIntent().getStringExtra("correo");
         if(correo==null){//si no lo recupero por variables de sesión
@@ -113,6 +99,27 @@ public class MainActivity extends AppCompatActivity
         if(idimagen==-1){
             idimagen = Integer.valueOf(manager.getPreferences(this,"Imagen"));
         }
+
+        //agregamos las pestañas al activity principal
+        agregarPestañas();
+        //aqui agregamos el fragmento lecciones al tab1
+        lecciones m = new lecciones();
+        Bundle args = new Bundle(); //para pasarle datos al fragmento
+        args.putString("correo",correo);
+        args.putInt("nivel",nivel);
+        args.putInt("idUsuario",idUsuario);
+        args.putInt("puntos",puntos);
+        args.putDouble("estrellas",estrellas);
+        args.putString("nombre",nombre);
+        args.putInt("idimagen",idimagen);
+        m.setArguments(args);
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
+        //aqui agregamos el fragmento amigos al tab2
+        AmigosFragment nuevoFragment = new AmigosFragment();
+        FragmentManager mg = getSupportFragmentManager();
+        mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
+
 
 
         txtnameUser.setText(nombre);

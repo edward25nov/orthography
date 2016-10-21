@@ -15,7 +15,6 @@ public class sessionManager {
         SharedPreferences.Editor editor = context.getSharedPreferences("ortografia", Context.MODE_PRIVATE).edit();
         editor.putString(key, value);
         editor.commit();
-
     }
 
 

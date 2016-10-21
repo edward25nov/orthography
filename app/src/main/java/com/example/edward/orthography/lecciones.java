@@ -43,11 +43,17 @@ public class lecciones extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_lecciones,container,false);
         final ListView miLista = (ListView) view.findViewById(R.id.listalecciones);
 
-
-
+        Bundle b = getArguments();
+        final String correo = b.getString("correo");
+        final int idUsuario = b.getInt("idUsuario");
+        final int nivel = b.getInt("nivel");
+        final int puntos = b.getInt("puntos");
+        final double estrellas = b.getDouble("estrellas");
+        final String nombre= b.getString("nombre");
+        final int idimagen = b.getInt("idimagen");
         ArrayList<lecciones_entrada> datos = new ArrayList<lecciones_entrada>();
 
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 1",0f));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 1",(float) estrellas));
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 2",0f));
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 3",0f));
         datos.add(new lecciones_entrada(R.drawable.previa, "Lección 4",0f));
@@ -75,9 +81,15 @@ public class lecciones extends Fragment {
                 miLista.setSelection(posicion); //asignar el item que esta seleccionado
 
                 if(posicion==0){
-                   // Toast.makeText(getContext(),"vamos a leccion 1", Toast.LENGTH_SHORT).show();
-                    Intent a = new Intent(getContext(),PlaySeleccion.class);
-                    startActivity(a);
+                    Intent i = new Intent(getContext(),PlaySeleccion.class);
+                    i.putExtra("correo", correo);
+                    i.putExtra("idUsuario",idUsuario);
+                    i.putExtra("nivel",nivel);
+                    i.putExtra("puntos",puntos);
+                    i.putExtra("Estrellas",estrellas);
+                    i.putExtra("Nombre",nombre);
+                    i.putExtra("Imagen",idimagen);
+                    startActivity(i);
                 }
 
             }

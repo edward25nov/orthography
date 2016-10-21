@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnCalificar"
-        android:background="@drawable/boton_enfocado2"
+        android:background="@drawable/bk_boton_juego"
         tools:ignore="HardcodedText"
         android:textColor="@color/blanco"
         android:textStyle="normal|bold"
@@ -40,7 +40,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btnCalificar"
-        android:id="@+id/layout_palabras">
+        android:id="@+id/layout_palabras"
+        android:layout_below="@+id/ProgressBarScore">
 
     </LinearLayout>
 
