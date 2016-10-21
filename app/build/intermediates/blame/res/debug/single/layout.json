@@ -52,6 +52,10 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/layout_entrada.xml"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/activity_play_seleccion.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/activity_play_seleccion.xml"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu_item.xml"
     },
@@ -110,6 +114,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/fragment_lecciones.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/fragment_lecciones.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
@@ -198,6 +206,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/layout_entradalecciones.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/layout_entradalecciones.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",

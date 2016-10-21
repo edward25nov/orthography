@@ -15,7 +15,7 @@
 
     <ImageView
         android:id="@+id/imgAvatar"
-        android:layout_width="@dimen/sizeiconexpandible"
+        android:layout_width="75dp"
         android:layout_height="@dimen/sizeiconexpandible"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/avatar"

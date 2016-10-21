@@ -42,10 +42,10 @@ import java.util.StringTokenizer;
 
 public class Registrar2 extends AppCompatActivity implements Validator.ValidationListener {
 
-    public static String correo = "";
-    public static String pass1 ="";
-    public static String pass2 = "";
     public static int idavatar=0;
+
+    @NotEmpty(message = "Este campo es requerido")
+    EditText txtnombre;
 
     @NotEmpty(message = "Este campo es requerido")
     @Email(message = "Email incorrecto")
@@ -75,16 +75,13 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar2);
 
+        txtnombre = (EditText) findViewById(R.id.regNombre);
         txtEmail = (EditText) findViewById(R.id.regEmail);
         txtPass = (EditText) findViewById(R.id.regPass);
         txtCofirmarPass = (EditText) findViewById(R.id.regConfPass);
         confirmar = (Button) findViewById(R.id.btncrearperfil);
         elegirAvatar = (ImageButton) findViewById(R.id.btnAvatar);
         seleccionAvatar = (CheckBox)findViewById(R.id.ck_avatar);
-
-
-
-
 
         validator = new Validator(this);
         validator.setValidationListener(this);
@@ -177,11 +174,10 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         String c = txtEmail.getText().toString();
         String p = txtPass.getText().toString();
         String p2 = txtCofirmarPass.getText().toString();
-        correo = c;
-        pass1 = p;
-        pass2 = p2;
+        String nombre= txtnombre.getText().toString();
 
-        ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,idavatar);
+
+        ServiceRegistrar consumirWS = new ServiceRegistrar(c,p,idavatar,nombre);
         consumirWS.execute();
     }
 
@@ -202,10 +198,10 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         }
     }
 
-    public void MensajeBox(String mensaje) {
+    public void MensajeBox(String mensaje,String titulo) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(mensaje)
-                .setTitle("Información")
+                .setTitle(titulo)
                 .setCancelable(false)
                 .setNeutralButton("Aceptar",
                         new DialogInterface.OnClickListener() {
@@ -248,11 +244,13 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
         String resultado;
         String correo;
         String contrasenia;
+        String name;
         int imagen;
-        ServiceRegistrar(String correo, String contrasenia, int imagen){
+        ServiceRegistrar(String correo, String contrasenia, int imagen,String name){
             this.correo =correo;
             this.contrasenia=contrasenia;
             this.imagen = imagen;
+            this.name = name;
         }
 
         @Override
@@ -268,6 +266,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                 request.addProperty("correo", correo);
                 request.addProperty("contrasenia", contrasenia);
                 request.addProperty("imagen", imagen);
+                request.addProperty("nombre",name);
 
                 SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
@@ -290,19 +289,17 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
 
         protected void onPostExecute(Boolean result) {
             if (result) {
-              //  MensajeBox(resultado);
                 StringTokenizer st = new StringTokenizer(resultado, "|");
                 String a1 = st.nextToken();
                 String a2 = st.nextToken();
-
                 if(a1.toString().equals("exito")){
-                   // MensajeBox("Bienvenido "+ a2);
                     startActivity(new Intent(Registrar2.this,Login.class));
                 }else{
-                    MensajeBox("El correo ya existe, por favor ingrese sus datos nuevamente.");
+                    MensajeBox("El correo ya existe, por favor ingrese sus datos nuevamente.","Información");
                 }
             }else {
-                MensajeBox("Error "+resultado);
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        "Compruebe tu conexión a Internet y vuelve a intentarlo","Error de conexión");
             }
         }
     }//fin de clase ServiceLogin

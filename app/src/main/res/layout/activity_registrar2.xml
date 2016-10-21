@@ -12,53 +12,6 @@
     tools:context="com.example.edward.orthography.Registrar2"
     android:background="@color/azul100">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/regEmail"
-        android:hint="@string/e_mail"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@android:color/white"
-        android:textStyle="normal|bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/regPass"
-        android:hint="Password"
-        tools:ignore="HardcodedText,UnknownId"
-        android:layout_below="@+id/regEmail"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@android:color/white"
-        android:textStyle="normal|bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/regConfPass"
-        android:hint="Confirmar Password"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/regPass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@android:color/white"
-        android:textStyle="normal|bold" />
-
     <Button
         android:text="@string/crearperfil"
         android:layout_width="wrap_content"
@@ -72,18 +25,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/avatar2"
-        android:id="@+id/btnAvatar"
-        tools:ignore="ContentDescription"
-        android:layout_marginTop="14dp"
-        android:background="@android:color/transparent"
-        android:layout_below="@+id/regConfPass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,9 +33,85 @@
         android:textColor="?attr/colorPrimaryDark"
         android:textStyle="normal|bold"
         android:translationX="90sp"
+        android:checked="false"
         android:layout_below="@+id/btnAvatar"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/regNombre"
+        tools:ignore="HardcodedText"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:checked="false" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Nombre" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/regEmail"
+        android:hint="@string/e_mail"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/regNombre"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/regPass"
+        android:hint="Password"
+        tools:ignore="HardcodedText,UnknownId"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/regEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/regConfPass"
+        android:hint="Confirmar Password"
+        tools:ignore="HardcodedText"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/regPass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/avatar2"
+        android:id="@+id/btnAvatar"
+        tools:ignore="ContentDescription"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        android:layout_below="@+id/regConfPass"
+        android:layout_alignLeft="@+id/btncrearperfil"
+        android:layout_alignStart="@+id/btncrearperfil"
+        android:layout_marginTop="18dp" />
 
 </RelativeLayout>

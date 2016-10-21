@@ -72,7 +72,10 @@ public class MainActivity extends AppCompatActivity
         AmigosFragment nuevoFragment = new AmigosFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
-
+        //aqui agregamos el fragmento lecciones al tab1
+        lecciones m = new lecciones();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
 
         //agregando los datos al menu hamburguesa y recuperando datos del intent
 

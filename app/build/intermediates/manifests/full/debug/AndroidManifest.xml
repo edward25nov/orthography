@@ -23,8 +23,7 @@
         <activity
             android:name="com.example.edward.orthography.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.edward.orthography.Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
@@ -57,6 +56,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Presentacion" />
+        </activity>
+        <activity
+            android:name="com.example.edward.orthography.PlaySeleccion"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
     </application>
 

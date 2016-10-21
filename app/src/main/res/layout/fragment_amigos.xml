@@ -12,7 +12,8 @@
         android:id="@+id/icon_add_friends"
         android:layout_gravity="left|top"
         android:src="@drawable/amigos"
-        android:contentDescription="@string/logo_para_amigos" />
+        android:contentDescription="@string/logo_para_amigos"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:layout_width="153dp"
@@ -22,15 +23,16 @@
         android:layout_gravity="right|top"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
-        android:singleLine="false"
         android:textSize="22sp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        tools:ignore="RtlHardcoded" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_gravity="left|center_vertical">
+        android:layout_gravity="left|center_vertical"
+        tools:ignore="RtlHardcoded">
 
         <Button
             android:layout_width="129dp"
