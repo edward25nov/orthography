@@ -4,30 +4,30 @@
     api-level="16"
     density="hdpi"
     format="8"
-    plugin-version="2.2.1"
-    timestamp="53246795384281"
+    plugin-version="2.2.2"
+    timestamp="23178192760356"
     token="2006604749640707115"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="3972" />
+        duration="4304" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1278" />
+        duration="1156" />
     <task
         name="verifier"
-        duration="25" />
+        duration="2" />
 
     <artifact
         location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="53246795384281"
+        timestamp="23178192760356"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"

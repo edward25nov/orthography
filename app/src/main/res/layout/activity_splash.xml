@@ -18,10 +18,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
-        android:textSize="@dimen/notification_large_icon_height"
         android:textStyle="bold"
         android:textIsSelectable="false"
-        tools:ignore="PrivateResource" />
+        tools:ignore="PrivateResource,SpUsage"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="45dp" />
 
     <ImageView
         android:layout_width="wrap_content"

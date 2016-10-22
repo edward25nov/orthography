@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity
     TextView txtnameUser;
     TextView txtcorreoUser;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
