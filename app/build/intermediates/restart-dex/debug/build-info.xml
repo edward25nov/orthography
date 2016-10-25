@@ -5,22 +5,22 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="23178192760356"
+    timestamp="16161021426046"
     token="2006604749640707115"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="4304" />
+        duration="199" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1156" />
+        duration="7" />
     <task
         name="verifier"
-        duration="2" />
+        duration="1" />
 
     <artifact
         location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"

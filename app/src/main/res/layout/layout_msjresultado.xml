@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/contenedor_msj3"
+    tools:ignore="Orientation">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:background="@drawable/fondo_verde"
+        tools:ignore="UselessParent"
+        android:id="@+id/MsjRBuena3">
+
+        <ImageView
+            android:layout_width="73dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/trofeo"
+            android:id="@+id/imgMsj3"
+            android:scaleType="fitStart"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMsj3"
+                android:layout_weight="0.80"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:typeface="serif"
+                android:textColor="@color/azul500"
+                android:textAlignment="center"
+                android:gravity="center|center_horizontal"
+                android:textSize="18sp"
+                android:textStyle="normal|bold"
+                android:translationX="-10dp"
+                android:translationY="22dp" />
+
+            <Button
+                android:text="@string/continuar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnContinue3"
+                android:textStyle="normal|bold"
+                android:background="@android:color/transparent"
+                android:drawableRight="@drawable/continua"
+                android:translationX="-35dip"
+                tools:ignore="RtlHardcoded"
+                style="@android:style/Widget.Button"
+                android:textColor="@android:color/holo_green_dark"
+                android:focusableInTouchMode="true"
+                android:fontFamily="sans-serif"
+                tools:targetApi="lollipop" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

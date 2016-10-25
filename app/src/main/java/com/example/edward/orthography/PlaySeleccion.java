@@ -3,7 +3,9 @@ package com.example.edward.orthography;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -105,9 +107,7 @@ public class PlaySeleccion extends AppCompatActivity {
         btnCalificarSeleccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    boolean flag=false;
-                    if(AvancePreguntas>100){ //vamos a terminar partida
-
+                    if(AvancePreguntas==100){ //vamos a terminar partida
                         try {
                             TerminarPartida a = new TerminarPartida();
                             SoapObject idp = null;
@@ -119,39 +119,34 @@ public class PlaySeleccion extends AppCompatActivity {
                             fnivel = Nivel;
                             festrellas = Estrellas;
                             fpuntos = Puntos;
-
-
-                            YoYo.with(Techniques.Tada)
-                                    .duration(1000)
-                                    .playOn(findViewById(id.layout_palabras));
-                           // int malas = 10-Score;
-                            mensajepostivo("Score\n Buenas : " +buenas +"\nMalas : "+malas,true,3);
+                            validarRespuesta(true);
+                           // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } catch (ExecutionException e) {
                             e.printStackTrace();
                         }
                     }else{
-                        if(seleccionoActual==correctaActual){
-                            mensajepostivo("Tu respuesta es \n correcta",false,1);
-                            buenas = buenas +1;
-                        }else{
-                            YoYo.with(Techniques.Swing)
-                                    .duration(1000)
-                                    .playOn(findViewById(id.layout_palabras));
-                            mensajepostivo("La respuesta\n correcta es:\n"+correctaActual +"\n",false,2);
-                           malas = malas + 1;
-                        }
+                        validarRespuesta(false);
                     }
-
-
-
-
 
             }
         });
     }
 
+
+    public void validarRespuesta(boolean finalizar){
+        if(seleccionoActual==correctaActual){
+            mensajepostivo("Tu respuesta es \n correcta",finalizar);
+            buenas = buenas +1;
+        }else{
+            YoYo.with(Techniques.Swing)
+                    .duration(1000)
+                    .playOn(findViewById(id.layout_palabras));
+            mensajeNegativo("La respuesta\n correcta es:\n"+correctaActual +"\n",finalizar);
+            malas = malas + 1;
+        }
+    }
 
     @Override
     public void onBackPressed(){
@@ -309,79 +304,11 @@ public class PlaySeleccion extends AppCompatActivity {
     }
 
 
-/*
-    public void MensajeBox(String mensaje, String titulo, final boolean bandera) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(mensaje)
-                .setTitle(titulo)
-                .setCancelable(false)
-                .setNeutralButton("Aceptar",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                if(bandera){
-                                    Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
-                                    i.putExtra("correo",fcorreo);
-                                    i.putExtra("nivel",fnivel);
-                                    i.putExtra("idUsuario",fidUsuario);
-                                    i.putExtra("puntos",fpuntos);
-                                    i.putExtra("Estrellas",festrellas);
-                                    i.putExtra("Nombre",fnombre);
-                                    i.putExtra("Imagen",fidimagen);
-                                    startActivity(i);
-
-                                }else{
-                                    AvancePreguntas = AvancePreguntas + 10;
-                                    ProgressBarScore.setProgress(AvancePreguntas);
-                                    layout.removeAllViews();
-                                    btnCalificarSeleccion.setEnabled(false);
-                                    juegoSeleccion cons = new juegoSeleccion();
-                                    SoapObject resSoap = null;
-                                    try {
-                                        resSoap = cons.execute(fnivel,idPartida).get();
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    } catch (ExecutionException e) {
-                                        e.printStackTrace();
-                                    }
-                                    correctaActual = resSoap.getProperty(0).toString();
-                                    SoapObject items = (SoapObject)resSoap.getProperty(1);
-                                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                                    for(int i=0;i<items.getPropertyCount();i++){
-                                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                                    }
-                                    generarListaPalabras(MispalabrasActuales);
-
-                                }
-                                dialog.cancel();
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-*/
-
-
-
-    public void mensajepostivo(String mensaje, final boolean bandera,int tipo){
-
-
+    public void mensajepostivo(String mensaje, final boolean finalizar){
         //datos para el msj personalizado
         hView =  getLayoutInflater().inflate(R.layout.layout_msjpersonalizado,null);
         m = (TextView) hView.findViewById(id.txtMsj);
-        logomsj = (ImageView) hView.findViewById(id.imgMsj);
         btn = (Button)hView.findViewById(id.btnContinue);
-        //tipo 1 = buena
-        //tipo 2 = mala
-        //tipo 3 = trofeo fin
-        if(tipo==1){
-            hView.findViewById(id.MsjRBuena).setBackground(getResources().getDrawable(drawable.fondo_azul));
-        }else if(tipo==2){
-            hView.findViewById(id.MsjRBuena).setBackground(getResources().getDrawable(drawable.fondo_rojo));
-        }else if(tipo==3){
-            hView.findViewById(id.MsjRBuena).setBackground(getResources().getDrawable(drawable.fondo_verde));
-            logomsj.setImageResource(drawable.trofeo);
-        }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         m.setText(mensaje);
@@ -394,17 +321,9 @@ public class PlaySeleccion extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bandera){
-                    Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
-                    i.putExtra("correo",fcorreo);
-                    i.putExtra("nivel",fnivel);
-                    i.putExtra("idUsuario",fidUsuario);
-                    i.putExtra("puntos",fpuntos);
-                    i.putExtra("Estrellas",festrellas);
-                    i.putExtra("Nombre",fnombre);
-                    i.putExtra("Imagen",fidimagen);
-                    startActivity(i);
 
+                if(finalizar){
+                    mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
                 }else{
                     AvancePreguntas = AvancePreguntas + 10;
                     ProgressBarScore.setProgress(AvancePreguntas);
@@ -435,11 +354,96 @@ public class PlaySeleccion extends AppCompatActivity {
         YoYo.with(Techniques.FadeIn)
                 .duration(1000)
                 .playOn(hView.findViewById(id.contenedor_msj));
+    }
+
+    public void mensajeNegativo(String mensaje, final boolean finalizar){
+        //datos para el msj personalizado
+        hView =  getLayoutInflater().inflate(R.layout.layout_msjincorrecto,null);
+        m = (TextView) hView.findViewById(id.txtMsj2);
+        btn = (Button)hView.findViewById(id.btnContinue2);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        m.setText(mensaje);
+        builder.setView(hView)
+                .setCancelable(false);
+
+        final AlertDialog alert = builder.create();
+        alert.show();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(finalizar){
+                    mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                }else{
+                    AvancePreguntas = AvancePreguntas + 10;
+                    ProgressBarScore.setProgress(AvancePreguntas);
+                    layout.removeAllViews();
+                    btnCalificarSeleccion.setEnabled(false);
+                    juegoSeleccion cons = new juegoSeleccion();
+                    SoapObject resSoap = null;
+                    try {
+                        resSoap = cons.execute(fnivel,idPartida).get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                    correctaActual = resSoap.getProperty(0).toString();
+                    SoapObject items = (SoapObject)resSoap.getProperty(1);
+                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+                    for(int i=0;i<items.getPropertyCount();i++){
+                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                    }
+                    generarListaPalabras(MispalabrasActuales);
+
+                }
 
 
+                alert.cancel();
+            }
+        });
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(hView.findViewById(id.contenedor_msj2));
     }
 
 
+    public void mensajeResultado(String msj){
+        hView =  getLayoutInflater().inflate(R.layout.layout_msjresultado,null);
+        m = (TextView) hView.findViewById(id.txtMsj3);
+        btn = (Button)hView.findViewById(id.btnContinue3);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        m.setText(msj);
+        builder.setView(hView)
+                .setCancelable(false);
+
+        final AlertDialog alert = builder.create();
+        alert.show();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
+                i.putExtra("correo",fcorreo);
+                i.putExtra("nivel",fnivel);
+                i.putExtra("idUsuario",fidUsuario);
+                i.putExtra("puntos",fpuntos);
+                i.putExtra("Estrellas",festrellas);
+                i.putExtra("Nombre",fnombre);
+                i.putExtra("Imagen",fidimagen);
+                startActivity(i);
+                alert.cancel();
+            }
+        });
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(hView.findViewById(id.contenedor_msj3));
+    }
 
 
 }
