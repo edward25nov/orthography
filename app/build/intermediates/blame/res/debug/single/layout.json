@@ -112,10 +112,6 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/app_bar_main.xml"
     },
     {
-        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/fragment_fragment__miperfil.xml",
-        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/fragment_fragment__miperfil.xml"
-    },
-    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_simple.xml"
     },
@@ -130,6 +126,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/activity_play_contexto.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/activity_play_contexto.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",

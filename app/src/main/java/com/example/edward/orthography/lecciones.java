@@ -90,6 +90,9 @@ public class lecciones extends Fragment {
                     i.putExtra("Nombre",nombre);
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
+                }else if(posicion==1){
+                    Intent i = new Intent(getContext(),PlayContexto.class);
+                    startActivity(i);
                 }
 
             }

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:2:1-61:12
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:2:1-66:12
 	package
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:3:5-45
 		INJECTED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml
@@ -30,7 +30,7 @@ ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidMa
 	android:name
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:9:22-64
 application
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:11:5-59:19
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:11:5-64:19
 MERGED from [com.android.support:design:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
@@ -49,68 +49,76 @@ MERGED from [com.android.support:animated-vector-drawable:24.2.1] /home/edward/A
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:12:9-35
 	android:icon
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:13:9-43
+	android:largeHeap
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:17:9-33
 	android:theme
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:16:9-40
 activity#com.example.edward.orthography.MainActivity
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:17:9-20:68
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:18:9-21:59
 	android:label
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:19:13-45
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:20:13-45
 	android:theme
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:20:13-56
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:21:13-56
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:18:13-41
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:19:13-41
 activity#com.example.edward.orthography.Splash
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:21:9-29:20
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:22:9-30:20
 	android:theme
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:23:13-69
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:24:13-69
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:22:13-35
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:23:13-35
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:24:13-28:29
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:25:17-69
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:25:25-66
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:27:17-77
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:27:27-74
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:28:27-74
 activity#com.example.edward.orthography.Presentacion
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:30:9-32:72
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:31:9-33:72
 	android:theme
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:32:13-69
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:33:13-69
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:31:13-41
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:32:13-41
 activity#com.example.edward.orthography.Login
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:33:9-39:20
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:34:9-40:20
 	android:label
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:35:13-57
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:36:13-57
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:34:13-34
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:35:13-34
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:36:13-38:49
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:37:13-39:49
 	android:value
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:38:17-46
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:39:17-46
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:37:17-63
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:38:17-63
 activity#com.example.edward.orthography.Registrar1
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:40:9-46:20
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:41:9-47:20
 	android:label
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:42:13-62
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:43:13-62
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:41:13-39
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:42:13-39
 activity#com.example.edward.orthography.Registrar2
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:47:9-53:20
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:48:9-54:20
 	android:label
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:49:13-62
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:50:13-62
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:48:13-39
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:49:13-39
 activity#com.example.edward.orthography.PlaySeleccion
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:54:9-58:20
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:55:9-58:20
 	android:theme
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:56:13-69
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:57:13-69
 	android:name
-		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:55:13-42
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:56:13-42
+activity#com.example.edward.orthography.PlayContexto
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:59:9-61:20
+	android:theme
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:60:13-69
+	android:name
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:59:19-47
 uses-sdk
 INJECTED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43

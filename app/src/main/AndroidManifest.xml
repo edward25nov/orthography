@@ -13,11 +13,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -54,8 +55,12 @@
         <activity
             android:name=".PlaySeleccion"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
+        <activity android:name=".PlayContexto"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+
+
     </application>
 
 </manifest>

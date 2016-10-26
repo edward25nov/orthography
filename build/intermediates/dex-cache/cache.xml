@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="fce9ad741b299fa17637c11edb094960fe87fb85">
+        sha1="c129ba50d2b3dff9325ab8d476fc48d584c9994e">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c9b2959a39c3a1c149b202bb523ac8526bba27f1.jar" />
     </item>
     <item

@@ -1,20 +1,13 @@
 package com.example.edward.orthography;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -160,7 +153,7 @@ public class PlaySeleccion extends AppCompatActivity {
             final Button boton = new Button(getApplicationContext());
             boton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             boton.setText(palabras.get(j));
-            boton.setGravity(Gravity.CENTER | Gravity.TOP);
+            boton.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             boton.setId(j);
             boton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -181,11 +174,8 @@ public class PlaySeleccion extends AppCompatActivity {
                     }
                 }
             });
-
             layout.addView(boton);
         }
-
-
     }
 
     public class CrearPartida extends AsyncTask<Integer,String,SoapPrimitive>{
@@ -223,8 +213,6 @@ public class PlaySeleccion extends AppCompatActivity {
             }
             return resSoap;
         }
-
-
     }
 
     public class juegoSeleccion extends AsyncTask<Integer,String,SoapObject> {
@@ -445,9 +433,10 @@ public class PlaySeleccion extends AppCompatActivity {
                 i.putExtra("Imagen",fidimagen);
                 startActivity(i);
 
-                manager.setPreferences(PlaySeleccion.this, "status", "1");
-                manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
-                manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
+                //tengo que revisar esto......
+               // manager.setPreferences(PlaySeleccion.this, "status", "1");
+              //  manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
+               // manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
 
                 alert.cancel();
             }
