@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,7 @@ import java.util.concurrent.ExecutionException;
 import static com.example.edward.orthography.R.*;
 
 public class PlaySeleccion extends AppCompatActivity {
+    sessionManager manager;
 
     int idPartida;
     Button btnCalificarSeleccion;
@@ -52,17 +54,14 @@ public class PlaySeleccion extends AppCompatActivity {
     double festrellas;
     String fnombre;
     int fidimagen;
-    //datos para el msj personalizado
-    TextView m;
-    View hView;
-    ImageView logomsj;
-    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_seleccion);
 
+
+        manager = new sessionManager();
         /****
          * *******/
 
@@ -129,6 +128,8 @@ public class PlaySeleccion extends AppCompatActivity {
                     }else{
                         validarRespuesta(false);
                     }
+
+
 
             }
         });
@@ -306,6 +307,9 @@ public class PlaySeleccion extends AppCompatActivity {
 
     public void mensajepostivo(String mensaje, final boolean finalizar){
         //datos para el msj personalizado
+        TextView m;
+        View hView;
+        Button btn;
         hView =  getLayoutInflater().inflate(R.layout.layout_msjpersonalizado,null);
         m = (TextView) hView.findViewById(id.txtMsj);
         btn = (Button)hView.findViewById(id.btnContinue);
@@ -357,6 +361,9 @@ public class PlaySeleccion extends AppCompatActivity {
     }
 
     public void mensajeNegativo(String mensaje, final boolean finalizar){
+        TextView m;
+        View hView;
+        Button btn;
         //datos para el msj personalizado
         hView =  getLayoutInflater().inflate(R.layout.layout_msjincorrecto,null);
         m = (TextView) hView.findViewById(id.txtMsj2);
@@ -400,7 +407,6 @@ public class PlaySeleccion extends AppCompatActivity {
 
                 }
 
-
                 alert.cancel();
             }
         });
@@ -410,8 +416,10 @@ public class PlaySeleccion extends AppCompatActivity {
                 .playOn(hView.findViewById(id.contenedor_msj2));
     }
 
-
     public void mensajeResultado(String msj){
+        TextView m;
+        View hView;
+        Button btn;
         hView =  getLayoutInflater().inflate(R.layout.layout_msjresultado,null);
         m = (TextView) hView.findViewById(id.txtMsj3);
         btn = (Button)hView.findViewById(id.btnContinue3);
@@ -436,6 +444,11 @@ public class PlaySeleccion extends AppCompatActivity {
                 i.putExtra("Nombre",fnombre);
                 i.putExtra("Imagen",fidimagen);
                 startActivity(i);
+
+                manager.setPreferences(PlaySeleccion.this, "status", "1");
+                manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
+                manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
+
                 alert.cancel();
             }
         });
@@ -444,6 +457,5 @@ public class PlaySeleccion extends AppCompatActivity {
                 .duration(1000)
                 .playOn(hView.findViewById(id.contenedor_msj3));
     }
-
 
 }
