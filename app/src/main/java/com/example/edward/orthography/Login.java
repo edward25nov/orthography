@@ -249,7 +249,7 @@ public class Login extends AppCompatActivity implements Validator.ValidationList
                 }
             }else {
                 MensajeBox("No se ha podido conectar con el servidor." +
-                        "Compruebe tu conexión a Internet y vuelve a intentarlo","Error de conexión");
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
             }
 
         }

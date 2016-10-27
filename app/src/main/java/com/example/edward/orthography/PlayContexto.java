@@ -1,5 +1,7 @@
 package com.example.edward.orthography;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,42 +70,76 @@ public class PlayContexto extends AppCompatActivity {
             CrearPartida actual = new CrearPartida();
             SoapPrimitive idp = null;
             idp = (SoapPrimitive) actual.execute(fidUsuario,fnivel).get();
-            PartidaActual = Integer.valueOf(idp.toString());
+            if(idp==null){
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+            }else{
+                PartidaActual = Integer.valueOf(idp.toString());
 
-            juegoContexto play= new juegoContexto();
-            SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
-            Oracion = resSoap.getProperty(0).toString();
+                juegoContexto play= new juegoContexto();
+                SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
 
-            StringTokenizer partes = new StringTokenizer(Oracion, "|");
-            String parte1 = partes.nextToken();
-            String parte2 = partes.nextToken();
+                if(resSoap==null){
+                    MensajeBox("No se ha podido conectar con el servidor." +
+                            " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+                }else{
+                    Oracion = resSoap.getProperty(0).toString();
+
+                    StringTokenizer partes = new StringTokenizer(Oracion, "|");
+                    String parte1 = partes.nextToken();
+                    String parte2 = partes.nextToken();
 
 
-            SoapObject items = (SoapObject)resSoap.getProperty(1);
-            Opciones = new ArrayList<>(items.getPropertyCount());
-            for(int i=0;i<items.getPropertyCount();i++){
-                Opciones.add(String.valueOf(items.getProperty(i)));
+                    SoapObject items = (SoapObject)resSoap.getProperty(1);
+                    Opciones = new ArrayList<>(items.getPropertyCount());
+                    for(int i=0;i<items.getPropertyCount();i++){
+                        Opciones.add(String.valueOf(items.getProperty(i)));
+                    }
+                    correctaActual = resSoap.getProperty(2).toString();
+
+
+                    opcionA.setText(Opciones.get(0));
+                    opcionB.setText(Opciones.get(1));
+                    opcionC.setText(Opciones.get(2));
+
+                    txtContextoParrafo.setText(parte1 +"                                " +parte2 );
+
+                }
+
             }
-            correctaActual = resSoap.getProperty(2).toString();
 
 
-            opcionA.setText(Opciones.get(0));
-            opcionB.setText(Opciones.get(1));
-            opcionC.setText(Opciones.get(2));
-
-            txtContextoParrafo.setText(parte1 +"                                " +parte2 );
 
         } catch (InterruptedException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
+            MensajeBox("No se ha podido conectar con el servidor." +
+                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            MensajeBox("No se ha podido conectar con el servidor." +
+                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
+
+
 
     }
 
 
 
-
+    public void MensajeBox(String mensaje,String titulo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(mensaje)
+                .setTitle(titulo)
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
 
 

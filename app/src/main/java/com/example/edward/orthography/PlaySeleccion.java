@@ -1,6 +1,7 @@
 package com.example.edward.orthography;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -76,24 +77,38 @@ public class PlaySeleccion extends AppCompatActivity {
         try {
             CrearPartida a = new CrearPartida();
             SoapPrimitive idp = (SoapPrimitive) a.execute(fidUsuario,fnivel).get();
-            idPartida = Integer.valueOf(idp.toString());
+            if(idp==null){
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+            }else {
+                idPartida = Integer.valueOf(idp.toString());
 
-            juegoSeleccion cons = new juegoSeleccion();
-            SoapObject resSoap = cons.execute(fnivel,idPartida).get();
-            correctaActual = resSoap.getProperty(0).toString();
-            SoapObject items = (SoapObject)resSoap.getProperty(1);
-            MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-            for(int i=0;i<items.getPropertyCount();i++){
-                MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                juegoSeleccion cons = new juegoSeleccion();
+                SoapObject resSoap = cons.execute(fnivel, idPartida).get();
+                if(resSoap==null){
+                    MensajeBox("No se ha podido conectar con el servidor." +
+                            " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+                }else {
+                    correctaActual = resSoap.getProperty(0).toString();
+                    SoapObject items = (SoapObject) resSoap.getProperty(1);
+                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+                    for (int i = 0; i < items.getPropertyCount(); i++) {
+                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                    }
+                    generarListaPalabras(MispalabrasActuales);
+                    //para la primer pregunta
+                    AvancePreguntas = 10;
+                    ProgressBarScore.setProgress(AvancePreguntas);
+                }
             }
-            generarListaPalabras(MispalabrasActuales);
-            //para la primer pregunta
-            AvancePreguntas = 10;
-            ProgressBarScore.setProgress(AvancePreguntas);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            MensajeBox("No se ha podido conectar con el servidor." +
+                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+           // e.printStackTrace();
         } catch (ExecutionException e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
+            MensajeBox("No se ha podido conectar con el servidor." +
+                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
 
         btnCalificarSeleccion.setOnClickListener(new View.OnClickListener() {
@@ -103,27 +118,33 @@ public class PlaySeleccion extends AppCompatActivity {
                         try {
                             TerminarPartida a = new TerminarPartida();
                             SoapObject idp = null;
-                            idp = (SoapObject) a.execute(fidUsuario,idPartida,buenas).get();
-                            int Nivel = Integer.valueOf(idp.getProperty(0).toString());
-                            double Estrellas = Double.valueOf(idp.getProperty(1).toString());
-                            int Puntos = Integer.valueOf(idp.getProperty(2).toString());
+                            idp = (SoapObject) a.execute(fidUsuario, idPartida, buenas).get();
+                            if (idp == null) {
+                                MensajeBox("No se ha podido conectar con el servidor." +
+                                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+                            }else{
+                                int Nivel = Integer.valueOf(idp.getProperty(0).toString());
+                                double Estrellas = Double.valueOf(idp.getProperty(1).toString());
+                                int Puntos = Integer.valueOf(idp.getProperty(2).toString());
 
-                            fnivel = Nivel;
-                            festrellas = Estrellas;
-                            fpuntos = Puntos;
-                            validarRespuesta(true);
-                           // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                                fnivel = Nivel;
+                                festrellas = Estrellas;
+                                fpuntos = Puntos;
+                                validarRespuesta(true);
+                                // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                            }
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            //e.printStackTrace();
+                            MensajeBox("No se ha podido conectar con el servidor." +
+                                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                         } catch (ExecutionException e) {
-                            e.printStackTrace();
+                            //e.printStackTrace();
+                            MensajeBox("No se ha podido conectar con el servidor." +
+                                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                         }
                     }else{
                         validarRespuesta(false);
                     }
-
-
-
             }
         });
     }
@@ -447,4 +468,19 @@ public class PlaySeleccion extends AppCompatActivity {
                 .playOn(hView.findViewById(id.contenedor_msj3));
     }
 
+
+    public void MensajeBox(String mensaje,String titulo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(mensaje)
+                .setTitle(titulo)
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }

@@ -105,7 +105,6 @@ public class lecciones extends Fragment {
             }
         });
 
-
         return view;
     }
 
