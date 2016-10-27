@@ -435,8 +435,8 @@ public class PlaySeleccion extends AppCompatActivity {
 
                 //tengo que revisar esto......
                // manager.setPreferences(PlaySeleccion.this, "status", "1");
-              //  manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
-               // manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
+               manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
+               manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
 
                 alert.cancel();
             }

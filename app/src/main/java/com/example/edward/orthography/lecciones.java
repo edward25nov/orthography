@@ -92,6 +92,13 @@ public class lecciones extends Fragment {
                     startActivity(i);
                 }else if(posicion==1){
                     Intent i = new Intent(getContext(),PlayContexto.class);
+                    i.putExtra("correo", correo);
+                    i.putExtra("idUsuario",idUsuario);
+                    i.putExtra("nivel",nivel);
+                    i.putExtra("puntos",puntos);
+                    i.putExtra("Estrellas",estrellas);
+                    i.putExtra("Nombre",nombre);
+                    i.putExtra("Imagen",idimagen);
                     startActivity(i);
                 }
 

@@ -3,6 +3,9 @@ package com.example.edward.orthography;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,6 +15,8 @@ import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 import java.util.concurrent.ExecutionException;
 
 
@@ -28,7 +33,14 @@ public class PlayContexto extends AppCompatActivity {
     TextView txtContextoParrafo;
     Button opcionA;
     Button opcionB;
+    Button opcionC;
+    Button btnContexto;
     int PartidaActual;
+    //variables que usare aquó
+    String correctaActual;
+    String Oracion;
+    ArrayList<String>Opciones;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +51,8 @@ public class PlayContexto extends AppCompatActivity {
         txtContextoParrafo = (TextView)findViewById(R.id.txtContextoParrafo);
         opcionA = (Button)findViewById(R.id.opcionA);
         opcionB = (Button)findViewById(R.id.opcionB);
-
+        opcionC = (Button)findViewById(R.id.opcionC);
+        btnContexto = (Button)findViewById(R.id.btnContexto);
         //variables
         fcorreo = getIntent().getStringExtra("correo");
         fnivel = getIntent().getIntExtra("nivel",-1);
@@ -59,17 +72,32 @@ public class PlayContexto extends AppCompatActivity {
 
             juegoContexto play= new juegoContexto();
             SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
+            Oracion = resSoap.getProperty(0).toString();
+
+            StringTokenizer partes = new StringTokenizer(Oracion, "|");
+            String parte1 = partes.nextToken();
+            String parte2 = partes.nextToken();
 
 
+            SoapObject items = (SoapObject)resSoap.getProperty(1);
+            Opciones = new ArrayList<>(items.getPropertyCount());
+            for(int i=0;i<items.getPropertyCount();i++){
+                Opciones.add(String.valueOf(items.getProperty(i)));
+            }
+            correctaActual = resSoap.getProperty(2).toString();
 
+
+            opcionA.setText(Opciones.get(0));
+            opcionB.setText(Opciones.get(1));
+            opcionC.setText(Opciones.get(2));
+
+            txtContextoParrafo.setText(parte1 +"                                " +parte2 );
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
-
 
     }
 
@@ -133,7 +161,6 @@ public class PlayContexto extends AppCompatActivity {
             final String METHOD_NAME = "obtenerContexto";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 

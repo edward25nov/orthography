@@ -57,8 +57,9 @@
             tools:ignore="HardcodedText,InefficientWeight,ObsoleteLayoutParam"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_weight="0.80"
-            android:textColor="@android:color/holo_blue_light" />
+            android:layout_weight="0.57"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="18sp" />
 
         <Button
             android:text="Button"
@@ -77,6 +78,15 @@
             tools:ignore="HardcodedText"
             android:textColor="@color/blanco"
             android:textAllCaps="false" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/opcionC"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/blanco"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 
