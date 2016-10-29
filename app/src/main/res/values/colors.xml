@@ -19,4 +19,5 @@
     <!-- para item seleccionado -->
     <color name="amarillo">#f5f05e</color>
 
+    <color name="defectoButton">#ffd6d7d7</color>
 </resources>

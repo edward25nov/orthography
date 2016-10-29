@@ -2,13 +2,16 @@ package com.example.edward.orthography;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.ksoap2.SoapEnvelope;
@@ -39,10 +42,14 @@ public class PlayContexto extends AppCompatActivity {
     Button btnContexto;
     int PartidaActual;
     //variables que usare aquó
+    String seleccionUsuario;
     String correctaActual;
     String Oracion;
     ArrayList<String>Opciones;
-
+    int malas;
+    int buenas;
+    int avance;
+    ProgressBar barra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,10 @@ public class PlayContexto extends AppCompatActivity {
         opcionB = (Button)findViewById(R.id.opcionB);
         opcionC = (Button)findViewById(R.id.opcionC);
         btnContexto = (Button)findViewById(R.id.btnContexto);
+        btnContexto.setEnabled(false);
+        barra = (ProgressBar)findViewById(R.id.progressBar2);
+        barra.setProgress(0);
+
         //variables
         fcorreo = getIntent().getStringExtra("correo");
         fnivel = getIntent().getIntExtra("nivel",-1);
@@ -63,8 +74,6 @@ public class PlayContexto extends AppCompatActivity {
         festrellas = getIntent().getDoubleExtra("Estrellas",-1);
         fnombre = getIntent().getStringExtra("Nombre");
         fidimagen = getIntent().getIntExtra("Imagen",-1);
-
-
 
         try {
             CrearPartida actual = new CrearPartida();
@@ -103,12 +112,10 @@ public class PlayContexto extends AppCompatActivity {
                     opcionC.setText(Opciones.get(2));
 
                     txtContextoParrafo.setText(parte1 +"                                " +parte2 );
-
+                    avance = 10;
+                    barra.setProgress(avance);
                 }
-
             }
-
-
 
         } catch (InterruptedException e) {
            // e.printStackTrace();
@@ -120,10 +127,152 @@ public class PlayContexto extends AppCompatActivity {
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
 
+        btnContexto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(avance==100){
+                    TerminarPartida fin = new TerminarPartida();
+                    SoapObject idp = null;
+                    try {
+                        idp = (SoapObject) fin.execute(fidUsuario, PartidaActual, buenas).get();
+                        if (idp == null) {
+                            MensajeBox("No se ha podido conectar con el servidor." +
+                                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+                        }else{
+                            int Nivel = Integer.valueOf(idp.getProperty(0).toString());
+                            double Estrellas = Double.valueOf(idp.getProperty(1).toString());
+                            int Puntos = Integer.valueOf(idp.getProperty(2).toString());
 
+                            fnivel = Nivel;
+                            festrellas = Estrellas;
+                            fpuntos = Puntos;
+                            validarRespuesta(true);
+                            // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    validarRespuesta(false);
+                    generarEscenario();
+                    btnContexto.setEnabled(false);
+                }
+
+
+            }
+        });
+
+        opcionA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                seleccionUsuario = opcionA.getText().toString();
+                opcionA.setBackgroundColor(getResources().getColor(R.color.azul700));
+                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+                btnContexto.setEnabled(true);
+            }
+        });
+
+        opcionB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnContexto.setEnabled(true);
+                seleccionUsuario = opcionB.getText().toString();
+                opcionB.setBackgroundColor(getResources().getColor(R.color.azul700));
+                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+            }
+        });
+
+
+        opcionC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnContexto.setEnabled(true);
+                seleccionUsuario = opcionC.getText().toString();
+                opcionC.setBackgroundColor(getResources().getColor(R.color.azul700));
+                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
+            }
+        });
 
     }
 
+
+    public void validarRespuesta(boolean finalizar){
+        if(seleccionUsuario==correctaActual){
+            MensajeBox("Su respuesta es correcta","Resultado");
+            buenas = buenas +1;
+        }else{
+            MensajeBox("La respuesta correcta es: "+correctaActual,"Resultado");
+            malas = malas + 1;
+        }
+
+        if(finalizar){
+            MensajeBox("Score:\n buenas: "+buenas+"\n malas: "+malas,"Resultado");
+            Intent i = new Intent(PlayContexto.this,MainActivity.class);
+            i.putExtra("correo",fcorreo);
+            i.putExtra("nivel",fnivel);
+            i.putExtra("idUsuario",fidUsuario);
+            i.putExtra("puntos",fpuntos);
+            i.putExtra("Estrellas",festrellas);
+            i.putExtra("Nombre",fnombre);
+            i.putExtra("Imagen",fidimagen);
+            startActivity(i);
+
+          //  manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
+         //   manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
+        }
+
+    }
+
+
+
+    public void generarEscenario(){
+        juegoContexto play= new juegoContexto();
+        SoapObject resSoap = null;
+        try {
+            resSoap = play.execute(fnivel,PartidaActual).get();
+            if(resSoap==null){
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+            }else{
+                avance = avance + 10;
+                barra.setProgress(avance);
+                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+                Oracion = resSoap.getProperty(0).toString();
+
+                StringTokenizer partes = new StringTokenizer(Oracion, "|");
+                String parte1 = partes.nextToken();
+                String parte2 = partes.nextToken();
+
+                SoapObject items = (SoapObject)resSoap.getProperty(1);
+                Opciones = new ArrayList<>(items.getPropertyCount());
+                for(int i=0;i<items.getPropertyCount();i++){
+                    Opciones.add(String.valueOf(items.getProperty(i)));
+                }
+                correctaActual = resSoap.getProperty(2).toString();
+
+
+                opcionA.setText(Opciones.get(0));
+                opcionB.setText(Opciones.get(1));
+                opcionC.setText(Opciones.get(2));
+
+                txtContextoParrafo.setText(parte1 +"                                " +parte2 );
+
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void MensajeBox(String mensaje,String titulo) {
@@ -220,5 +369,44 @@ public class PlayContexto extends AppCompatActivity {
         }
 
     }
+
+
+    public class TerminarPartida extends AsyncTask<Integer,String,SoapObject>{
+        SoapObject resSoap;
+
+        @Override
+        protected SoapObject doInBackground(Integer... params) {
+            if(android.os.Debug.isDebuggerConnected())
+                android.os.Debug.waitForDebugger();
+
+            final String SOAP_ACTION = "http://tempuri.org/terminarPartida";
+            final String METHOD_NAME = "terminarPartida";
+            final String NAMESPACE = "http://tempuri.org/";
+            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
+            boolean resul = true;
+
+            try {
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+
+                request.addProperty("idUsuario", params[0]);
+                request.addProperty("idPartida",params[1]);
+                request.addProperty("puntos",params[2]);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
+                envelope.setOutputSoapObject(request);
+
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                androidHttpTransport.call(SOAP_ACTION, envelope);
+                // Esta sección está destina si el Métdo del WS retorna valores
+                resSoap =(SoapObject)envelope.getResponse();
+            } catch (Exception e) {
+                resul = false;
+            }
+            return resSoap;
+        }
+    }
+
+
 
 }

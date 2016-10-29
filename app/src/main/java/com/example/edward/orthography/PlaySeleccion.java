@@ -309,8 +309,6 @@ public class PlaySeleccion extends AppCompatActivity {
             }
             return resSoap;
         }
-
-
     }
 
 
