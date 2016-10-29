@@ -5,60 +5,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/contenedor_msj2"
-    tools:ignore="Orientation">
+    tools:ignore="Orientation"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="148dp"
         android:background="@drawable/fondo_rojo"
         tools:ignore="UselessParent"
         android:id="@+id/MsjRBuena2">
 
-        <ImageView
-            android:layout_width="73dp"
-            android:layout_height="75dp"
-            app:srcCompat="@drawable/previa"
-            android:id="@+id/imgMsj2"
-            android:scaleType="fitStart"
-            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/previa"
+                android:id="@+id/imgMsj2"
+                android:scaleType="fitStart"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="287dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/txtMsj2"
+                    tools:ignore="HardcodedText,InefficientWeight"
+                    android:typeface="serif"
+                    android:textColor="@color/azul500"
+
+                    android:textSize="18sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="viewStart" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtMsj2"
-                android:layout_weight="0.80"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:typeface="serif"
-                android:textColor="@color/azul500"
-                android:textAlignment="center"
-                android:gravity="center|center_horizontal"
-                android:textSize="18sp"
-                android:textStyle="normal|bold"
-                android:translationX="-10dp"
-                android:translationY="22dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="17dp"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf"
+                android:layout_weight="0.90"></LinearLayout>
 
             <Button
                 android:text="@string/continuar"
-                android:layout_width="match_parent"
+                android:layout_width="218dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnContinue2"
                 android:textStyle="normal|bold"
-                android:background="@android:color/transparent"
-                android:drawableRight="@drawable/continua"
-                android:translationX="-35dip"
+                android:background="@drawable/borde_botontrans"
                 tools:ignore="RtlHardcoded"
                 style="@android:style/Widget.Button"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/rosa500"
                 android:focusableInTouchMode="true"
                 android:fontFamily="sans-serif"
                 tools:targetApi="lollipop" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.31"
+                tools:ignore="UselessLeaf"></LinearLayout>
 
         </LinearLayout>
 

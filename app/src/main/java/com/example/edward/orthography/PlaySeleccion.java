@@ -158,7 +158,8 @@ public class PlaySeleccion extends AppCompatActivity {
             YoYo.with(Techniques.Swing)
                     .duration(1000)
                     .playOn(findViewById(id.layout_palabras));
-            mensajeNegativo("La respuesta\n correcta es:\n"+correctaActual +"\n",finalizar);
+            //mensajeNegativo("La respuesta\n correcta es:\n"+correctaActual +"\n",finalizar);
+            mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual,finalizar);
             malas = malas + 1;
         }
     }

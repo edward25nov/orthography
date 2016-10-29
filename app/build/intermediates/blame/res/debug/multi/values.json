@@ -431,14 +431,7 @@
                     "endOffset": 2373
                 },
                 "from": {
-                    "file": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/values/colors.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 602,
-                        "endColumn": 49,
-                        "endOffset": 647
-                    }
+                    "file": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/values/colors.xml"
                 }
             },
             {
@@ -954,7 +947,14 @@
                     "endOffset": 5259
                 },
                 "from": {
-                    "file": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/values/colors.xml"
+                    "file": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 398,
+                        "endColumn": 41,
+                        "endOffset": 435
+                    }
                 }
             },
             {

@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -57,7 +54,7 @@ public class PlayContexto extends AppCompatActivity {
         setContentView(R.layout.activity_play_contexto);
 
         //componenetes del activity
-        txtContextoParrafo = (TextView)findViewById(R.id.txtContextoParrafo);
+        txtContextoParrafo = (TextView)findViewById(R.id.txtContextoA);
         opcionA = (Button)findViewById(R.id.opcionA);
         opcionB = (Button)findViewById(R.id.opcionB);
         opcionC = (Button)findViewById(R.id.opcionC);
@@ -111,7 +108,7 @@ public class PlayContexto extends AppCompatActivity {
                     opcionB.setText(Opciones.get(1));
                     opcionC.setText(Opciones.get(2));
 
-                    txtContextoParrafo.setText(parte1 +"                                " +parte2 );
+                    txtContextoParrafo.setText(parte1 +" ____________________ " +parte2 );
                     avance = 10;
                     barra.setProgress(avance);
                 }
@@ -229,8 +226,6 @@ public class PlayContexto extends AppCompatActivity {
 
     }
 
-
-
     public void generarEscenario(){
         juegoContexto play= new juegoContexto();
         SoapObject resSoap = null;
@@ -263,7 +258,7 @@ public class PlayContexto extends AppCompatActivity {
                 opcionB.setText(Opciones.get(1));
                 opcionC.setText(Opciones.get(2));
 
-                txtContextoParrafo.setText(parte1 +"                                " +parte2 );
+                txtContextoParrafo.setText(parte1 +" ____________________ " +parte2 );
 
             }
 
