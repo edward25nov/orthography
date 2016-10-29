@@ -8,6 +8,10 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_colored_material.xml"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/borde_botontrans2.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/borde_botontrans2.xml"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/list_item_bg_normal.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/list_item_bg_normal.xml"
     },
@@ -246,6 +250,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/borde_botontrans3.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/borde_botontrans3.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",

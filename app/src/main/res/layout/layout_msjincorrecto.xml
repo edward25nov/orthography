@@ -47,8 +47,7 @@
                     android:id="@+id/txtMsj2"
                     tools:ignore="HardcodedText,InefficientWeight"
                     android:typeface="serif"
-                    android:textColor="@color/azul500"
-
+                    android:textColor="@color/rosa500"
                     android:textSize="18sp"
                     android:textStyle="normal|bold"
                     android:textAlignment="viewStart" />

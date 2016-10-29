@@ -152,7 +152,7 @@ public class PlaySeleccion extends AppCompatActivity {
 
     public void validarRespuesta(boolean finalizar){
         if(seleccionoActual==correctaActual){
-            mensajepostivo("Tu respuesta es \n correcta",finalizar);
+            mensajepostivo("Tu respuesta es\ncorrecta",finalizar);
             buenas = buenas +1;
         }else{
             YoYo.with(Techniques.Swing)
@@ -335,7 +335,7 @@ public class PlaySeleccion extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(finalizar){
-                    mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                    mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
                 }else{
                     AvancePreguntas = AvancePreguntas + 10;
                     ProgressBarScore.setProgress(AvancePreguntas);
