@@ -29,6 +29,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class PlayContexto extends AppCompatActivity {
+    sessionManager manager;
 
     //variables que vienen del fragmento
     String fcorreo;
@@ -58,6 +59,8 @@ public class PlayContexto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_contexto);
+
+        manager = new sessionManager();
 
         //componenetes del activity
         txtContextoParrafo = (TextView)findViewById(R.id.txtContextoA);
@@ -148,7 +151,6 @@ public class PlayContexto extends AppCompatActivity {
                             festrellas = Estrellas;
                             fpuntos = Puntos;
                             validarRespuesta(true);
-                            // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -157,7 +159,6 @@ public class PlayContexto extends AppCompatActivity {
                     }
                 }else{
                     validarRespuesta(false);
-                    generarEscenario();
                     btnContexto.setEnabled(false);
                 }
 
@@ -173,6 +174,9 @@ public class PlayContexto extends AppCompatActivity {
                 opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
                 opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                YoYo.with(Techniques.Bounce)
+                        .duration(1000)
+                        .playOn(findViewById(opcionA.getId()));
             }
         });
 
@@ -184,6 +188,9 @@ public class PlayContexto extends AppCompatActivity {
                 opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
                 opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                YoYo.with(Techniques.Bounce)
+                        .duration(1000)
+                        .playOn(findViewById(opcionB.getId()));
             }
         });
 
@@ -196,6 +203,9 @@ public class PlayContexto extends AppCompatActivity {
                 opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
                 opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                YoYo.with(Techniques.Bounce)
+                        .duration(1000)
+                        .playOn(findViewById(opcionC.getId()));
 
             }
         });
@@ -205,21 +215,49 @@ public class PlayContexto extends AppCompatActivity {
 
 
     public void validarRespuesta(boolean finalizar){
-        if(seleccionUsuario.equals(correctaActual)){
-
-            MsjCorrecto dialogFragment = MsjCorrecto
-                    .newInstance("Tu respuesta es\ncorrecta");
-            dialogFragment.show(getFragmentManager(), "dialog");
-            // mensajepostivo("Tu respuesta es\ncorrecta");
-            buenas = buenas +1;
-        }else{
-            mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual);
-            malas = malas + 1;
-        }
-
         if(finalizar){
-            mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
+            if(seleccionUsuario.equals(correctaActual)){
+
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas);
+                dialogFragment.show(getFragmentManager(), "Buena");
+                buenas = buenas +1;
+            }else{
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas);
+                dialogFragment.show(getFragmentManager(),"Mala");
+                malas = malas + 1;
+            }
+        }else{
+            if(seleccionUsuario.equals(correctaActual)){
+
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta");
+                dialogFragment.show(getFragmentManager(), "Buena");
+                buenas = buenas +1;
+            }else{
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual);
+                dialogFragment.show(getFragmentManager(),"Mala");
+                malas = malas + 1;
+            }
         }
+    }
+
+    public void FinalizarEscenario(){
+        Intent i = new Intent(PlayContexto.this,MainActivity.class);
+        i.putExtra("correo",fcorreo);
+        i.putExtra("nivel",fnivel);
+        i.putExtra("idUsuario",fidUsuario);
+        i.putExtra("puntos",fpuntos);
+        i.putExtra("Estrellas",festrellas);
+        i.putExtra("Nombre",fnombre);
+        i.putExtra("Imagen",fidimagen);
+        startActivity(i);
+
+        //tengo que revisar esto......
+        manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
+        manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
 
     }
 
@@ -328,107 +366,6 @@ public class PlayContexto extends AppCompatActivity {
 
 
 
-
-
-    public void mensajepostivo(String mensaje){
-        //datos para el msj personalizado
-        TextView m;
-        View hView;
-        Button btn;
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjpersonalizado,null);
-        m = (TextView) hView.findViewById(R.id.txtMsj);
-        btn = (Button)hView.findViewById(R.id.btnContinue);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(mensaje);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(R.id.contenedor_msj));
-    }
-
-    public void mensajeNegativo(String mensaje){
-        TextView m;
-        View hView;
-        Button btn;
-        //datos para el msj personalizado
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjincorrecto,null);
-        m = (TextView) hView.findViewById(R.id.txtMsj2);
-        btn = (Button)hView.findViewById(R.id.btnContinue2);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(mensaje);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(R.id.contenedor_msj2));
-    }
-
-    public void mensajeResultado(String msj){
-        TextView m;
-        View hView;
-        Button btn;
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjresultado,null);
-        m = (TextView) hView.findViewById(R.id.txtMsj3);
-        btn = (Button)hView.findViewById(R.id.btnContinue3);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(msj);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(PlayContexto.this,MainActivity.class);
-                i.putExtra("correo",fcorreo);
-                i.putExtra("nivel",fnivel);
-                i.putExtra("idUsuario",fidUsuario);
-                i.putExtra("puntos",fpuntos);
-                i.putExtra("Estrellas",festrellas);
-                i.putExtra("Nombre",fnombre);
-                i.putExtra("Imagen",fidimagen);
-                startActivity(i);
-
-                //  manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
-                //   manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(R.id.contenedor_msj3));
-    }
 
 
 
