@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by root on 30/10/16.
- */
 
 public class MsjCorrecto extends DialogFragment {
     TextView m;
@@ -22,20 +19,22 @@ public class MsjCorrecto extends DialogFragment {
     * y al mismo tiempo acepta un argumento que especifica el mensaje que mostrará el AlertDialog,
     * el cual será guardado en un objeto Bundle.
     * */
-    static MsjCorrecto newInstance(String mensaje){
+    static MsjCorrecto newInstance(String mensaje,int contexto){
         MsjCorrecto fragment = new MsjCorrecto();
         Bundle args = new Bundle();
         args.putString("mensaje", mensaje);
+        args.putInt("contexto",contexto);
         fragment.setArguments(args);
         return fragment;
     }
 
-    static MsjCorrecto newInstance(String mensaje,Boolean finalizar,String Resultado){
+    static MsjCorrecto newInstance(String mensaje,Boolean finalizar,String Resultado,int contexto){
         MsjCorrecto fragment = new MsjCorrecto();
         Bundle args = new Bundle();
         args.putString("mensaje", mensaje);
         args.putBoolean("finalizar",finalizar);
         args.putString("Resultado",Resultado);
+        args.putInt("contexto",contexto);
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,6 +42,7 @@ public class MsjCorrecto extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         String mensaje = getArguments().getString("mensaje");
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         hView = inflater.inflate(R.layout.layout_msjpersonalizado, null);
@@ -57,13 +57,22 @@ public class MsjCorrecto extends DialogFragment {
             public void onClick(View v) {
                 boolean finalizar = getArguments().getBoolean("finalizar");
                 String Resultado = getArguments().getString("Resultado");
+                int contexto = getArguments().getInt("contexto");
+
                 if(finalizar){
-                    MsjResultado dialogFragment = MsjResultado.newInstance(Resultado);
+                    MsjResultado dialogFragment = MsjResultado.newInstance(Resultado,contexto);
                     dialogFragment.show(getFragmentManager(),"Resultado");
                 }else{
-                    PlayContexto f = (PlayContexto) getActivity();
-                    f.generarEscenario();
+                    if(contexto==1){
+                        PlaySeleccion f = (PlaySeleccion) getActivity();
+                        f.generarScenario();
+                    }else if(contexto==2){
+                        PlayContexto f = (PlayContexto) getActivity();
+                        f.generarEscenario();
+                    }
                 }
+
+
                getDialog().cancel();
             }
         });

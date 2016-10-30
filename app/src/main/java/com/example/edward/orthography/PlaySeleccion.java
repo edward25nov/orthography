@@ -85,30 +85,12 @@ public class PlaySeleccion extends AppCompatActivity {
             }else {
                 idPartida = Integer.valueOf(idp.toString());
 
-                juegoSeleccion cons = new juegoSeleccion();
-                SoapObject resSoap = cons.execute(fnivel, idPartida).get();
-                if(resSoap==null){
-                    MensajeBox("No se ha podido conectar con el servidor." +
-                            " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-                }else {
-                    correctaActual = resSoap.getProperty(0).toString();
-                    SoapObject items = (SoapObject) resSoap.getProperty(1);
-                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                    for (int i = 0; i < items.getPropertyCount(); i++) {
-                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                    }
-                    generarListaPalabras(MispalabrasActuales);
-                    //para la primer pregunta
-                    AvancePreguntas = 10;
-                    ProgressBarScore.setProgress(AvancePreguntas);
-                }
+                generarScenario();
             }
         } catch (InterruptedException e) {
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-           // e.printStackTrace();
         } catch (ExecutionException e) {
-          //  e.printStackTrace();
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
@@ -133,14 +115,11 @@ public class PlaySeleccion extends AppCompatActivity {
                                 festrellas = Estrellas;
                                 fpuntos = Puntos;
                                 validarRespuesta(true);
-                                // mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
                             }
                         } catch (InterruptedException e) {
-                            //e.printStackTrace();
                             MensajeBox("No se ha podido conectar con el servidor." +
                                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                         } catch (ExecutionException e) {
-                            //e.printStackTrace();
                             MensajeBox("No se ha podido conectar con el servidor." +
                                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                         }
@@ -153,23 +132,87 @@ public class PlaySeleccion extends AppCompatActivity {
 
 
     public void validarRespuesta(boolean finalizar){
-        if(seleccionoActual.equals(correctaActual)){
-            mensajepostivo("Tu respuesta es\ncorrecta",finalizar);
-            buenas = buenas +1;
+        if(finalizar){
+            if(seleccionoActual.equals(correctaActual)){
+                buenas = buenas +1;
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,1);
+                dialogFragment.show(getFragmentManager(), "Buena");
+
+            }else{
+                YoYo.with(Techniques.Swing)
+                        .duration(1000)
+                        .playOn(findViewById(id.layout_palabras));
+                malas = malas + 1;
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,1);
+                dialogFragment.show(getFragmentManager(),"Mala");
+
+            }
+
         }else{
-            YoYo.with(Techniques.Swing)
-                    .duration(1000)
-                    .playOn(findViewById(id.layout_palabras));
-            //mensajeNegativo("La respuesta\n correcta es:\n"+correctaActual +"\n",finalizar);
-            mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual,finalizar);
-            malas = malas + 1;
+            if(seleccionoActual.equals(correctaActual)){
+                buenas = buenas +1;
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta",1);
+                dialogFragment.show(getFragmentManager(), "Buena");
+
+            }else{
+                YoYo.with(Techniques.Swing)
+                        .duration(1000)
+                        .playOn(findViewById(id.layout_palabras));
+                malas = malas + 1;
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,1);
+                dialogFragment.show(getFragmentManager(),"Mala");
+
+            }
+
+        }
+
+
+    }
+
+
+    public void generarScenario(){
+        AvancePreguntas = AvancePreguntas + 10;
+        ProgressBarScore.setProgress(AvancePreguntas);
+        layout.removeAllViews();
+        listaBotones.clear();
+        btnCalificarSeleccion.setEnabled(false);
+        juegoSeleccion cons = new juegoSeleccion();
+        try {
+            SoapObject resSoap  = cons.execute(fnivel,idPartida).get();
+            correctaActual = resSoap.getProperty(0).toString();
+            SoapObject items = (SoapObject)resSoap.getProperty(1);
+            MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+            for(int i=0;i<items.getPropertyCount();i++){
+                MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+            }
+            generarListaPalabras(MispalabrasActuales);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
     }
 
-    @Override
-    public void onBackPressed(){
-            super.onBackPressed();
-            moveTaskToBack(true);
+    public void finalizarScenario(){
+        Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
+        i.putExtra("correo",fcorreo);
+        i.putExtra("nivel",fnivel);
+        i.putExtra("idUsuario",fidUsuario);
+        i.putExtra("puntos",fpuntos);
+        i.putExtra("Estrellas",festrellas);
+        i.putExtra("Nombre",fnombre);
+        i.putExtra("Imagen",fidimagen);
+        startActivity(i);
+
+        //tengo que revisar esto......
+        // manager.setPreferences(PlaySeleccion.this, "status", "1");
+        manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
+        manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
+
     }
 
     public void generarListaPalabras(final ArrayList<String> palabras){
@@ -206,6 +249,13 @@ public class PlaySeleccion extends AppCompatActivity {
             listaBotones.add(boton);
         }
     }
+
+
+   /* @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        moveTaskToBack(true);
+    }*/
 
     public class juegoSeleccion extends AsyncTask<Integer,String,SoapObject> {
 
@@ -246,163 +296,6 @@ public class PlaySeleccion extends AppCompatActivity {
 
     }
 
-    public void mensajepostivo(String mensaje, final boolean finalizar){
-        //datos para el msj personalizado
-        TextView m;
-        View hView;
-        Button btn;
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjpersonalizado,null);
-        m = (TextView) hView.findViewById(id.txtMsj);
-        btn = (Button)hView.findViewById(id.btnContinue);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(mensaje);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(finalizar){
-                    mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
-                }else{
-                    AvancePreguntas = AvancePreguntas + 10;
-                    ProgressBarScore.setProgress(AvancePreguntas);
-                    layout.removeAllViews();
-                    listaBotones.clear();
-                    btnCalificarSeleccion.setEnabled(false);
-                    juegoSeleccion cons = new juegoSeleccion();
-                    try {
-                        SoapObject resSoap  = cons.execute(fnivel,idPartida).get();
-                        correctaActual = resSoap.getProperty(0).toString();
-                        SoapObject items = (SoapObject)resSoap.getProperty(1);
-                        MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                        for(int i=0;i<items.getPropertyCount();i++){
-                            MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                        }
-                        generarListaPalabras(MispalabrasActuales);
-
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(id.contenedor_msj));
-    }
-
-    public void mensajeNegativo(String mensaje, final boolean finalizar){
-        TextView m;
-        View hView;
-        Button btn;
-        //datos para el msj personalizado
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjincorrecto,null);
-        m = (TextView) hView.findViewById(id.txtMsj2);
-        btn = (Button)hView.findViewById(id.btnContinue2);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(mensaje);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(finalizar){
-                    mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
-                }else{
-                    AvancePreguntas = AvancePreguntas + 10;
-                    ProgressBarScore.setProgress(AvancePreguntas);
-                    layout.removeAllViews();
-                    listaBotones.clear();
-
-                    btnCalificarSeleccion.setEnabled(false);
-                    juegoSeleccion cons = new juegoSeleccion();
-                    try {
-                        SoapObject  resSoap = cons.execute(fnivel,idPartida).get();
-                        correctaActual = resSoap.getProperty(0).toString();
-                        SoapObject items = (SoapObject)resSoap.getProperty(1);
-                        MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                        for(int i=0;i<items.getPropertyCount();i++){
-                            MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                        }
-                        generarListaPalabras(MispalabrasActuales);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }
-
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(id.contenedor_msj2));
-    }
-
-    public void mensajeResultado(String msj){
-        TextView m;
-        View hView;
-        Button btn;
-        hView =  getLayoutInflater().inflate(R.layout.layout_msjresultado,null);
-        m = (TextView) hView.findViewById(id.txtMsj3);
-        btn = (Button)hView.findViewById(id.btnContinue3);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        m.setText(msj);
-        builder.setView(hView)
-                .setCancelable(false);
-
-        final AlertDialog alert = builder.create();
-        alert.show();
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(PlaySeleccion.this,MainActivity.class);
-                i.putExtra("correo",fcorreo);
-                i.putExtra("nivel",fnivel);
-                i.putExtra("idUsuario",fidUsuario);
-                i.putExtra("puntos",fpuntos);
-                i.putExtra("Estrellas",festrellas);
-                i.putExtra("Nombre",fnombre);
-                i.putExtra("Imagen",fidimagen);
-                startActivity(i);
-
-                //tengo que revisar esto......
-               // manager.setPreferences(PlaySeleccion.this, "status", "1");
-               manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
-               manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
-
-                alert.cancel();
-            }
-        });
-
-        YoYo.with(Techniques.FadeIn)
-                .duration(1000)
-                .playOn(hView.findViewById(id.contenedor_msj3));
-    }
 
     public void MensajeBox(String mensaje,String titulo) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

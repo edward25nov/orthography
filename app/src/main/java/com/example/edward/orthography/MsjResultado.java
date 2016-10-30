@@ -22,10 +22,11 @@ public class MsjResultado extends DialogFragment {
     View hView;
     Button btn;
 
-    static MsjResultado newInstance(String mensaje){
+    static MsjResultado newInstance(String mensaje,int contexto){
         MsjResultado fragment = new MsjResultado();
         Bundle args = new Bundle();
         args.putString("mensaje", mensaje);
+        args.putInt("contexto",contexto);
         fragment.setArguments(args);
         return fragment;
     }
@@ -33,6 +34,7 @@ public class MsjResultado extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         String mensaje = getArguments().getString("mensaje");
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         hView = inflater.inflate(R.layout.layout_msjresultado,null);
@@ -45,8 +47,15 @@ public class MsjResultado extends DialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PlayContexto f = (PlayContexto)getActivity();
-                f.FinalizarEscenario();
+                int contexto = getArguments().getInt("contexto");
+                if(contexto==1){
+                    PlaySeleccion f = (PlaySeleccion)getActivity();
+                    f.finalizarScenario();
+                }else if(contexto==2){
+                    PlayContexto f = (PlayContexto)getActivity();
+                    f.FinalizarEscenario();
+                }
+
                 getDialog().cancel();
             }
         });

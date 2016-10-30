@@ -217,29 +217,31 @@ public class PlayContexto extends AppCompatActivity {
     public void validarRespuesta(boolean finalizar){
         if(finalizar){
             if(seleccionUsuario.equals(correctaActual)){
-
-                MsjCorrecto dialogFragment = MsjCorrecto
-                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas);
-                dialogFragment.show(getFragmentManager(), "Buena");
                 buenas = buenas +1;
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,2);
+                dialogFragment.show(getFragmentManager(), "Buena");
+
             }else{
-                MsjNegativo dialogFragment = MsjNegativo
-                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas);
-                dialogFragment.show(getFragmentManager(),"Mala");
                 malas = malas + 1;
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,2);
+                dialogFragment.show(getFragmentManager(),"Mala");
+
             }
         }else{
             if(seleccionUsuario.equals(correctaActual)){
-
-                MsjCorrecto dialogFragment = MsjCorrecto
-                        .newInstance("Tu respuesta es\ncorrecta");
-                dialogFragment.show(getFragmentManager(), "Buena");
                 buenas = buenas +1;
+                MsjCorrecto dialogFragment = MsjCorrecto
+                        .newInstance("Tu respuesta es\ncorrecta",2);
+                dialogFragment.show(getFragmentManager(), "Buena");
+
             }else{
-                MsjNegativo dialogFragment = MsjNegativo
-                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual);
-                dialogFragment.show(getFragmentManager(),"Mala");
                 malas = malas + 1;
+                MsjNegativo dialogFragment = MsjNegativo
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,2);
+                dialogFragment.show(getFragmentManager(),"Mala");
+
             }
         }
     }

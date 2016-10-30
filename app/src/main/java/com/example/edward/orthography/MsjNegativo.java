@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by root on 30/10/16.
- */
 
 public class MsjNegativo extends DialogFragment {
 
@@ -20,20 +17,22 @@ public class MsjNegativo extends DialogFragment {
     View hView;
     Button btn;
 
-    static MsjNegativo newInstance(String mensaje){
+    static MsjNegativo newInstance(String mensaje,int contexto){
         MsjNegativo fragment = new MsjNegativo();
         Bundle args = new Bundle();
         args.putString("mensaje", mensaje);
+        args.putInt("contexto",contexto);
         fragment.setArguments(args);
         return fragment;
     }
 
-    static MsjNegativo newInstance(String mensaje,Boolean finalizar,String Resultado){
+    static MsjNegativo newInstance(String mensaje,Boolean finalizar,String Resultado,int contexto){
         MsjNegativo fragment = new MsjNegativo();
         Bundle args = new Bundle();
         args.putString("mensaje", mensaje);
         args.putBoolean("finalizar",finalizar);
         args.putString("Resultado",Resultado);
+        args.putInt("contexto",contexto);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,12 +55,19 @@ public class MsjNegativo extends DialogFragment {
             public void onClick(View v) {
                 boolean finalizar = getArguments().getBoolean("finalizar");
                 String Resultado = getArguments().getString("Resultado");
+                int contexto = getArguments().getInt("contexto");
+
                 if(finalizar){
-                    MsjResultado dialogFragment = MsjResultado.newInstance(Resultado);
+                    MsjResultado dialogFragment = MsjResultado.newInstance(Resultado,contexto);
                     dialogFragment.show(getFragmentManager(),"Resultado");
                 }else{
-                    PlayContexto f = (PlayContexto) getActivity();
-                    f.generarEscenario();
+                    if(contexto==1){
+                        PlaySeleccion f = (PlaySeleccion) getActivity();
+                        f.generarScenario();
+                    }else if(contexto==2){
+                        PlayContexto f = (PlayContexto) getActivity();
+                        f.generarEscenario();
+                    }
                 }
                 getDialog().cancel();
             }
