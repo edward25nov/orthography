@@ -207,41 +207,6 @@ public class PlaySeleccion extends AppCompatActivity {
         }
     }
 
-    public class CrearPartida extends AsyncTask<Integer,String,SoapPrimitive>{
-        SoapPrimitive resSoap;
-
-        @Override
-        protected SoapPrimitive doInBackground(Integer... params) {
-            if(android.os.Debug.isDebuggerConnected())
-                android.os.Debug.waitForDebugger();
-
-            final String SOAP_ACTION = "http://tempuri.org/crearPartida";
-            final String METHOD_NAME = "crearPartida";
-            final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            try {
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("idUsuario", params[0]);
-                request.addProperty("nivel",params[1]);
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
-                envelope.setOutputSoapObject(request);
-
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                androidHttpTransport.call(SOAP_ACTION, envelope);
-
-                // Esta sección está destina si el Métdo del WS retorna valores
-                resSoap =(SoapPrimitive)envelope.getResponse();
-               // idPartida = Integer.valueOf(resSoap.toString());
-            } catch (Exception e) {
-
-            }
-            return resSoap;
-        }
-    }
-
     public class juegoSeleccion extends AsyncTask<Integer,String,SoapObject> {
 
         SoapObject retorno;
@@ -281,41 +246,6 @@ public class PlaySeleccion extends AppCompatActivity {
 
     }
 
-    public class TerminarPartida extends AsyncTask<Integer,String,SoapObject>{
-        SoapObject resSoap;
-
-        @Override
-        protected SoapObject doInBackground(Integer... params) {
-            if(android.os.Debug.isDebuggerConnected())
-                android.os.Debug.waitForDebugger();
-
-            final String SOAP_ACTION = "http://tempuri.org/terminarPartida";
-            final String METHOD_NAME = "terminarPartida";
-            final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            try {
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("idUsuario", params[0]);
-                request.addProperty("idPartida",params[1]);
-                request.addProperty("puntos",params[2]);
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
-                envelope.setOutputSoapObject(request);
-
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                androidHttpTransport.call(SOAP_ACTION, envelope);
-                // Esta sección está destina si el Métdo del WS retorna valores
-                resSoap =(SoapObject)envelope.getResponse();
-            } catch (Exception e) {
-               //Fadfadsf
-            }
-            return resSoap;
-        }
-    }
-
-
     public void mensajepostivo(String mensaje, final boolean finalizar){
         //datos para el msj personalizado
         TextView m;
@@ -346,9 +276,8 @@ public class PlaySeleccion extends AppCompatActivity {
                     listaBotones.clear();
                     btnCalificarSeleccion.setEnabled(false);
                     juegoSeleccion cons = new juegoSeleccion();
-                    SoapObject resSoap = null;
                     try {
-                        resSoap = cons.execute(fnivel,idPartida).get();
+                        SoapObject resSoap  = cons.execute(fnivel,idPartida).get();
                         correctaActual = resSoap.getProperty(0).toString();
                         SoapObject items = (SoapObject)resSoap.getProperty(1);
                         MispalabrasActuales = new ArrayList<>(items.getPropertyCount());

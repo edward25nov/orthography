@@ -1,12 +1,14 @@
 package com.example.edward.orthography;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -171,10 +173,6 @@ public class PlayContexto extends AppCompatActivity {
                 opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
                 opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                //opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
-                //opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                //opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                //
             }
         });
 
@@ -198,15 +196,21 @@ public class PlayContexto extends AppCompatActivity {
                 opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
                 opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+
             }
         });
+
 
     }
 
 
     public void validarRespuesta(boolean finalizar){
         if(seleccionUsuario.equals(correctaActual)){
-            mensajepostivo("Tu respuesta es\ncorrecta");
+
+            MsjCorrecto dialogFragment = MsjCorrecto
+                    .newInstance("Tu respuesta es\ncorrecta");
+            dialogFragment.show(getFragmentManager(), "dialog");
+            // mensajepostivo("Tu respuesta es\ncorrecta");
             buenas = buenas +1;
         }else{
             mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual);
@@ -281,42 +285,6 @@ public class PlayContexto extends AppCompatActivity {
 
 
 
-    public class CrearPartida extends AsyncTask<Integer,String,SoapPrimitive>{
-        SoapPrimitive resSoap;
-
-        @Override
-        protected SoapPrimitive doInBackground(Integer... params) {
-            if(android.os.Debug.isDebuggerConnected())
-                android.os.Debug.waitForDebugger();
-
-            final String SOAP_ACTION = "http://tempuri.org/crearPartida";
-            final String METHOD_NAME = "crearPartida";
-            final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-
-            try {
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("idUsuario", params[0]);
-                request.addProperty("nivel",params[1]);
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
-                envelope.setOutputSoapObject(request);
-
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                androidHttpTransport.call(SOAP_ACTION, envelope);
-
-                // Esta sección está destina si el Métdo del WS retorna valores
-                resSoap =(SoapPrimitive)envelope.getResponse();
-                // idPartida = Integer.valueOf(resSoap.toString());
-            } catch (Exception e) {
-
-            }
-            return resSoap;
-        }
-    }
-
 
     public class juegoContexto extends AsyncTask<Integer,String,SoapObject> {
 
@@ -357,39 +325,7 @@ public class PlayContexto extends AppCompatActivity {
     }
 
 
-    public class TerminarPartida extends AsyncTask<Integer,String,SoapObject>{
-        SoapObject resSoap;
 
-        @Override
-        protected SoapObject doInBackground(Integer... params) {
-            if(android.os.Debug.isDebuggerConnected())
-                android.os.Debug.waitForDebugger();
-
-            final String SOAP_ACTION = "http://tempuri.org/terminarPartida";
-            final String METHOD_NAME = "terminarPartida";
-            final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            try {
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("idUsuario", params[0]);
-                request.addProperty("idPartida",params[1]);
-                request.addProperty("puntos",params[2]);
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
-                envelope.setOutputSoapObject(request);
-
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                androidHttpTransport.call(SOAP_ACTION, envelope);
-                // Esta sección está destina si el Métdo del WS retorna valores
-                resSoap =(SoapObject)envelope.getResponse();
-            } catch (Exception e) {
-                //asdfasdf
-            }
-            return resSoap;
-        }
-    }
 
 
 
