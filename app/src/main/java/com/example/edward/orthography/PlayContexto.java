@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
@@ -74,8 +77,7 @@ public class PlayContexto extends AppCompatActivity {
 
         try {
             CrearPartida actual = new CrearPartida();
-            SoapPrimitive idp = null;
-            idp = (SoapPrimitive) actual.execute(fidUsuario,fnivel).get();
+            SoapPrimitive idp = actual.execute(fidUsuario,fnivel).get();
             if(idp==null){
                 MensajeBox("No se ha podido conectar con el servidor." +
                         " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
@@ -129,9 +131,8 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
                 if(avance==100){
                     TerminarPartida fin = new TerminarPartida();
-                    SoapObject idp = null;
                     try {
-                        idp = (SoapObject) fin.execute(fidUsuario, PartidaActual, buenas).get();
+                        SoapObject idp = fin.execute(fidUsuario, PartidaActual, buenas).get();
                         if (idp == null) {
                             MensajeBox("No se ha podido conectar con el servidor." +
                                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
@@ -166,9 +167,9 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
 
                 seleccionUsuario = opcionA.getText().toString();
-                opcionA.setBackgroundColor(getResources().getColor(R.color.azul700));
-                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
-                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
+                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
                 btnContexto.setEnabled(true);
             }
         });
@@ -178,9 +179,9 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
                 btnContexto.setEnabled(true);
                 seleccionUsuario = opcionB.getText().toString();
-                opcionB.setBackgroundColor(getResources().getColor(R.color.azul700));
-                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
-                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
+                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
             }
         });
 
@@ -190,9 +191,9 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
                 btnContexto.setEnabled(true);
                 seleccionUsuario = opcionC.getText().toString();
-                opcionC.setBackgroundColor(getResources().getColor(R.color.azul700));
-                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
-                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
+                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
             }
         });
 
@@ -200,46 +201,37 @@ public class PlayContexto extends AppCompatActivity {
 
 
     public void validarRespuesta(boolean finalizar){
-        if(seleccionUsuario==correctaActual){
-            MensajeBox("Su respuesta es correcta","Resultado");
+        if(seleccionUsuario.equals(correctaActual)){
+            mensajepostivo("Tu respuesta es\ncorrecta");
+           // MensajeBox("Su respuesta es correcta","Resultado");
             buenas = buenas +1;
         }else{
-            MensajeBox("La respuesta correcta es: "+correctaActual,"Resultado");
+            mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual);
+           // MensajeBox("La respuesta correcta es: "+correctaActual,"Resultado");
             malas = malas + 1;
         }
 
         if(finalizar){
-            MensajeBox("Score:\n buenas: "+buenas+"\n malas: "+malas,"Resultado");
-            Intent i = new Intent(PlayContexto.this,MainActivity.class);
-            i.putExtra("correo",fcorreo);
-            i.putExtra("nivel",fnivel);
-            i.putExtra("idUsuario",fidUsuario);
-            i.putExtra("puntos",fpuntos);
-            i.putExtra("Estrellas",festrellas);
-            i.putExtra("Nombre",fnombre);
-            i.putExtra("Imagen",fidimagen);
-            startActivity(i);
-
-          //  manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
-         //   manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
+          //  MensajeBox("Score:\n buenas: "+buenas+"\n malas: "+malas,"Resultado");
+            mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
         }
 
     }
 
     public void generarEscenario(){
         juegoContexto play= new juegoContexto();
-        SoapObject resSoap = null;
+
         try {
-            resSoap = play.execute(fnivel,PartidaActual).get();
+            SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
             if(resSoap==null){
                 MensajeBox("No se ha podido conectar con el servidor." +
                         " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
             }else{
                 avance = avance + 10;
                 barra.setProgress(avance);
-                opcionA.setBackgroundColor(getResources().getColor(R.color.azul500));
-                opcionB.setBackgroundColor(getResources().getColor(R.color.azul500));
-                opcionC.setBackgroundColor(getResources().getColor(R.color.azul500));
+                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
                 Oracion = resSoap.getProperty(0).toString();
 
                 StringTokenizer partes = new StringTokenizer(Oracion, "|");
@@ -259,7 +251,6 @@ public class PlayContexto extends AppCompatActivity {
                 opcionC.setText(Opciones.get(2));
 
                 txtContextoParrafo.setText(parte1 +" ____________________ " +parte2 );
-
             }
 
         } catch (InterruptedException e) {
@@ -301,7 +292,6 @@ public class PlayContexto extends AppCompatActivity {
             final String METHOD_NAME = "crearPartida";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
 
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
@@ -320,7 +310,7 @@ public class PlayContexto extends AppCompatActivity {
                 resSoap =(SoapPrimitive)envelope.getResponse();
                 // idPartida = Integer.valueOf(resSoap.toString());
             } catch (Exception e) {
-                resul = false;
+
             }
             return resSoap;
         }
@@ -358,7 +348,7 @@ public class PlayContexto extends AppCompatActivity {
                 retorno =(SoapObject)envelope.getResponse();
 
             } catch (Exception e) {
-
+                //dafadsfasdf
             }
             return retorno;
         }
@@ -378,8 +368,6 @@ public class PlayContexto extends AppCompatActivity {
             final String METHOD_NAME = "terminarPartida";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
-
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
@@ -396,11 +384,115 @@ public class PlayContexto extends AppCompatActivity {
                 // Esta sección está destina si el Métdo del WS retorna valores
                 resSoap =(SoapObject)envelope.getResponse();
             } catch (Exception e) {
-                resul = false;
+                //asdfasdf
             }
             return resSoap;
         }
     }
+
+
+
+
+    public void mensajepostivo(String mensaje){
+        //datos para el msj personalizado
+        TextView m;
+        View hView;
+        Button btn;
+        hView =  getLayoutInflater().inflate(R.layout.layout_msjpersonalizado,null);
+        m = (TextView) hView.findViewById(R.id.txtMsj);
+        btn = (Button)hView.findViewById(R.id.btnContinue);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        m.setText(mensaje);
+        builder.setView(hView)
+                .setCancelable(false);
+
+        final AlertDialog alert = builder.create();
+        alert.show();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                alert.cancel();
+            }
+        });
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(hView.findViewById(R.id.contenedor_msj));
+    }
+
+    public void mensajeNegativo(String mensaje){
+        TextView m;
+        View hView;
+        Button btn;
+        //datos para el msj personalizado
+        hView =  getLayoutInflater().inflate(R.layout.layout_msjincorrecto,null);
+        m = (TextView) hView.findViewById(R.id.txtMsj2);
+        btn = (Button)hView.findViewById(R.id.btnContinue2);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        m.setText(mensaje);
+        builder.setView(hView)
+                .setCancelable(false);
+
+        final AlertDialog alert = builder.create();
+        alert.show();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                alert.cancel();
+            }
+        });
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(hView.findViewById(R.id.contenedor_msj2));
+    }
+
+    public void mensajeResultado(String msj){
+        TextView m;
+        View hView;
+        Button btn;
+        hView =  getLayoutInflater().inflate(R.layout.layout_msjresultado,null);
+        m = (TextView) hView.findViewById(R.id.txtMsj3);
+        btn = (Button)hView.findViewById(R.id.btnContinue3);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        m.setText(msj);
+        builder.setView(hView)
+                .setCancelable(false);
+
+        final AlertDialog alert = builder.create();
+        alert.show();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PlayContexto.this,MainActivity.class);
+                i.putExtra("correo",fcorreo);
+                i.putExtra("nivel",fnivel);
+                i.putExtra("idUsuario",fidUsuario);
+                i.putExtra("puntos",fpuntos);
+                i.putExtra("Estrellas",festrellas);
+                i.putExtra("Nombre",fnombre);
+                i.putExtra("Imagen",fidimagen);
+                startActivity(i);
+
+                //  manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
+                //   manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
+                alert.cancel();
+            }
+        });
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(hView.findViewById(R.id.contenedor_msj3));
+    }
+
 
 
 

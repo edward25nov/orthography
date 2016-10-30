@@ -48,13 +48,14 @@ public class PlaySeleccion extends AppCompatActivity {
     double festrellas;
     String fnombre;
     int fidimagen;
+    ArrayList<Button> listaBotones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_seleccion);
 
-
+        listaBotones = new ArrayList<>();
         manager = new sessionManager();
         /****
          * *******/
@@ -76,7 +77,7 @@ public class PlaySeleccion extends AppCompatActivity {
 
         try {
             CrearPartida a = new CrearPartida();
-            SoapPrimitive idp = (SoapPrimitive) a.execute(fidUsuario,fnivel).get();
+            SoapPrimitive idp = a.execute(fidUsuario,fnivel).get();
             if(idp==null){
                 MensajeBox("No se ha podido conectar con el servidor." +
                         " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
@@ -117,8 +118,8 @@ public class PlaySeleccion extends AppCompatActivity {
                     if(AvancePreguntas==100){ //vamos a terminar partida
                         try {
                             TerminarPartida a = new TerminarPartida();
-                            SoapObject idp = null;
-                            idp = (SoapObject) a.execute(fidUsuario, idPartida, buenas).get();
+
+                            SoapObject idp = a.execute(fidUsuario, idPartida, buenas).get();
                             if (idp == null) {
                                 MensajeBox("No se ha podido conectar con el servidor." +
                                         " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
@@ -151,7 +152,7 @@ public class PlaySeleccion extends AppCompatActivity {
 
 
     public void validarRespuesta(boolean finalizar){
-        if(seleccionoActual==correctaActual){
+        if(seleccionoActual.equals(correctaActual)){
             mensajepostivo("Tu respuesta es\ncorrecta",finalizar);
             buenas = buenas +1;
         }else{
@@ -171,11 +172,13 @@ public class PlaySeleccion extends AppCompatActivity {
     }
 
     public void generarListaPalabras(final ArrayList<String> palabras){
+
          for (int j = 0; j < palabras.size(); j++ ){
             final Button boton = new Button(getApplicationContext());
             boton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             boton.setText(palabras.get(j));
             boton.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+            boton.setBackground(getResources().getDrawable(drawable.boton_opcionesnormal));
             boton.setId(j);
             boton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -186,17 +189,20 @@ public class PlaySeleccion extends AppCompatActivity {
                     seleccionoActual = boton.getText().toString();
                     btnCalificarSeleccion.setEnabled(true);
 
-                    boton.setBackgroundColor(getResources().getColor(color.azul500));
-
-                    //bloquear todo lo que tiene adentro el layout
-                    for (int i = 0; i < layout.getChildCount(); i++) {
-                        View child = layout.getChildAt(i);
-                        //child.setEnabled(false);
-                          child.setClickable(false);
+                    for(int k=0;k<listaBotones.size();k++){
+                        Button actual = listaBotones.get(k);
+                        if(boton.getId()==actual.getId()){
+                            actual.setBackground(getResources().getDrawable(drawable.boton_opcionseleccion));
+                        }else{
+                            actual.setBackground(getResources().getDrawable(drawable.boton_opcionesnormal));
+                            //actual.setBackgroundColor(getResources().getColor(color.azul500));
+                        }
                     }
+
                 }
             });
             layout.addView(boton);
+            listaBotones.add(boton);
         }
     }
 
@@ -212,8 +218,6 @@ public class PlaySeleccion extends AppCompatActivity {
             final String METHOD_NAME = "crearPartida";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
-
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
@@ -231,7 +235,7 @@ public class PlaySeleccion extends AppCompatActivity {
                 resSoap =(SoapPrimitive)envelope.getResponse();
                // idPartida = Integer.valueOf(resSoap.toString());
             } catch (Exception e) {
-                resul = false;
+
             }
             return resSoap;
         }
@@ -269,7 +273,7 @@ public class PlaySeleccion extends AppCompatActivity {
                 retorno =(SoapObject)envelope.getResponse();
 
             } catch (Exception e) {
-
+                  //fadfadf
             }
             return retorno;
         }
@@ -288,8 +292,6 @@ public class PlaySeleccion extends AppCompatActivity {
             final String METHOD_NAME = "terminarPartida";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
-
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
@@ -306,7 +308,7 @@ public class PlaySeleccion extends AppCompatActivity {
                 // Esta sección está destina si el Métdo del WS retorna valores
                 resSoap =(SoapObject)envelope.getResponse();
             } catch (Exception e) {
-                resul = false;
+               //Fadfadsf
             }
             return resSoap;
         }
@@ -340,23 +342,26 @@ public class PlaySeleccion extends AppCompatActivity {
                     AvancePreguntas = AvancePreguntas + 10;
                     ProgressBarScore.setProgress(AvancePreguntas);
                     layout.removeAllViews();
+                    listaBotones.clear();
                     btnCalificarSeleccion.setEnabled(false);
                     juegoSeleccion cons = new juegoSeleccion();
                     SoapObject resSoap = null;
                     try {
                         resSoap = cons.execute(fnivel,idPartida).get();
+                        correctaActual = resSoap.getProperty(0).toString();
+                        SoapObject items = (SoapObject)resSoap.getProperty(1);
+                        MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+                        for(int i=0;i<items.getPropertyCount();i++){
+                            MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                        }
+                        generarListaPalabras(MispalabrasActuales);
+
+
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     }
-                    correctaActual = resSoap.getProperty(0).toString();
-                    SoapObject items = (SoapObject)resSoap.getProperty(1);
-                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                    for(int i=0;i<items.getPropertyCount();i++){
-                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                    }
-                    generarListaPalabras(MispalabrasActuales);
 
                 }
                 alert.cancel();
@@ -390,28 +395,30 @@ public class PlaySeleccion extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(finalizar){
-                    mensajeResultado("Score\n Buenas : " +buenas +"\nMalas : "+malas);
+                    mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
                 }else{
                     AvancePreguntas = AvancePreguntas + 10;
                     ProgressBarScore.setProgress(AvancePreguntas);
                     layout.removeAllViews();
+                    listaBotones.clear();
+
                     btnCalificarSeleccion.setEnabled(false);
                     juegoSeleccion cons = new juegoSeleccion();
-                    SoapObject resSoap = null;
                     try {
-                        resSoap = cons.execute(fnivel,idPartida).get();
+                        SoapObject  resSoap = cons.execute(fnivel,idPartida).get();
+                        correctaActual = resSoap.getProperty(0).toString();
+                        SoapObject items = (SoapObject)resSoap.getProperty(1);
+                        MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+                        for(int i=0;i<items.getPropertyCount();i++){
+                            MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                        }
+                        generarListaPalabras(MispalabrasActuales);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     }
-                    correctaActual = resSoap.getProperty(0).toString();
-                    SoapObject items = (SoapObject)resSoap.getProperty(1);
-                    MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-                    for(int i=0;i<items.getPropertyCount();i++){
-                        MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
-                    }
-                    generarListaPalabras(MispalabrasActuales);
+
 
                 }
 
@@ -466,7 +473,6 @@ public class PlaySeleccion extends AppCompatActivity {
                 .duration(1000)
                 .playOn(hView.findViewById(id.contenedor_msj3));
     }
-
 
     public void MensajeBox(String mensaje,String titulo) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
