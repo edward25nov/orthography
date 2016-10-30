@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -178,7 +179,7 @@ public class PlaySeleccion extends AppCompatActivity {
             boton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             boton.setText(palabras.get(j));
             boton.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            boton.setBackground(getResources().getDrawable(drawable.boton_opcionesnormal));
+            boton.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
             boton.setId(j);
             boton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -192,9 +193,9 @@ public class PlaySeleccion extends AppCompatActivity {
                     for(int k=0;k<listaBotones.size();k++){
                         Button actual = listaBotones.get(k);
                         if(boton.getId()==actual.getId()){
-                            actual.setBackground(getResources().getDrawable(drawable.boton_opcionseleccion));
+                            actual.setBackground(ContextCompat.getDrawable(getApplicationContext(), drawable.boton_opcionseleccion));
                         }else{
-                            actual.setBackground(getResources().getDrawable(drawable.boton_opcionesnormal));
+                            actual.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                             //actual.setBackgroundColor(getResources().getColor(color.azul500));
                         }
                     }

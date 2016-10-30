@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -165,12 +166,15 @@ public class PlayContexto extends AppCompatActivity {
         opcionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                seleccionUsuario = opcionA.getText().toString();
-                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
-                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
                 btnContexto.setEnabled(true);
+                seleccionUsuario = opcionA.getText().toString();
+                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                //opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
+                //opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                //opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                //
             }
         });
 
@@ -179,9 +183,9 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
                 btnContexto.setEnabled(true);
                 seleccionUsuario = opcionB.getText().toString();
-                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
-                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
             }
         });
 
@@ -191,9 +195,9 @@ public class PlayContexto extends AppCompatActivity {
             public void onClick(View v) {
                 btnContexto.setEnabled(true);
                 seleccionUsuario = opcionC.getText().toString();
-                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionseleccion));
-                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
             }
         });
 
@@ -203,16 +207,13 @@ public class PlayContexto extends AppCompatActivity {
     public void validarRespuesta(boolean finalizar){
         if(seleccionUsuario.equals(correctaActual)){
             mensajepostivo("Tu respuesta es\ncorrecta");
-           // MensajeBox("Su respuesta es correcta","Resultado");
             buenas = buenas +1;
         }else{
             mensajeNegativo("La respuesta\ncorrecta es:\n"+correctaActual);
-           // MensajeBox("La respuesta correcta es: "+correctaActual,"Resultado");
             malas = malas + 1;
         }
 
         if(finalizar){
-          //  MensajeBox("Score:\n buenas: "+buenas+"\n malas: "+malas,"Resultado");
             mensajeResultado("Score\nBuenas: " +buenas +"\nMalas: "+malas);
         }
 
@@ -229,9 +230,9 @@ public class PlayContexto extends AppCompatActivity {
             }else{
                 avance = avance + 10;
                 barra.setProgress(avance);
-                opcionA.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                opcionB.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(getResources().getDrawable(R.drawable.boton_opcionesnormal));
+                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 Oracion = resSoap.getProperty(0).toString();
 
                 StringTokenizer partes = new StringTokenizer(Oracion, "|");
