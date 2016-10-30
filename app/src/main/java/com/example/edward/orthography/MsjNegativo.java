@@ -37,6 +37,14 @@ public class MsjNegativo extends DialogFragment {
         return fragment;
     }
 
+
+    @Override
+    public void onActivityCreated(Bundle arg0) {
+        super.onActivityCreated(arg0);
+        getDialog().getWindow()
+                .getAttributes().windowAnimations = R.style.DialogAnimation;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         String mensaje = getArguments().getString("mensaje");
