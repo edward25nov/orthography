@@ -76,7 +76,6 @@ public class Miprogreso extends Fragment {
         // activate vertical scrolling
         graph.getViewport().setScrollableY(true);
 
-
         series.setTitle("Progreso en Identificación");
         series.setColor(Color.BLUE);
         series.setDrawBackground(true);
@@ -103,8 +102,6 @@ public class Miprogreso extends Fragment {
         //graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(40);
         graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLUE);
         graph.addSeries(series);
-
-
 
 
         return hview;
