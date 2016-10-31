@@ -83,14 +83,10 @@ public class PlayEscritura extends AppCompatActivity {
 
                 generarScenario();
             }
-        } catch (InterruptedException e) {
-            MensajeBox("No se ha podido conectar con el servidor." +
-                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
-
 
         calificar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,10 +109,7 @@ public class PlayEscritura extends AppCompatActivity {
                             fpuntos = Puntos;
                            validarRespuesta(true);
                         }
-                    } catch (InterruptedException e) {
-                        MensajeBox("No se ha podido conectar con el servidor." +
-                                " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-                    } catch (ExecutionException e) {
+                    } catch (InterruptedException | ExecutionException e) {
                         MensajeBox("No se ha podido conectar con el servidor." +
                                 " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                     }
@@ -176,9 +169,7 @@ public class PlayEscritura extends AppCompatActivity {
                 oracion.setText(parte1 +" ____________________ " +parte2 );
 
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
