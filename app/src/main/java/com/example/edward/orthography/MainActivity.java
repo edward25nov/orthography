@@ -231,6 +231,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_perfil) {
 
         } else if (id == R.id.nav_progreso) {
+            Miprogreso nuevoFragment = new Miprogreso();
+            FragmentManager mg = getSupportFragmentManager();
+            mg.beginTransaction().replace(R.id.tab1,nuevoFragment,nuevoFragment.getTag()).commit();
 
         } else if (id == R.id.nav_ajustes) {
 

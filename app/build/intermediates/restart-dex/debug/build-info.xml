@@ -5,33 +5,187 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="33953153458732"
+    timestamp="47343877464820"
     token="2006604749640707115"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="1030" />
+        duration="230" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="509" />
     <task
         name="instant-run-transform"
-        duration="407" />
+        duration="11" />
     <task
         name="verifier"
-        duration="14" />
+        duration="0" />
 
     <artifact
-        location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="33953153458732"
+        timestamp="46605286109213"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="46729392159224"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46729392159224/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46762792914543"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46762792914543/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46798462775624"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46798462775624/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46812796773130"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46812796773130/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46824194670358"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46824194670358/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46834450417502"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46834450417502/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46912350846631"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46912350846631/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="46950987547112"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/46950987547112/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47019468824522"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47019468824522/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47037374883846"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47037374883846/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47067023851885"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47067023851885/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47090189615981"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47090189615981/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47104673661690"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47104673661690/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47173441672454"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47173441672454/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47185456954213"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47185456954213/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47201579771144"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47201579771144/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47213882383574"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47213882383574/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47226089356180"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47226089356180/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47235680228815"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47235680228815/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47254072567879"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47254072567879/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47275070045723"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/47275070045723/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="47343877464820"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
