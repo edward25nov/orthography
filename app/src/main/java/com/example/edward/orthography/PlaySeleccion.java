@@ -182,13 +182,20 @@ public class PlaySeleccion extends AppCompatActivity {
         juegoSeleccion cons = new juegoSeleccion();
         try {
             SoapObject resSoap  = cons.execute(fnivel,idPartida).get();
-            correctaActual = resSoap.getProperty(0).toString();
-            SoapObject items = (SoapObject)resSoap.getProperty(1);
-            MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
-            for(int i=0;i<items.getPropertyCount();i++){
-                MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+
+            if(resSoap==null){
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+            }else {
+
+                correctaActual = resSoap.getProperty(0).toString();
+                SoapObject items = (SoapObject) resSoap.getProperty(1);
+                MispalabrasActuales = new ArrayList<>(items.getPropertyCount());
+                for (int i = 0; i < items.getPropertyCount(); i++) {
+                    MispalabrasActuales.add(String.valueOf(items.getProperty(i)));
+                }
+                generarListaPalabras(MispalabrasActuales);
             }
-            generarListaPalabras(MispalabrasActuales);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

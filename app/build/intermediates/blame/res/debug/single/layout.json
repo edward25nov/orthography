@@ -20,12 +20,12 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_snackbar_include.xml"
     },
     {
-        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
-        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_media.xml"
-    },
-    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_media.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
@@ -58,6 +58,10 @@
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/activity_play_escritura.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/activity_play_escritura.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",

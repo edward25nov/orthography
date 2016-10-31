@@ -51,7 +51,6 @@ public class Miprogreso extends Fragment {
         *
         * */
 
-
         GraphView graph = (GraphView) hview.findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 0),

@@ -240,7 +240,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_acercade) {
 
         } else if (id == R.id.nav_salir) {
-
             manager.setPreferences(this, "status", "0");
             this.finish();
             Intent intent = new Intent(MainActivity.this, Splash.class);

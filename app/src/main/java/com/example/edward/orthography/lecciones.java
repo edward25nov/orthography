@@ -125,7 +125,7 @@ public class lecciones extends Fragment {
                     i.putExtra("Nombre",nombre);
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
-                }else if(posicion==1&&nivel==2){ //leccion2
+                }else if(posicion==1&&nivel==1){ //leccion2
                     Intent i = new Intent(getContext(),PlayContexto.class);
                     i.putExtra("correo", correo);
                     i.putExtra("idUsuario",idUsuario);
@@ -135,8 +135,18 @@ public class lecciones extends Fragment {
                     i.putExtra("Nombre",nombre);
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
-                }else if(posicion==2&&nivel==3){//leccion3
-                  Toast.makeText(getContext(),"lección 3",Toast.LENGTH_SHORT).show();
+                }else if(posicion==2&&nivel==1){//leccion3
+                    Intent i = new Intent(getContext(),PlayEscritura.class);
+                    i.putExtra("correo", correo);
+                    i.putExtra("idUsuario",idUsuario);
+                    i.putExtra("nivel",nivel);
+                    i.putExtra("puntos",puntos);
+                    i.putExtra("Estrellas",estrellas);
+                    i.putExtra("Nombre",nombre);
+                    i.putExtra("Imagen",idimagen);
+                    startActivity(i);
+
+
                 }else if(posicion==3&&nivel==4){//leccion4
                     Toast.makeText(getContext(),"lección 4",Toast.LENGTH_SHORT).show();
                 }else if(posicion==4&&nivel==5){//leccion5

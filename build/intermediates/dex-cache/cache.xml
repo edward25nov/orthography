@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="078677b9f3c4cd461815ead9900f08dc5656a2b4">
+        sha1="a8ca3ffb92d618b6eb3ee9c55557f62807cb0ac7">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c9b2959a39c3a1c149b202bb523ac8526bba27f1.jar" />
     </item>
     <item
@@ -48,6 +48,78 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_5b43ab65e213c31ed2f9f5f0c71253abb09a32e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7f3af7fd35dd7908c8f604d1b9773f3207a8faf6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_cfffeb81b3daeb8ef54fceb71b59796f9686ea4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_73036177e7403d6b683349c75f3b138e1d2501a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_513159cbf74ca335d06fa0f9dc258337bc4a6c24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_d34c4108c5baab84fa5f1dc01f5b8de1b8f8eb1f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_5dcc8ec8aff8844aef59d5f653eaaf5e95329d2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_0409623b79addbf329af8e64d91027af225fb7d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/libs/ksoap2-android-assembly-2.6.0-jar-with-dependencies.jar"
         jumboMode="true"
         optimize="true"
@@ -66,15 +138,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_5b43ab65e213c31ed2f9f5f0c71253abb09a32e6.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/libs/NineOldAndroid-2.4.0.jar"
         jumboMode="true"
         optimize="true"
@@ -84,30 +147,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7f3af7fd35dd7908c8f604d1b9773f3207a8faf6.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/libs/android-saripaar-2.0.2.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="73d121ae26214e5dddcfc535cb24d79d76349d10">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/android-saripaar-2.0.2_7f4475dc2d6d8f508dfcd09761a7f95c5b1ef5c7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_cfffeb81b3daeb8ef54fceb71b59796f9686ea4c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,15 +174,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_73036177e7403d6b683349c75f3b138e1d2501a6.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -147,30 +183,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_513159cbf74ca335d06fa0f9dc258337bc4a6c24.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="3dbb33158635e17098bcb706366d22e67933c8fd">
+        sha1="0badd30f7097fbe38247d2b99bd91580c2475849">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run_18546ed30300e6d369cd05cd49289e51f8842375.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_d34c4108c5baab84fa5f1dc01f5b8de1b8f8eb1f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -180,15 +198,6 @@
         revision="24.0.2"
         sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_ed898cf4fefc44cf2d5499898a300b60a28f82a4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_5dcc8ec8aff8844aef59d5f653eaaf5e95329d2a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -216,15 +225,6 @@
         revision="24.0.2"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_19b412019bbe6125bc35bae8a740de42e0f5dbbc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_0409623b79addbf329af8e64d91027af225fb7d7.jar" />
     </item>
 
 </items>

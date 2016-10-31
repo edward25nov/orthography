@@ -60,12 +60,11 @@
         </activity>
         <activity
             android:name="com.example.edward.orthography.PlaySeleccion"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.edward.orthography.PlayContexto"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.example.edward.orthography.PlayEscritura" />
     </application>
 
 </manifest>
