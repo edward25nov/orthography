@@ -51,13 +51,47 @@ public class lecciones extends Fragment {
         final double estrellas = b.getDouble("estrellas");
         final String nombre= b.getString("nombre");
         final int idimagen = b.getInt("idimagen");
-        ArrayList<lecciones_entrada> datos = new ArrayList<lecciones_entrada>();
+        ArrayList<lecciones_entrada> datos = new ArrayList<>();
 
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 1",(float) estrellas));
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 2",0f));
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 3",0f));
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 4",0f));
-        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 5",0f));
+        float estrellas1=0f,estrellas2=0f,estrellas3=0f,estrellas4=0f,estrellas5=0f;
+
+        if(nivel==1){
+            estrellas1 = (float)estrellas;
+            estrellas2 = 0f;
+            estrellas3 = 0f;
+            estrellas4 = 0f;
+            estrellas5 = 0f;
+        }else if(nivel==2){
+            estrellas1 = 5;
+            estrellas2 = (float)estrellas;
+            estrellas3 = 0f;
+            estrellas4 = 0f;
+            estrellas5 = 0f;
+        }else if(nivel==3){
+            estrellas1 = 5;
+            estrellas2 = 5;
+            estrellas3 = (float)estrellas;
+            estrellas4 = 0f;
+            estrellas5 = 0f;
+        }else if(nivel==4){
+            estrellas1 = 5;
+            estrellas2 = 5;
+            estrellas3 = 5;
+            estrellas4 = (float)estrellas;
+            estrellas5 = 0f;
+        }else if(nivel==5){
+            estrellas1 = 5;
+            estrellas2 = 5;
+            estrellas3 = 5;
+            estrellas4 = 5;
+            estrellas5 = (float)estrellas;
+        }
+
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 1",estrellas1));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 2",estrellas2));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 3",estrellas3));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 4",estrellas4));
+        datos.add(new lecciones_entrada(R.drawable.previa, "Lección 5",estrellas5));
 
         miLista.setAdapter(new lista_adaptador(getContext(), R.layout.layout_entradalecciones, datos){
             @Override
@@ -80,7 +114,8 @@ public class lecciones extends Fragment {
                 lecciones_entrada elegido = (lecciones_entrada) pariente.getItemAtPosition(posicion);
                 miLista.setSelection(posicion); //asignar el item que esta seleccionado
 
-                if(posicion==0){
+
+                if(posicion==0&&nivel==1){//leccion1
                     Intent i = new Intent(getContext(),PlaySeleccion.class);
                     i.putExtra("correo", correo);
                     i.putExtra("idUsuario",idUsuario);
@@ -90,7 +125,7 @@ public class lecciones extends Fragment {
                     i.putExtra("Nombre",nombre);
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
-                }else if(posicion==1){
+                }else if(posicion==1&&nivel==2){ //leccion2
                     Intent i = new Intent(getContext(),PlayContexto.class);
                     i.putExtra("correo", correo);
                     i.putExtra("idUsuario",idUsuario);
@@ -100,6 +135,14 @@ public class lecciones extends Fragment {
                     i.putExtra("Nombre",nombre);
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
+                }else if(posicion==2&&nivel==3){//leccion3
+                  Toast.makeText(getContext(),"lección 3",Toast.LENGTH_SHORT).show();
+                }else if(posicion==3&&nivel==4){//leccion4
+                    Toast.makeText(getContext(),"lección 4",Toast.LENGTH_SHORT).show();
+                }else if(posicion==4&&nivel==5){//leccion5
+                    Toast.makeText(getContext(),"lección 5",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(),"Lección bloqueada",Toast.LENGTH_SHORT).show();
                 }
 
             }

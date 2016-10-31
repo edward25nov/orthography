@@ -27,6 +27,15 @@ public class MainActivity extends AppCompatActivity
     TextView txtnameUser;
     TextView txtcorreoUser;
 
+    //variables
+    String correo;
+    int nivel;
+    int idUsuario;
+    int puntos;
+    double estrellas;
+    String nombre;
+    int idimagen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,37 +72,37 @@ public class MainActivity extends AppCompatActivity
         txtcorreoUser = (TextView) hView.findViewById(R.id.txtCorreoUsuario);
 
         //agregando los datos al menu hamburguesa y recuperando datos del intent o  variables de sesión
-        String correo = getIntent().getStringExtra("correo");
+        correo = getIntent().getStringExtra("correo");
         if(correo==null){//si no lo recupero por variables de sesión
             correo = manager.getPreferences(this, "correo");
         }
 
-        int nivel = getIntent().getIntExtra("nivel",-1);
+        nivel = getIntent().getIntExtra("nivel",-1);
         if(nivel==-1){ //si no lo recupero por variables de sesión
             nivel = Integer.valueOf(manager.getPreferences(this,"nivel"));
         }
 
-        int idUsuario = getIntent().getIntExtra("idUsuario",-1);
+        idUsuario = getIntent().getIntExtra("idUsuario",-1);
         if(idUsuario==-1){
             idUsuario = Integer.valueOf(manager.getPreferences(this,"idUsuario"));
         }
 
-        int puntos = getIntent().getIntExtra("puntos",-1);
+        puntos = getIntent().getIntExtra("puntos",-1);
         if(puntos==-1){
             puntos = Integer.valueOf(manager.getPreferences(this,"puntos"));
         }
 
-        double estrellas = getIntent().getDoubleExtra("Estrellas",-1);
+        estrellas = getIntent().getDoubleExtra("Estrellas",-1);
         if(estrellas==-1){
             estrellas = Double.valueOf(manager.getPreferences(this,"Estrellas"));
         }
 
-        String nombre = getIntent().getStringExtra("Nombre");
+        nombre = getIntent().getStringExtra("Nombre");
         if(nombre==null){
             nombre = manager.getPreferences(this, "Nombre");
         }
 
-        int idimagen = getIntent().getIntExtra("Imagen",-1);
+        idimagen = getIntent().getIntExtra("Imagen",-1);
         if(idimagen==-1){
             idimagen = Integer.valueOf(manager.getPreferences(this,"Imagen"));
         }
@@ -203,13 +212,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            lecciones m = new lecciones();
+            Bundle args = new Bundle(); //para pasarle datos al fragmento
+            args.putString("correo",correo);
+            args.putInt("nivel",nivel);
+            args.putInt("idUsuario",idUsuario);
+            args.putInt("puntos",puntos);
+            args.putDouble("estrellas",estrellas);
+            args.putString("nombre",nombre);
+            args.putInt("idimagen",idimagen);
+            m.setArguments(args);
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
 
-            /***Reemplanzado el layout principal por un fragmento***/
-          /*  TabsFragment nuevoFragment = new TabsFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.Layout_a_ser_reemplazado,nuevoFragment,nuevoFragment.getTag()).commit();
-            */
+            AmigosFragment nuevoFragment = new AmigosFragment();
+            FragmentManager mg = getSupportFragmentManager();
+            mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
         } else if (id == R.id.nav_perfil) {
 
         } else if (id == R.id.nav_progreso) {

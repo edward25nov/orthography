@@ -10,12 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
-/**
- * Created by root on 30/10/16.
- */
 
 public class MsjResultado extends DialogFragment {
     TextView m;
@@ -31,7 +25,7 @@ public class MsjResultado extends DialogFragment {
         return fragment;
     }
 
-    @Override
+   @Override
     public void onActivityCreated(Bundle arg0) {
         super.onActivityCreated(arg0);
         getDialog().getWindow()
@@ -49,7 +43,6 @@ public class MsjResultado extends DialogFragment {
         btn = (Button)hView.findViewById(R.id.btnContinue3);
         m.setText(mensaje);
         builder.setView(hView);
-        builder.setCancelable(false);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +60,10 @@ public class MsjResultado extends DialogFragment {
             }
         });
 
-        return builder.create();
+        AlertDialog alert = builder.create();
+        setCancelable(false); //press back button not cancel dialog, this one works fine
+        alert.setCanceledOnTouchOutside(false); //para cancelar táctil exterior
+        return alert;
     }
 
 

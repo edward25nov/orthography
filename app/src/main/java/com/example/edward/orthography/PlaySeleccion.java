@@ -156,7 +156,6 @@ public class PlaySeleccion extends AppCompatActivity {
                 MsjCorrecto dialogFragment = MsjCorrecto
                         .newInstance("Tu respuesta es\ncorrecta",1);
                 dialogFragment.show(getFragmentManager(), "Buena");
-
             }else{
                 YoYo.with(Techniques.Swing)
                         .duration(1000)
@@ -208,10 +207,9 @@ public class PlaySeleccion extends AppCompatActivity {
         i.putExtra("Imagen",fidimagen);
         startActivity(i);
 
-        //tengo que revisar esto......
-        // manager.setPreferences(PlaySeleccion.this, "status", "1");
         manager.setPreferences(PlaySeleccion.this,"puntos",fpuntos+"");
         manager.setPreferences(PlaySeleccion.this,"Estrellas",festrellas+"");
+        manager.setPreferences(PlaySeleccion.this,"nivel",fnivel+"");
 
     }
 

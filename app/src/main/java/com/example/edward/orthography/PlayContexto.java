@@ -260,7 +260,7 @@ public class PlayContexto extends AppCompatActivity {
         //tengo que revisar esto......
         manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
         manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
-
+        manager.setPreferences(PlayContexto.this,"nivel",fnivel+"");
     }
 
     public void generarEscenario(){

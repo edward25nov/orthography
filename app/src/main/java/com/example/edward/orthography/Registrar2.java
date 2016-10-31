@@ -115,7 +115,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                     }
                 });
 
-               ArrayList<lista_entrada> datos = new ArrayList<lista_entrada>();
+               ArrayList<lista_entrada> datos = new ArrayList<>();
 
                 datos.add(new lista_entrada(R.drawable.avatar1, "avatar 1", "descripción 1"));
                 datos.add(new lista_entrada(R.drawable.avatar2, "avatar 2", "descripción 2"));
@@ -292,7 +292,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
                 StringTokenizer st = new StringTokenizer(resultado, "|");
                 String a1 = st.nextToken();
                 String a2 = st.nextToken();
-                if(a1.toString().equals("exito")){
+                if(a1.equals("exito")){
                     startActivity(new Intent(Registrar2.this,Login.class));
                 }else{
                     MensajeBox("El correo ya existe, por favor ingrese sus datos nuevamente.","Información");

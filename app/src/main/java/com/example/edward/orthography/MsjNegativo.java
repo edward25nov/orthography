@@ -38,7 +38,7 @@ public class MsjNegativo extends DialogFragment {
     }
 
 
-    @Override
+   @Override
     public void onActivityCreated(Bundle arg0) {
         super.onActivityCreated(arg0);
         getDialog().getWindow()
@@ -81,7 +81,10 @@ public class MsjNegativo extends DialogFragment {
             }
         });
 
-        return builder.create();
+        AlertDialog alert = builder.create();
+        setCancelable(false); //press back button not cancel dialog, this one works fine
+        alert.setCanceledOnTouchOutside(false); //para cancelar táctil exterior
+        return alert;
     }
 
 }

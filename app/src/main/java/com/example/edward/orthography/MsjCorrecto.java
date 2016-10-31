@@ -39,7 +39,7 @@ public class MsjCorrecto extends DialogFragment {
         return fragment;
     }
 
-    //para poder visualizar la animación del mensaje cuando ingresa y sale
+   //para poder visualizar la animación del mensaje cuando ingresa y sale
     @Override
     public void onActivityCreated(Bundle arg0) {
         super.onActivityCreated(arg0);
@@ -59,6 +59,7 @@ public class MsjCorrecto extends DialogFragment {
         m.setText(mensaje);
         builder.setView(hView);
         builder.setCancelable(false);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +85,10 @@ public class MsjCorrecto extends DialogFragment {
                getDialog().cancel();
             }
         });
-
-        return builder.create();
+        AlertDialog alert = builder.create();
+        setCancelable(false); //press back button not cancel dialog, this one works fine
+        alert.setCanceledOnTouchOutside(false); //para cancelar táctil exterior
+        return alert;
     }
 
 }
