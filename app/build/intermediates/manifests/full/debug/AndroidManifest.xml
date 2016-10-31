@@ -64,7 +64,9 @@
         <activity
             android:name="com.example.edward.orthography.PlayContexto"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.example.edward.orthography.PlayEscritura" />
+        <activity
+            android:name="com.example.edward.orthography.PlayEscritura"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

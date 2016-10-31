@@ -5,33 +5,54 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="18390292613049"
+    timestamp="19394372146225"
     token="2006604749640707115"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="286" />
+        duration="1058" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="497" />
     <task
         name="instant-run-transform"
-        duration="51" />
+        duration="29" />
     <task
         name="verifier"
         duration="1" />
 
     <artifact
-        location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="18390292613049"
+        timestamp="19282048380335"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="19358784198528"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/builds/debug/19358784198528/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="19382162778746"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="19394372146225"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

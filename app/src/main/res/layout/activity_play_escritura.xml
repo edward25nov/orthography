@@ -75,7 +75,8 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/txtEntradaEscritura" />
+            android:id="@+id/txtEntradaEscritura"
+            android:textColorLink="?attr/colorPrimaryDark" />
 
 
     </LinearLayout>
