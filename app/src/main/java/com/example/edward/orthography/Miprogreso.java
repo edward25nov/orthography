@@ -95,7 +95,6 @@ public class Miprogreso extends Fragment {
             }
         });
 
-
         graph.getGridLabelRenderer().setVerticalAxisTitle("Aciertos");
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Eje x");
         graph.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLUE);
