@@ -10,27 +10,39 @@
     tools:context="com.example.edward.orthography.Presentacion"
     android:background="@color/azul100">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/presentacion1"
-        android:id="@+id/txtpresentacion"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="28sp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutpptx">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/presentacion2"
-        android:id="@+id/txtpresentacion2"
-        android:layout_below="@+id/txtpresentacion"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="28sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/presentacion1"
+            android:id="@+id/txtpresentacion"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/presentacion2"
+            android:id="@+id/txtpresentacion2"
+            android:layout_below="@+id/txtpresentacion"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"

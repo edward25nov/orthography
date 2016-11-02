@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -147,12 +148,21 @@ public class lecciones extends Fragment {
                     startActivity(i);
 
 
-                }else if(posicion==3&&nivel==4){//leccion4
-                    Toast.makeText(getContext(),"lección 4",Toast.LENGTH_SHORT).show();
+                }else if(posicion==3){//leccion4
+                    Intent i = new Intent(getContext(),PlayerTextToSpeech.class);
+                    i.putExtra("correo", correo);
+                    i.putExtra("idUsuario",idUsuario);
+                    i.putExtra("nivel",nivel);
+                    i.putExtra("puntos",puntos);
+                    i.putExtra("Estrellas",estrellas);
+                    i.putExtra("Nombre",nombre);
+                    i.putExtra("Imagen",idimagen);
+                    startActivity(i);
                 }else if(posicion==4&&nivel==5){//leccion5
                     Toast.makeText(getContext(),"lección 5",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getContext(),"Lección bloqueada",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Lección bloqueada.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
 
             }

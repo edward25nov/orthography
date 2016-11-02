@@ -241,7 +241,6 @@ public class PlayEscritura extends AppCompatActivity {
             final String METHOD_NAME = "obtenerEscritura";
             final String NAMESPACE = "http://tempuri.org/";
             final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
-            boolean resul = true;
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 

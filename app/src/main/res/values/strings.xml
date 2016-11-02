@@ -1,4 +1,12 @@
 <resources>
+    <!-- texttoSpech-->
+    <string name="appLabel">Text To Speech</string>
+    <string name="strBtnEnglish">English</string>
+    <string name="strBtnSpanish">Spanish</string>
+    <string name="hintEditTextWords">here...</string>
+    <!-- texttoSpech-->
+
+
     <string name="app_name">Letter\'s War</string>
     <string name="tituloSplash">Letter\'s War</string>
 

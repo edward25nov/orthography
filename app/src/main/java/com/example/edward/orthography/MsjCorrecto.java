@@ -81,6 +81,9 @@ public class MsjCorrecto extends DialogFragment {
                     }else if(contexto==3){
                         PlayEscritura f = (PlayEscritura)getActivity();
                         f.generarScenario();
+                    }else if(contexto==4){
+                        PlayerTextToSpeech f = (PlayerTextToSpeech)getActivity();
+                        f.generarEscenario();
                     }
                 }
 

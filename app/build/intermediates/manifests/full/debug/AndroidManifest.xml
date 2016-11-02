@@ -67,6 +67,9 @@
         <activity
             android:name="com.example.edward.orthography.PlayEscritura"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.example.edward.orthography.PlayerTextToSpeech"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

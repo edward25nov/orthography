@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_player_txt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.edward.orthography.PlayerTextToSpeech">
+
+    <Button
+        android:text="Calificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btndictado"
+        android:background="@drawable/bk_boton_juego"
+        tools:ignore="HardcodedText"
+        android:textColor="@color/blanco"
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/progressBar4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:progress="10" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btndictado"
+        android:id="@+id/layout_texttospeech"
+        android:layout_below="@+id/progressBar4"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_weight="0.58"
+            tools:ignore="InefficientWeight">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                app:fabSize="auto"
+                android:layout_gravity="top|start"
+                app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
+                android:id="@+id/floatingReproducir"
+                app:backgroundTint="@android:color/holo_blue_light"
+                tools:ignore="InefficientWeight"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Escribe está oración."
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:id="@+id/textView"
+                android:textAlignment="gravity"
+                android:gravity="center_vertical"
+                tools:ignore="HardcodedText"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/txtRespuestaDictado"
+            android:hint="Respuesta..."
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</RelativeLayout>
