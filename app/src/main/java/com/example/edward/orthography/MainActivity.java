@@ -250,6 +250,8 @@ public class MainActivity extends AppCompatActivity
 }
 
 
+
+
 /**
  *
  * Puede cerrar todas las actividades de fondo y cuando se vuelva a abrir la aplicación Se parte de la primera actividad
