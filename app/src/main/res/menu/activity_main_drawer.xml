@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
@@ -13,11 +13,10 @@
         <item
             android:id="@+id/nav_progreso"
             android:icon="@drawable/progreso"
-            android:title="@string/mi_progreso" />
-        <item
-            android:id="@+id/nav_ajustes"
-            android:icon="@drawable/settingss"
-            android:title="@string/ajustes" />
+            android:title="@string/mi_progreso">
+        </item>
+
+    <group android:id="@+id/group_id">
         <item
             android:id="@+id/nav_acercade"
             android:icon="@drawable/about"
@@ -27,7 +26,5 @@
             android:icon="@drawable/cerrar"
             android:title="@string/cerrar_sesi_n" />
     </group>
-
-
 
 </menu>

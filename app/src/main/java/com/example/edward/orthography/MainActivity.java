@@ -1,11 +1,11 @@
 package com.example.edward.orthography;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,7 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.TabHost;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         // el menu explandigle el nav_view es donde aparece el nombre la imagen y correo
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         //obtengo la vista o contexto del menu expandible
         View hView =  navigationView.getHeaderView(0);
         imgavatar = (ImageView) hView.findViewById(R.id.imgAvatar);
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         //agregamos las pestañas al activity principal
-        agregarPestañas();
+       // agregarPestañas();
         //aqui agregamos el fragmento lecciones al tab1
         lecciones m = new lecciones();
         Bundle args = new Bundle(); //para pasarle datos al fragmento
@@ -121,12 +121,12 @@ public class MainActivity extends AppCompatActivity
         args.putInt("idimagen",idimagen);
         m.setArguments(args);
         FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
-        //aqui agregamos el fragmento amigos al tab2
+        fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
+        /*aqui agregamos el fragmento amigos al tab2
         AmigosFragment nuevoFragment = new AmigosFragment();
         FragmentManager mg = getSupportFragmentManager();
         mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
-
+        */
 
 
         txtnameUser.setText(nombre);
@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity
         imgavatar.setImageResource(idimagen);
     }
 
+    /**
     public void agregarPestañas(){
         TabHost TbH = (TabHost) findViewById(R.id.tabHost); //llamamos al Tabhost
         TbH.setup();                                       //lo activamos
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity
 
 
     }
-
+**/
 
    @Override
     public void onBackPressed() {
@@ -223,21 +224,16 @@ public class MainActivity extends AppCompatActivity
             args.putInt("idimagen",idimagen);
             m.setArguments(args);
             FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(R.id.tab1,m,m.getTag()).commit();
+            fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
-            AmigosFragment nuevoFragment = new AmigosFragment();
-            FragmentManager mg = getSupportFragmentManager();
-            mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
         } else if (id == R.id.nav_perfil) {
 
         } else if (id == R.id.nav_progreso) {
             Miprogreso nuevoFragment = new Miprogreso();
             FragmentManager mg = getSupportFragmentManager();
-            mg.beginTransaction().replace(R.id.tab1,nuevoFragment,nuevoFragment.getTag()).commit();
+            mg.beginTransaction().replace(R.id.ContenedorPrincipal,nuevoFragment,nuevoFragment.getTag()).commit();
 
-        } else if (id == R.id.nav_ajustes) {
-
-        } else if (id == R.id.nav_acercade) {
+        }else if (id == R.id.nav_acercade) {
 
         } else if (id == R.id.nav_salir) {
             manager.setPreferences(this, "status", "0");

@@ -11,41 +11,85 @@
     tools:context="com.example.edward.orthography.Registrar1"
     android:background="@color/azul100">
 
-    <TextView
-        android:text="@string/Registrar1_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtregistrar1"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="28sp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnregistrar1">
 
-    <TextView
-        android:text="@string/Registrar11_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtregistrar1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
-        android:id="@+id/txtregistrar11"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="@dimen/tamanio_titulos"
-        tools:ignore="InvalidId" />
+        <TextView
+            android:text="@string/Registrar1_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtregistrar1"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
 
-    <TextView
-        android:text="@string/contenidoregistrar1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtregistrar11"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:id="@+id/txtreg1"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textAlignment="center" />
+        <TextView
+            android:text="@string/Registrar11_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtregistrar1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:id="@+id/txtregistrar11"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/tamanio_titulos"
+            tools:ignore="InvalidId,ObsoleteLayoutParam"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="@string/contenidoregistrar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtregistrar11"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"
+            android:id="@+id/txtreg1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
+
+        <TextView
+            android:text="@string/contenidoregistrar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtreg1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:id="@+id/txtreg2"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
+
+        <TextView
+            android:text="@string/contenidoregistrar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtreg2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:id="@+id/txtreg3"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            tools:ignore="ObsoleteLayoutParam" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/espaciador"></LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:text="@string/crearperfil"
@@ -59,27 +103,4 @@
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-    <TextView
-        android:text="@string/contenidoregistrar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtreg1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
-        android:id="@+id/txtreg2"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textAlignment="center" />
-
-    <TextView
-        android:text="@string/contenidoregistrar3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtreg2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:id="@+id/txtreg3"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textAlignment="center" />
 </RelativeLayout>

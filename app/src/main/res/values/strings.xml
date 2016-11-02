@@ -1,11 +1,4 @@
 <resources>
-    <!-- texttoSpech-->
-    <string name="appLabel">Text To Speech</string>
-    <string name="strBtnEnglish">English</string>
-    <string name="strBtnSpanish">Spanish</string>
-    <string name="hintEditTextWords">here...</string>
-    <!-- texttoSpech-->
-
 
     <string name="app_name">Letter\'s War</string>
     <string name="tituloSplash">Letter\'s War</string>
@@ -57,4 +50,10 @@
     <string name="e_mail">E-mail</string>
     <string name="nuevo_avatarstr">Elegir avatar</string>
     <string name="continuar">CONTINUAR</string>
+
+    <string name="leccion1">Lección 1</string>
+    <string name="leccion2">Lección 2</string>
+    <string name="leccion3">Lección 3</string>
+    <string name="leccion4">Lección 4</string>
+    <string name="leccion5">Lección 5</string>
 </resources>
