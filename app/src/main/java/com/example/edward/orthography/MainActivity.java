@@ -46,14 +46,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -122,11 +114,7 @@ public class MainActivity extends AppCompatActivity
         m.setArguments(args);
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
-        /*aqui agregamos el fragmento amigos al tab2
-        AmigosFragment nuevoFragment = new AmigosFragment();
-        FragmentManager mg = getSupportFragmentManager();
-        mg.beginTransaction().replace(R.id.tab2,nuevoFragment,nuevoFragment.getTag()).commit();
-        */
+
 
 
         txtnameUser.setText(nombre);
@@ -168,21 +156,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-
-           /*** this.finish();
-            Intent intent = new Intent(getApplicationContext(),Splash.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            *esto funcionaba bien
-            **/
             moveTaskToBack(true);
-         /*   finish();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-*/
-
         }
     }
 
@@ -227,6 +201,9 @@ public class MainActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
         } else if (id == R.id.nav_perfil) {
+            Miperfil m = new Miperfil();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
         } else if (id == R.id.nav_progreso) {
             Miprogreso nuevoFragment = new Miprogreso();

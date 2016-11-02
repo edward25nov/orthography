@@ -1,14 +1,84 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.edward.orthography.Miprogreso">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.jjoe64.graphview.GraphView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/graph" />
+        android:layout_height="88dp"
+        tools:ignore="UselessParent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            android:id="@+id/btn1"
+            app:srcCompat="@drawable/numero1"
+            android:scaleType="fitStart"
+            app:backgroundTint="@android:color/holo_green_light" />
+        <!-- app:backgroundTint="@android:color/holo_blue_light" -->
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/numero2"
+            android:id="@+id/btn2"
+            android:scaleType="fitStart"
+            app:backgroundTint="@android:color/holo_orange_light" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/numero3"
+            android:scaleType="fitStart"
+            android:id="@+id/btn3" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/numero4"
+            android:id="@+id/btn4"
+            app:fabSize="mini"
+            android:scaleType="fitStart"
+            app:backgroundTint="@android:color/holo_blue_light" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/numero5"
+            android:id="@+id/btn5"
+            app:fabSize="mini"
+            android:scaleType="fitStart"
+            app:backgroundTint="@android:color/holo_red_light" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessLeaf"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ContenedorGraficas">
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="337dp"
+            android:id="@+id/graph" />
+    </LinearLayout>
 
 
-</FrameLayout>
+</RelativeLayout>
