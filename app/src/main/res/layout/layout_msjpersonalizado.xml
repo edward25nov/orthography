@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="148dp"
-        android:background="@drawable/fondo_azul"
+        android:background="@color/pruebamsj"
         tools:ignore="UselessParent"
         android:id="@+id/MsjRBuena">
 
@@ -38,7 +38,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
-                    tools:ignore="UselessLeaf"></LinearLayout>
+                    tools:ignore="UselessLeaf"/>
 
                 <TextView
                     android:text="TextView"
@@ -66,7 +66,7 @@
                 android:layout_width="17dp"
                 android:layout_height="match_parent"
                 tools:ignore="UselessLeaf"
-                android:layout_weight="0.90"></LinearLayout>
+                android:layout_weight="0.90"/>
 
             <Button
                 android:text="@string/continuar"
@@ -80,14 +80,15 @@
                 android:textColor="@color/azul500"
                 android:focusableInTouchMode="true"
                 android:fontFamily="sans-serif"
-                tools:targetApi="lollipop" />
+                tools:targetApi="lollipop"
+                android:elevation="0dp" />
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.31"
-                tools:ignore="UselessLeaf"></LinearLayout>
+                tools:ignore="UselessLeaf"/>
 
         </LinearLayout>
 

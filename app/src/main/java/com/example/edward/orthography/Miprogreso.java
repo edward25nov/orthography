@@ -8,10 +8,12 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
@@ -27,15 +29,28 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
+//variables
+
 public class Miprogreso extends Fragment implements View.OnClickListener{
 
-
+    GraphView graph;
+    //variables
+    String correo;
+    int nivel;
+    int idUsuario;
+    int puntos;
+    double estrellas;
+    String nombre;
+    int idimagen;
+    TextView txtPromedio;
     public Miprogreso() {
         // Required empty public constructor
     }
@@ -45,54 +60,39 @@ public class Miprogreso extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View hview = inflater.inflate(R.layout.fragment_miprogreso, container, false);
+        //traer variables
+
+        Bundle b = getArguments();
+        correo = b.getString("correo");
+        idUsuario = b.getInt("idUsuario");
+        nivel = b.getInt("nivel");
+        puntos = b.getInt("puntos");
+        estrellas = b.getDouble("estrellas");
+        nombre= b.getString("nombre");
+        idimagen = b.getInt("idimagen");
 
         //definicion de los botones flotantes
         View btn1,btn2,btn3,btn4,btn5;
-
         btn1 = hview.findViewById(R.id.btn1);
         btn2 = hview.findViewById(R.id.btn2);
         btn3 = hview.findViewById(R.id.btn3);
         btn4 = hview.findViewById(R.id.btn4);
         btn5 = hview.findViewById(R.id.btn5);
-
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         btn4.setOnClickListener(this);
         btn5.setOnClickListener(this);
+        txtPromedio = (TextView)hview.findViewById(R.id.txtpromedio);
+        graph = (GraphView) hview.findViewById(R.id.graph);
 
 
-        // Inflate the layout for this fragment
+        graph.getGridLabelRenderer().setVerticalAxisTitle("# Aciertos");
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("# Partida");
+        graph.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLUE);
+        //graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(40);
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLUE);
 
-        /*
-        *  DataPoint[] points = new DataPoint[100];
-        for (int i = 0; i < points.length; i++) {
-            points[i] = new DataPoint(i, Math.sin(i*0.5) * 20*(Math.random()*10+1));
-        }
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-
-        *
-        * */
-
-
-
-
-        GraphView graph = (GraphView) hview.findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
-                new DataPoint(0, 0),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 3),
-                new DataPoint(5, 9),
-                new DataPoint(6, 2),
-                new DataPoint(7, 6),
-                new DataPoint(8, 3),
-                new DataPoint(9, 3),
-                new DataPoint(10, 4),
-        });
-
-        // activate horizontal zooming and scrolling
         graph.getViewport().setScalable(true);
         // activate horizontal scrolling
         graph.getViewport().setScrollable(true);
@@ -101,70 +101,50 @@ public class Miprogreso extends Fragment implements View.OnClickListener{
         // activate vertical scrolling
         graph.getViewport().setScrollableY(true);
 
-        series.setTitle("Progreso en Identificación");
-        series.setColor(Color.BLUE);
-        series.setDrawBackground(true);
-        //series.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.azul100));
-        series.setBackgroundColor(Color.argb(100, 90, 255, 255));  //100, 255, 255, 0 amarillo trnas  //100, 204, 119, 119 rojo trnas  //150, 50, 0, 0 cafe trans
-        series.setDrawDataPoints(true); //resaltar puntos        //133, 0, 222, 0 verde tranas   //100, 0, 0, 200 morado
-        series.setDataPointsRadius(5);
-        //  series.setThickness(8); //grosos de la linea
-
-        //alineación de las leyendas
-        graph.getLegendRenderer().setVisible(true);
-        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
-        series.setOnDataPointTapListener(new OnDataPointTapListener() {
-            @Override
-            public void onTap(Series series, DataPointInterface dataPointInterface) {
-                Toast.makeText(getActivity(), "Series1: On Data Point clicked: " + dataPointInterface, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        graph.getGridLabelRenderer().setVerticalAxisTitle("Aciertos");
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Eje x");
-        graph.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLUE);
-        //graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(40);
-        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLUE);
-        graph.addSeries(series);
-
-
-        generarScenario();
-
-
-
         return hview;
     }
 
-/**
- *
- FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
- fab.setOnClickListener(new View.OnClickListener() {
-@Override
-public void onClick(View view) {
-Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-.setAction("Action", null).show();
-}
-});
- *
- */
-
-public void generarScenario(){
-
-    /*
-    *  <PromedioCorrectas>double</PromedioCorrectas>
-        <PromedioIncorrectas>double</PromedioIncorrectas>
-        <Punteos>
-          <anyType />
-          <anyType />
-        </Punteos>*/
-
+public void generarScenario(int idUsuario,final int n){
+    txtPromedio.setText("");
+    graph.removeAllSeries();
     RetornoDatosProgreso cons = new RetornoDatosProgreso();
     try {
-        SoapObject resSoap  = cons.execute(16,1).get();
+        SoapObject resSoap  = cons.execute(idUsuario,n).get();
         if(resSoap==null){
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }else {
+
+            double promedioCorrectas = Double.valueOf(resSoap.getProperty(0).toString());
+
+            double promedioIncorrectas = Double.valueOf(resSoap.getProperty(1).toString());
+            txtPromedio.setText("Promedio de correctas: "+promedioIncorrectas+"");
+            SoapObject items = (SoapObject)resSoap.getProperty(2);
+            DataPoint[] points = new DataPoint[items.getPropertyCount()];
+            for(int i=0;i<items.getPropertyCount();i++){
+                points[i] = new DataPoint(i,Integer.valueOf(items.getProperty(i).toString()));
+            }
+
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+            series.setTitle("Progreso Lección "+n);
+            series.setColor(Color.BLUE);
+            series.setDrawBackground(true);
+            //series.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.azul100));
+            series.setBackgroundColor(Color.argb(100, 90, 255, 255));  //100, 255, 255, 0 amarillo trnas  //100, 204, 119, 119 rojo trnas  //150, 50, 0, 0 cafe trans
+            series.setDrawDataPoints(true); //resaltar puntos        //133, 0, 222, 0 verde tranas   //100, 0, 0, 200 morado
+            series.setDataPointsRadius(5);
+            //  series.setThickness(8); //grosos de la linea
+
+            series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                @Override
+                public void onTap(Series series, DataPointInterface dataPointInterface) {
+                    Toast.makeText(getActivity(), "Lección "+n+" punto: " + dataPointInterface, Toast.LENGTH_SHORT).show();
+                }
+            });
+            graph.addSeries(series);
+            //alineación de las leyendas
+            graph.getLegendRenderer().setVisible(true);
+            graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
         }
     } catch (InterruptedException | ExecutionException e) {
@@ -177,7 +157,35 @@ public void generarScenario(){
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btn1){
-            Toast.makeText(getContext(),"uno",Toast.LENGTH_SHORT).show();
+            generarScenario(idUsuario,1);
+        }else if(v.getId()==R.id.btn2){
+            if(nivel>1){
+                generarScenario(idUsuario,2);
+            }else{
+                Snackbar.make(v, "Lección bloqueada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        }else if(v.getId()==R.id.btn3){
+            if(nivel>2){
+                generarScenario(idUsuario,3);
+            }else{
+                Snackbar.make(v, "Lección bloqueada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        }else if(v.getId()==R.id.btn4){
+            if(nivel>3){
+                generarScenario(idUsuario,4);
+            }else{
+                Snackbar.make(v, "Lección bloqueada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        }else if(v.getId()==R.id.btn5){
+            if(nivel>4){
+                generarScenario(idUsuario,5);
+            }else{
+                Snackbar.make(v, "Lección bloqueada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
         }
     }
 

@@ -8,7 +8,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="352dp"
+        android:layout_height="406dp"
         tools:ignore="UselessLeaf"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -19,8 +19,18 @@
 
         <com.jjoe64.graphview.GraphView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="354dp"
             android:id="@+id/graph" />
+
+        <TextView
+            android:text="@string/Rprogreso"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:id="@+id/txtpromedio"
+            android:textColor="@color/colorPrimaryDark"
+            tools:ignore="InefficientWeight,SpUsage"
+            android:textStyle="normal|bold"
+            android:textSize="@dimen/activity_vertical_margin" />
 
     </LinearLayout>
 

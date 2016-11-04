@@ -78,6 +78,8 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="pruebamsj">#645affff</color>
+    <color name="pruebamsj2">#64cc7777</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="rosa500">#ec407a</color>
@@ -561,6 +563,7 @@
     <string name="Join_Partida">Unirse</string>
     <string name="Registrar11_txt">crearemos tu perfil</string>
     <string name="Registrar1_txt">Bienvenido, ahora</string>
+    <string name="Rprogreso">Promedio de correctas:</string>
     <string name="SoyNuevo">Soy Nuevo</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
