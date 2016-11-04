@@ -41,6 +41,7 @@ MERGED from [com.android.support:support-fragment:24.2.1] /home/edward/AndroidSt
 MERGED from [com.android.support:appcompat-v7:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:animated-vector-drawable:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.10.1/AndroidManifest.xml:12:5-20
 	android:label
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:14:9-41
 	android:supportsRtl
@@ -144,6 +145,7 @@ MERGED from [com.android.support:appcompat-v7:24.2.1] /home/edward/AndroidStudio
 MERGED from [com.android.support:support-vector-drawable:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:animated-vector-drawable:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.10.1/AndroidManifest.xml:8:5-10:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion

@@ -31,4 +31,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     testCompile 'junit:junit:4.12'
     compile files('libs/GraphView-4.2.1.jar')
+    compile 'com.getbase:floatingactionbutton:1.10.1'
+
 }

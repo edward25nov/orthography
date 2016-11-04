@@ -4,18 +4,16 @@ package com.example.edward.orthography;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
@@ -26,21 +24,18 @@ import com.jjoe64.graphview.series.Series;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import java.text.NumberFormat;
 import java.util.concurrent.ExecutionException;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Miprogreso extends Fragment {
+public class Miprogreso extends Fragment implements View.OnClickListener{
 
 
-    int idPartida;
     public Miprogreso() {
         // Required empty public constructor
     }
@@ -50,6 +45,23 @@ public class Miprogreso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View hview = inflater.inflate(R.layout.fragment_miprogreso, container, false);
+
+        //definicion de los botones flotantes
+        View btn1,btn2,btn3,btn4,btn5;
+
+        btn1 = hview.findViewById(R.id.btn1);
+        btn2 = hview.findViewById(R.id.btn2);
+        btn3 = hview.findViewById(R.id.btn3);
+        btn4 = hview.findViewById(R.id.btn4);
+        btn5 = hview.findViewById(R.id.btn5);
+
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+
+
         // Inflate the layout for this fragment
 
         /*
@@ -61,6 +73,9 @@ public class Miprogreso extends Fragment {
 
         *
         * */
+
+
+
 
         GraphView graph = (GraphView) hview.findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
@@ -156,6 +171,15 @@ public void generarScenario(){
         e.printStackTrace();
     }
 }
+
+
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.btn1){
+            Toast.makeText(getContext(),"uno",Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     public class RetornoDatosProgreso extends AsyncTask<Integer,String,SoapObject> {

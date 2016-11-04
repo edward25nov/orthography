@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="d7079e902c6b292c4c3ec8597f6961ff9ec8db28">
+        sha1="ef0859b0e501c7eab04e4f49ebca403da40c79c2">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c9b2959a39c3a1c149b202bb523ac8526bba27f1.jar" />
     </item>
     <item
@@ -174,6 +174,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.10.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f40cf334cdc8b098b74312e21c7741c6eefbeb0e">
+        <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/com.getbase-floatingactionbutton-1.10.1_9205501ca1b006b113e478d549fe771975f7ac3c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -187,7 +196,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="82aa6eb5198f5b8d2291e12a7fb9eddf24cb1bb8">
+        sha1="48a441c926726921ae5c4b14603ce9912081c7e1">
         <dex dex="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/pre-dexed/debug/instant-run_18546ed30300e6d369cd05cd49289e51f8842375.jar" />
     </item>
     <item

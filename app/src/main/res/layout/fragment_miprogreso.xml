@@ -1,16 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.edward.orthography.Miprogreso">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="372dp"
+        android:layout_height="352dp"
         tools:ignore="UselessLeaf"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -21,22 +19,72 @@
 
         <com.jjoe64.graphview.GraphView
             android:layout_width="match_parent"
-            android:layout_height="362dp"
+            android:layout_height="match_parent"
             android:id="@+id/graph" />
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@drawable/progreso"
-        android:id="@+id/btnP"
-        android:layout_weight="0.1"
-        android:layout_margin="@dimen/fab_margin"
-        tools:ignore="RtlHardcoded"
-        android:layout_gravity="bottom|center_vertical|end"
-        app:backgroundTint="@android:color/holo_blue_light" />
 
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/menu_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        fab:fab_addButtonColorNormal="?attr/colorPrimary"
+        fab:fab_addButtonSize="normal"
+        fab:fab_labelStyle="@style/Etiquetas"
+        fab:fab_labelsPosition="left">
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPrimaryDark"
+            fab:fab_icon="@drawable/numero5"
+            fab:fab_size="mini"
+            fab:fab_title="Lección 5" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_icon="@drawable/numero4"
+            fab:fab_size="mini"
+            fab:fab_title="Lección 4" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/azul700"
+            fab:fab_icon="@drawable/numero3"
+            fab:fab_size="mini"
+            fab:fab_title="Lección 3" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/azul500"
+            fab:fab_icon="@drawable/numero2"
+            fab:fab_size="mini"
+            fab:fab_title="Lección 2" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/azul100"
+            fab:fab_icon="@drawable/numero1"
+            fab:fab_size="mini"
+            fab:fab_title="Lección 1" />
+
+
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </android.support.design.widget.CoordinatorLayout>
