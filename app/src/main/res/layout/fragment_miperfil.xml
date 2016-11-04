@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,14 +11,90 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="UselessLeaf,UselessParent">
+        tools:ignore="UselessLeaf,UselessParent"
+        android:weightSum="1">
 
         <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/avatar2"
-            android:id="@+id/imageView"
+            android:id="@+id/Rimg"
             tools:ignore="ContentDescription"
-            android:scaleType="fitStart" />
+            android:scaleType="fitStart"
+            android:layout_gravity="center_vertical|center_horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Rnivel"
+                android:layout_weight="1"
+                android:hint="@string/nivel"
+                tools:ignore="InefficientWeight" />
+
+            <TextView
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/Rpuntos"
+                android:hint="@string/puntos" />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/Rname"
+            tools:ignore="HardcodedText"
+            android:hint="Nombre" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/Rcorreo"
+            android:hint="E-mail"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/Rpassword"
+            android:hint="Password Actual"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/RNueva"
+            android:hint="Nueva password"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/Rconfirma"
+            android:hint="Confrimar Password"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:text="@string/guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Rguardar"
+            android:background="@drawable/bk_boton_plano"
+            android:textColor="@color/blanco"
+            android:textStyle="normal|bold" />
     </LinearLayout>
-</FrameLayout>
+</RelativeLayout>

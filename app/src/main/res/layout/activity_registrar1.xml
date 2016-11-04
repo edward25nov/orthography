@@ -28,7 +28,8 @@
             android:textStyle="bold"
             android:textSize="28sp"
             android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam" />
+            tools:ignore="ObsoleteLayoutParam"
+            android:gravity="center_vertical|center_horizontal" />
 
         <TextView
             android:text="@string/Registrar11_txt"
@@ -42,7 +43,8 @@
             android:textStyle="bold"
             android:textSize="@dimen/tamanio_titulos"
             tools:ignore="InvalidId,ObsoleteLayoutParam"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_vertical|center_horizontal" />
 
         <TextView
             android:text="@string/contenidoregistrar1"
@@ -55,7 +57,8 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam" />
+            tools:ignore="ObsoleteLayoutParam"
+            android:gravity="center_vertical|center_horizontal" />
 
         <TextView
             android:text="@string/contenidoregistrar2"
@@ -68,7 +71,8 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam" />
+            tools:ignore="ObsoleteLayoutParam"
+            android:gravity="center_vertical|center_horizontal" />
 
         <TextView
             android:text="@string/contenidoregistrar3"
@@ -81,7 +85,8 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam" />
+            tools:ignore="ObsoleteLayoutParam"
+            android:gravity="center_vertical|center_horizontal" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -95,12 +100,11 @@
         android:text="@string/crearperfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="107dp"
         android:id="@+id/btnregistrar1"
         android:background="@drawable/bk_boton_plano"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

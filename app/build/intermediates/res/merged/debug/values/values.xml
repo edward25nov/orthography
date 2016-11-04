@@ -613,6 +613,7 @@
     <string name="continuar">CONTINUAR</string>
     <string name="crearperfil">Crear perfil</string>
     <string name="e_mail">E-mail</string>
+    <string name="guardar">Guardar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint1">E-mail</string>
     <string name="hint2">Password</string>
@@ -631,10 +632,12 @@
     <string name="mi_progreso">Mi progreso</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="nivel">Nivel</string>
     <string name="nombreLogo">Letter\'s War</string>
     <string name="nuevo_avatarstr">Elegir avatar</string>
     <string name="presentacion1">Aprende y mejora</string>
     <string name="presentacion2">tu ortografía jugando</string>
+    <string name="puntos">Puntos</string>
     <string name="restablecer"><u>Restablecer contraseña</u> </string>
     <string name="search_menu_title">Search</string>
     <string name="sera_el_avatar_del_usuario">Sera el avatar del usuario</string>

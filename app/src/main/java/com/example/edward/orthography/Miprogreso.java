@@ -105,7 +105,7 @@ public class Miprogreso extends Fragment implements View.OnClickListener{
     }
 
 public void generarScenario(int idUsuario,final int n){
-    txtPromedio.setText("");
+    txtPromedio.setText("Promedio de correctas: ");
     graph.removeAllSeries();
     RetornoDatosProgreso cons = new RetornoDatosProgreso();
     try {

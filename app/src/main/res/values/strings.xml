@@ -58,4 +58,7 @@
     <string name="leccion5">Lección 5</string>
     <string name="ayuda">Ayuda?</string>
     <string name="Rprogreso">Promedio de correctas:</string>
+    <string name="nivel">Nivel</string>
+    <string name="puntos">Puntos</string>
+    <string name="guardar">Guardar</string>
 </resources>

@@ -34,10 +34,10 @@ public class Splash extends AppCompatActivity {
 
         manager = new sessionManager();
 
-        Animation ani = AnimationUtils.loadAnimation(this, R.anim.movercubo);
+     /*   Animation ani = AnimationUtils.loadAnimation(this, R.anim.movercubo);
         ImageView abc = (ImageView) findViewById(R.id.imgCubos);
         abc.setAnimation(ani);
-
+*/
         /*RotateAnimation anim = new RotateAnimation(0f, 350f, 15f, 15f);
         anim.setInterpolator(new LinearInterpolator());
         anim.setRepeatCount(Animation.INFINITE);

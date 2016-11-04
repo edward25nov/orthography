@@ -187,7 +187,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            getSupportActionBar().setTitle("Letter's War");
+            if(getSupportActionBar() != null) {
+                getSupportActionBar().setTitle("Letter's War");
+            }
             lecciones m = new lecciones();
             Bundle args = new Bundle(); //para pasarle datos al fragmento
             args.putString("correo",correo);
@@ -202,13 +204,26 @@ public class MainActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
         } else if (id == R.id.nav_perfil) {
-            getSupportActionBar().setTitle("Mi perfil");
+            if(getSupportActionBar() != null) {
+                getSupportActionBar().setTitle("Mi perfil");
+            }
             Miperfil m = new Miperfil();
+            Bundle args = new Bundle(); //para pasarle datos al fragmento
+            args.putString("correo",correo);
+            args.putInt("nivel",nivel);
+            args.putInt("idUsuario",idUsuario);
+            args.putInt("puntos",puntos);
+            args.putDouble("estrellas",estrellas);
+            args.putString("nombre",nombre);
+            args.putInt("idimagen",idimagen);
+            m.setArguments(args);
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
         } else if (id == R.id.nav_progreso) {
-            getSupportActionBar().setTitle("Mi progreso");
+            if(getSupportActionBar() != null){
+                getSupportActionBar().setTitle("Mi progreso");
+            }
             Miprogreso m = new Miprogreso();
             Bundle args = new Bundle(); //para pasarle datos al fragmento
             args.putString("correo",correo);
@@ -225,7 +240,9 @@ public class MainActivity extends AppCompatActivity
             mg.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
         }else if (id == R.id.nav_acercade) {
-            getSupportActionBar().setTitle("Acerca de");
+            if(getSupportActionBar() != null){
+                getSupportActionBar().setTitle("Acerca de");
+            }
         } else if (id == R.id.nav_salir) {
             manager.setPreferences(this, "status", "0");
             this.finish();
