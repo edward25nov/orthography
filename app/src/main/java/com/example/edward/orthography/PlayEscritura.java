@@ -270,6 +270,7 @@ public class PlayEscritura extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(mensaje)
                 .setTitle(titulo)
+                .setIcon(R.drawable.info)
                 .setCancelable(false)
                 .setNeutralButton("Aceptar",
                         new DialogInterface.OnClickListener() {

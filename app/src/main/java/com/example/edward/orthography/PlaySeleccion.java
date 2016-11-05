@@ -87,10 +87,7 @@ public class PlaySeleccion extends AppCompatActivity {
 
                 generarScenario();
             }
-        } catch (InterruptedException e) {
-            MensajeBox("No se ha podido conectar con el servidor." +
-                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
@@ -116,10 +113,7 @@ public class PlaySeleccion extends AppCompatActivity {
                                 fpuntos = Puntos;
                                 validarRespuesta(true);
                             }
-                        } catch (InterruptedException e) {
-                            MensajeBox("No se ha podido conectar con el servidor." +
-                                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-                        } catch (ExecutionException e) {
+                        } catch (InterruptedException | ExecutionException e) {
                             MensajeBox("No se ha podido conectar con el servidor." +
                                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
                         }
@@ -196,9 +190,7 @@ public class PlaySeleccion extends AppCompatActivity {
                 }
                 generarListaPalabras(MispalabrasActuales);
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -306,6 +298,7 @@ public class PlaySeleccion extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(mensaje)
                 .setTitle(titulo)
+                .setIcon(R.drawable.info)
                 .setCancelable(false)
                 .setNeutralButton("Aceptar",
                         new DialogInterface.OnClickListener() {

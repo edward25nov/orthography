@@ -1,8 +1,10 @@
 package com.example.edward.orthography;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -142,7 +144,14 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
+            MensajeBox("Letter's War 1.0.0\n\n" +
+                    "Edward Gómez 201212838\n" +
+                    "Fernando González 201222587\n" +
+                    "Trabajo de graduación\n" +
+                    "Facultad de Ingeniería\n" +
+                    "Universidad de San Carlos de Guatemala\n\n" +
+                    "Built on November 4,2016\n" +
+                    "2016 All rights reserved.","Acerca de");
 
 
             return true;
@@ -230,4 +239,21 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void MensajeBox(String mensaje,String titulo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(mensaje)
+                .setTitle(titulo)
+                .setIcon(R.drawable.info)
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
 }

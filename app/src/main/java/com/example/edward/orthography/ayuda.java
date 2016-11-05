@@ -98,7 +98,7 @@ public class ayuda extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage(mensaje)
                 .setTitle("Ayuda")
-                .setIcon(R.drawable.ic_menu_share)
+                .setIcon(R.drawable.helpme)
                 .setCancelable(false)
                 .setNeutralButton("Aceptar",
                         new DialogInterface.OnClickListener() {

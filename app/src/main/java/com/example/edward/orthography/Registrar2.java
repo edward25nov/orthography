@@ -218,6 +218,7 @@ public class Registrar2 extends AppCompatActivity implements Validator.Validatio
 
         builder.setMessage("¿Confirma la acción seleccionada?")
                 .setTitle("Confirmación")
+                .setIcon(R.drawable.info)
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener()  {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

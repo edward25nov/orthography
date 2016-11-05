@@ -92,8 +92,8 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
 
         Rpuntos.setText("Puntos: "+puntos);
         RNivel.setText("Nivel: "+nivel);
-        Rcorreo.setText(correo);
-        Rname.setText(nombre);
+        Rcorreo.setText(correo.trim());
+        Rname.setText(nombre.trim());
         Rimg.setImageResource(idimagen);
 
 

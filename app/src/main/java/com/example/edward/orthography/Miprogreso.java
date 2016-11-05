@@ -233,6 +233,7 @@ public void generarScenario(int idUsuario,final int n){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage(mensaje)
                 .setTitle(titulo)
+                .setIcon(R.drawable.info)
                 .setCancelable(false)
                 .setNeutralButton("Aceptar",
                         new DialogInterface.OnClickListener() {
