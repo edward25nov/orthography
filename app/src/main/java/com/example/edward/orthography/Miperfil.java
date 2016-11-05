@@ -1,6 +1,9 @@
 package com.example.edward.orthography;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,9 +22,16 @@ import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.StringTokenizer;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -29,7 +39,7 @@ import java.util.List;
  */
 public class Miperfil extends Fragment implements Validator.ValidationListener{
 
-
+    sessionManager manager;
     String correo;
     int nivel;
     int idUsuario;
@@ -67,6 +77,8 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
 
         validator = new Validator(this);
         validator.setValidationListener(this);
+
+        manager = new sessionManager();
 
         Bundle b = getArguments();
         correo = b.getString("correo");
@@ -107,6 +119,11 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
 
 
 
+
+
+
+
+
         return hview;
     }
 
@@ -115,6 +132,57 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
         //Registrar2.ServiceRegistrar consumirWS = new Registrar2.ServiceRegistrar(c,p,idavatar,nombre);
         //consumirWS.execute();
  //hacer trim antes d einsertar los datos
+        try {
+            ValidarPassword a = new ValidarPassword();
+            String us = String.valueOf(idUsuario);
+            String enviar =us+";"+Rpass.getText().toString();
+            SoapPrimitive idp = a.execute(enviar).get();
+            if(idp==null){
+                MensajeBox("No se ha podido conectar con el servidor." +
+                        " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+            }else {
+
+                String rtn = idp.toString();
+                if(rtn.equals("1")) {
+
+                    UpdatePerfil up = new UpdatePerfil();
+                    String en = us+";"+Rnueva.getText().toString()+";"+Rcorreo.getText().toString().trim()+";"+Rname.getText().toString().trim();
+                    SoapPrimitive h = up.execute(en).get();
+
+                    if(h==null){
+                        MensajeBox("No se ha podido conectar con el servidor." +
+                                " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+                    }else{
+                        String r = h.toString();
+                        if(r.equals("1")){
+
+                            MensajeBox("Se han actualizado sus datos.","Información");
+                            //actualizar variablles de sesión
+                            manager.setPreferences(getContext(),"correo",Rcorreo.getText().toString().trim());
+                            manager.setPreferences(getContext(),"Nombre",Rname.getText().toString().trim());
+
+
+                        }else{
+                            MensajeBox("No se ha podido actualizar sus datos" +
+                                    ", intentelo de nuevo.","Información");
+                        }
+
+                    }
+
+
+
+                }else{
+                    MensajeBox("El password ingresado no coincide con el actual.","Password incorrecto");
+                }
+
+
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            MensajeBox("No se ha podido conectar con el servidor." +
+                    " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
+        }
+
+
     }
 
     @Override
@@ -130,4 +198,100 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
             }
         }
     }
+
+
+    public void MensajeBox(String mensaje,String titulo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage(mensaje)
+                .setTitle(titulo)
+                .setIcon(R.drawable.info)
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+
+    public class ValidarPassword extends AsyncTask<String,String,SoapPrimitive> {
+        private SoapPrimitive resSoap;
+
+        @Override
+        protected SoapPrimitive doInBackground(String... params) {
+            if (android.os.Debug.isDebuggerConnected())
+                android.os.Debug.waitForDebugger();
+
+            final String SOAP_ACTION = "http://tempuri.org/verificarAcceso";
+            final String METHOD_NAME = "verificarAcceso";
+            final String NAMESPACE = "http://tempuri.org/";
+            final String URL = "http://www.tesis2016g1.somee.com/ManejoUsuarios.asmx";
+
+            try {
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+
+                request.addProperty("datos", params[0]);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
+                envelope.setOutputSoapObject(request);
+
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                androidHttpTransport.call(SOAP_ACTION, envelope);
+
+                // Esta sección está destina si el Métdo del WS retorna valores
+                resSoap = (SoapPrimitive) envelope.getResponse();
+                // idPartida = Integer.valueOf(resSoap.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return resSoap;
+        }
+    }
+
+
+
+
+    public class UpdatePerfil extends AsyncTask<String,String,SoapPrimitive> {
+        private SoapPrimitive resSoap;
+
+        @Override
+        protected SoapPrimitive doInBackground( String... params) {
+            if(android.os.Debug.isDebuggerConnected())
+                android.os.Debug.waitForDebugger();
+
+            final String SOAP_ACTION = "http://tempuri.org/actualizarPerfil";
+            final String METHOD_NAME = "actualizarPerfil";
+            final String NAMESPACE = "http://tempuri.org/";
+            final String URL = "http://www.tesis2016g1.somee.com/ManejoUsuarios.asmx";
+
+            try {
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+
+                request.addProperty("datos", params[0]);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
+                envelope.setOutputSoapObject(request);
+
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                androidHttpTransport.call(SOAP_ACTION, envelope);
+
+                // Esta sección está destina si el Métdo del WS retorna valores
+                resSoap =(SoapPrimitive)envelope.getResponse();
+                // idPartida = Integer.valueOf(resSoap.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return resSoap;
+        }
+    }
+
+
+
+
 }

@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.edward.orthography">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -64,7 +60,8 @@
         <activity
             android:name=".PlayerTextToSpeech"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Playpuntuacion"></activity>
+        <activity android:name=".Playpuntuacion"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

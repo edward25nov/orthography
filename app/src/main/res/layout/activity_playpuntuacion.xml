@@ -76,9 +76,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/itemA"
             tools:ignore="HardcodedText"
-            android:textColor="@color/blanco"
+            android:textColor="@color/azul700"
             android:textAllCaps="false"
-            android:background="@drawable/boton_opcionesnormal" />
+            android:background="@drawable/boton_opcionesnormal"
+            android:textStyle="normal|bold" />
 
         <Button
             android:text="Button"
@@ -86,9 +87,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/itemB"
             tools:ignore="HardcodedText"
-            android:textColor="@color/blanco"
+            android:textColor="@color/azul700"
             android:textAllCaps="false"
-            android:background="@drawable/boton_opcionesnormal"/>
+            android:background="@drawable/boton_opcionesnormal"
+            android:textStyle="normal|bold" />
 
         <Button
             android:text="Button"
@@ -96,9 +98,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/itemC"
             tools:ignore="HardcodedText"
-            android:textColor="@color/blanco"
+            android:textColor="@color/azul700"
             android:textAllCaps="false"
-            android:background="@drawable/boton_opcionesnormal" />
+            android:background="@drawable/boton_opcionesnormal"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 

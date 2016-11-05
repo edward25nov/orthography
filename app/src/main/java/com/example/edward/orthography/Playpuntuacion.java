@@ -248,7 +248,7 @@ public class Playpuntuacion extends AppCompatActivity {
                 itemB.setText(Opciones.get(1));
                 itemC.setText(Opciones.get(2));
 
-                txtOracion.setText(parte1 +" ____________________ " +parte2 );
+                txtOracion.setText(parte1 +" ___ " +parte2 );
             }
 
         } catch (InterruptedException | ExecutionException e) {
@@ -298,7 +298,7 @@ public class Playpuntuacion extends AppCompatActivity {
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
-                request.addProperty("nivel", 1);
+                request.addProperty("nivel", params[0]);
                 request.addProperty("idPartida",params[1]);
                 SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
