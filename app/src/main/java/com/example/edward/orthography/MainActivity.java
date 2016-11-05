@@ -2,10 +2,7 @@ package com.example.edward.orthography;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
-import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -99,9 +96,6 @@ public class MainActivity extends AppCompatActivity
             idimagen = Integer.valueOf(manager.getPreferences(this,"Imagen"));
         }
 
-        //agregamos las pestañas al activity principal
-       // agregarPestañas();
-        //aqui agregamos el fragmento lecciones al tab1
         lecciones m = new lecciones();
         Bundle args = new Bundle(); //para pasarle datos al fragmento
         args.putString("correo",correo);
@@ -121,33 +115,6 @@ public class MainActivity extends AppCompatActivity
         txtcorreoUser.setText(correo);
         imgavatar.setImageResource(idimagen);
     }
-
-    /**
-    public void agregarPestañas(){
-        TabHost TbH = (TabHost) findViewById(R.id.tabHost); //llamamos al Tabhost
-        TbH.setup();                                       //lo activamos
-
-        TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");  //aspectos de cada Tab (pestaña)
-        TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
-       // TabHost.TabSpec tab3 = TbH.newTabSpec("tab3");
-
-        tab1.setIndicator("LECCIONES");//qué queremos que aparezca en las pestañas
-        tab1.setContent(R.id.tab1); //definimos el id de cada Tab (pestaña)
-
-        tab2.setIndicator("AMIGOS");
-        tab2.setContent(R.id.tab2);
-
-       // tab3.setIndicator("TRES");
-        // tab3.setContent(R.id.tab3);
-
-        TbH.addTab(tab1); //añadimos los tabs ya programados
-        TbH.addTab(tab2);
-       // TbH.addTab(tab3);
-        TbH.setCurrentTab(0);
-
-
-    }
-**/
 
    @Override
     public void onBackPressed() {
@@ -256,26 +223,3 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 }
-
-
-
-
-/**
- *
- * Puede cerrar todas las actividades de fondo y cuando se vuelva a abrir la aplicación Se parte de la primera actividad
-
- this.finish();
- Intent intent = new Intent(getApplicationContext(), CloseApp.class);
- intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
- startActivity(intent);
-
- Puede cerrar todas las actividades de fondo y cuando se vuelva a abrir la aplicación Se parte de la actividad en pausa [ donde cerró ] actividad
-
- this.finish();
- Intent intent = new Intent(Intent.ACTION_MAIN);
- intent.addCategory(Intent.CATEGORY_HOME);
- intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
- startActivity(intent);
-
- *
- */

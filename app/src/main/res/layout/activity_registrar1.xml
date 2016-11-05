@@ -9,13 +9,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.edward.orthography.Registrar1"
-    android:background="@color/azul100">
+    android:background="@drawable/profesor">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btnregistrar1">
+        android:weightSum="1"
+        tools:ignore="NotSibling,UselessParent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:text="@string/Registrar1_txt"
@@ -26,10 +30,9 @@
             android:id="@+id/txtregistrar1"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:textSize="28sp"
-            android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam"
-            android:gravity="center_vertical|center_horizontal" />
+            android:textSize="24sp"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded"
+            android:gravity="right" />
 
         <TextView
             android:text="@string/Registrar11_txt"
@@ -41,10 +44,9 @@
             android:id="@+id/txtregistrar11"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:textSize="@dimen/tamanio_titulos"
-            tools:ignore="InvalidId,ObsoleteLayoutParam"
-            android:textAlignment="center"
-            android:gravity="center_vertical|center_horizontal" />
+            android:textSize="20sp"
+            tools:ignore="InvalidId,ObsoleteLayoutParam,RtlHardcoded"
+            android:gravity="right" />
 
         <TextView
             android:text="@string/contenidoregistrar1"
@@ -52,13 +54,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtregistrar11"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/txtreg1"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam"
-            android:gravity="center_vertical|center_horizontal" />
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded"
+            android:gravity="right" />
 
         <TextView
             android:text="@string/contenidoregistrar2"
@@ -66,13 +67,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtreg1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/txtreg2"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam"
-            android:gravity="center_vertical|center_horizontal" />
+            android:textSize="17sp"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded"
+            android:gravity="right" />
 
         <TextView
             android:text="@string/contenidoregistrar3"
@@ -80,31 +80,36 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtreg2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/txtreg3"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            tools:ignore="ObsoleteLayoutParam"
-            android:gravity="center_vertical|center_horizontal" />
+            android:textSize="17sp"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded"
+            android:gravity="right" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/espaciador"></LinearLayout>
+            android:layout_height="58dp"
+            android:id="@+id/espaciador"
+            android:layout_weight="0.38"
+            tools:ignore="InefficientWeight"></LinearLayout>
+
+        <Button
+            android:text="@string/crearperfil"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnregistrar1"
+            android:background="@drawable/bk_boton_juego"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="125dp"
+            android:layout_marginStart="125dp"
+            tools:ignore="ObsoleteLayoutParam" />
 
     </LinearLayout>
-
-    <Button
-        android:text="@string/crearperfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnregistrar1"
-        android:background="@drawable/bk_boton_plano"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.edward.orthography.Splash"
-    android:background="@color/azul500">
+    android:background="@color/pruebamsj2">
 
     <LinearLayout
         android:orientation="vertical"
@@ -25,7 +25,7 @@
             android:id="@+id/txtLogo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:textIsSelectable="false"
             tools:ignore="ObsoleteLayoutParam,PrivateResource,SpUsage"
@@ -35,8 +35,8 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cubos"
+            android:layout_height="350dp"
+            app:srcCompat="@drawable/test2"
             android:id="@+id/imglogo"
             tools:ignore="ContentDescription" />
 
@@ -47,7 +47,8 @@
             android:id="@+id/progressBar"
             android:layout_below="@+id/imgCubos"
             android:layout_centerHorizontal="true"
-            tools:ignore="ObsoleteLayoutParam" />
+            tools:ignore="ObsoleteLayoutParam"
+            tools:targetApi="lollipop" />
 
     </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.example.edward.orthography;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,16 +35,9 @@ public class Splash extends AppCompatActivity {
 
         manager = new sessionManager();
 
-     /*   Animation ani = AnimationUtils.loadAnimation(this, R.anim.movercubo);
-        ImageView abc = (ImageView) findViewById(R.id.imgCubos);
+        Animation ani = AnimationUtils.loadAnimation(this, R.anim.movercubo);
+        ImageView abc = (ImageView) findViewById(R.id.imglogo);
         abc.setAnimation(ani);
-*/
-        /*RotateAnimation anim = new RotateAnimation(0f, 350f, 15f, 15f);
-        anim.setInterpolator(new LinearInterpolator());
-        anim.setRepeatCount(Animation.INFINITE);
-        anim.setDuration(700);
-
-        abc.setAnimation(anim);*/
 
             Handler h = new Handler();
             h.postDelayed(new Runnable() {

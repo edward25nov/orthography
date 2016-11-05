@@ -5,33 +5,40 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="9673497363868"
+    timestamp="579533881158"
     token="2006604749640707115"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="2659" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="145" />
+        duration="0" />
     <task
         name="verifier"
-        duration="9" />
+        duration="0" />
 
     <artifact
-        location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="22300844385966"
-        verifier="COMPATIBLE" >
+        timestamp="440067615924"
+        verifier="R_CLASS_CHANGE" >
         <artifact
-            location="/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
-            type="RESOURCES" />
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="16495723801430"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/home/edward/AndroidStudioProjects/Orthography/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
     </build>
 
 </instant-run>
