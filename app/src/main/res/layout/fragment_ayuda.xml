@@ -1,135 +1,186 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.edward.orthography.ayuda">
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <LinearLayout
-        android:orientation="vertical"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/contenedorGeneral"
         tools:ignore="UselessParent">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedor1">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:weightSum="1"
+            android:layout_weight="0.5">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button1"
 
-            <TextView
-                android:text="Lección 1:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt1"
-                android:layout_weight="1"
-                android:textStyle="normal|bold"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:textAllCaps="false" />
+                    android:text="Lección 1"
+                    android:textSize="18sp"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_juego"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box1"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button2"
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt11"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
+                    android:text="Lección 2"
+                    android:textSize="18sp"
+                    android:paddingBottom="10dp"
+                    android:gravity="bottom|center"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_plano"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box2"
+                    android:layout_centerInParent="true"
+                    android:contentDescription=""
+                    tools:ignore="ContentDescription"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedor2">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:weightSum="1"
+            android:layout_weight="0.5">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button3"
 
-            <TextView
-                android:text="Lección 2:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt2"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:textStyle="normal|bold" />
+                    android:text="Lección 3"
+                    android:textSize="18sp"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_plano"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box3"
+                    android:layout_centerInParent="true"
+                    tools:ignore="ContentDescription"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button4"
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt22"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
+                    android:text="Lección 4"
+                    android:textSize="18sp"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_juego"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box4"
+                    android:layout_centerInParent="true"
+                    tools:ignore="ContentDescription"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedor3">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:weightSum="1"
+            android:layout_weight="0.5">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button5"
 
-            <TextView
-                android:text="Lección 3:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt3"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:textStyle="normal|bold" />
+                    android:text="Lección 5"
+                    android:textSize="18sp"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_juego"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box5"
+                    android:layout_centerInParent="true"
+                    tools:ignore="ContentDescription"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button6"
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt33"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
+                    android:text="@string/mi_progreso"
+                    android:textSize="18sp"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText"
+                    android:background="@drawable/bk_boton_plano"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false" />
+                <ImageView
+                    android:src="@drawable/progreso"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedor4">
+    </TableLayout>
 
-            <TextView
-                android:text="Lección 4:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt4"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:textStyle="normal|bold" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt44"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedor5">
-
-            <TextView
-                android:text="Lección 5:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt5"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:textStyle="normal|bold" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt55"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

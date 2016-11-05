@@ -339,7 +339,7 @@ public class PlayContexto extends AppCompatActivity {
             final String SOAP_ACTION = "http://tempuri.org/obtenerContexto";
             final String METHOD_NAME = "obtenerContexto";
             final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
+            final String URL = "http://www.tesis2016g1.somee.com/ManejoJuegos.asmx";
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 

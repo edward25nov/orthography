@@ -114,7 +114,7 @@ public class Miperfil extends Fragment implements Validator.ValidationListener{
     public void onValidationSucceeded() {
         //Registrar2.ServiceRegistrar consumirWS = new Registrar2.ServiceRegistrar(c,p,idavatar,nombre);
         //consumirWS.execute();
-
+ //hacer trim antes d einsertar los datos
     }
 
     @Override

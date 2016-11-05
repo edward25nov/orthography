@@ -275,7 +275,7 @@ public class PlaySeleccion extends AppCompatActivity {
             final String SOAP_ACTION = "http://tempuri.org/obtenerSeleccion";
             final String METHOD_NAME = "obtenerSeleccion";
             final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016.somee.com/ManejoJuegos.asmx";
+            final String URL = "http://www.tesis2016g1.somee.com/ManejoJuegos.asmx";
             boolean resul = true;
             try {
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);

@@ -67,7 +67,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/Rpassword"
-            android:hint="Password Actual"
+            android:hint="Contraseña actual"
             tools:ignore="HardcodedText" />
 
         <EditText
@@ -76,7 +76,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/RNueva"
-            android:hint="Nueva password"
+            android:hint="Nueva contraseña"
             tools:ignore="HardcodedText" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/Rconfirma"
-            android:hint="Confrimar Password"
+            android:hint="Confrimar contraseña"
             tools:ignore="HardcodedText" />
 
         <Button

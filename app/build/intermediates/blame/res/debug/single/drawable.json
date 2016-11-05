@@ -44,6 +44,10 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/about.png"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/box1.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/box1.png"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/boton_normal2.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/boton_normal2.xml"
     },
@@ -140,6 +144,14 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_dialog_material_background.xml"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/box5.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/box5.png"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/box2.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/box2.png"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_cab_background_top_material.xml"
     },
@@ -188,12 +200,20 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/avatar2.png"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/box3.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/box3.png"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/boton_enfocado2.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/boton_enfocado2.xml"
+    },
+    {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/box4.png",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/drawable/box4.png"
     },
     {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
