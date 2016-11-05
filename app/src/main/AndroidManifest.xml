@@ -63,8 +63,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".PlayerTextToSpeech"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Playpuntuacion"></activity>
     </application>
 
 </manifest>

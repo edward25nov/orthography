@@ -157,7 +157,15 @@ public class lecciones extends Fragment {
                     i.putExtra("Imagen",idimagen);
                     startActivity(i);
                 }else if(posicion==4&&nivel==5){//leccion5
-                    Toast.makeText(getContext(),"lección 5",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getContext(),Playpuntuacion.class);
+                    i.putExtra("correo", correo);
+                    i.putExtra("idUsuario",idUsuario);
+                    i.putExtra("nivel",nivel);
+                    i.putExtra("puntos",puntos);
+                    i.putExtra("Estrellas",estrellas);
+                    i.putExtra("Nombre",nombre);
+                    i.putExtra("Imagen",idimagen);
+                    startActivity(i);
                 }else{
                     Snackbar.make(view, "Lección bloqueada.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();

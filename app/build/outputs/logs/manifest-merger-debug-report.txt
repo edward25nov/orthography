@@ -127,11 +127,15 @@ ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidMa
 	android:name
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:62:13-42
 activity#com.example.edward.orthography.PlayerTextToSpeech
-ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:64:9-66:71
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:64:9-66:72
 	android:theme
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:66:13-69
 	android:name
 		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:65:13-47
+activity#com.example.edward.orthography.Playpuntuacion
+ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:67:9-61
+	android:name
+		ADDED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml:67:19-49
 uses-sdk
 INJECTED from /home/edward/AndroidStudioProjects/Orthography/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:24.2.1] /home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43

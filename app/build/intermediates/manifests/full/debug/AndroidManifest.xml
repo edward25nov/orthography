@@ -70,6 +70,7 @@
         <activity
             android:name="com.example.edward.orthography.PlayerTextToSpeech"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.example.edward.orthography.Playpuntuacion" />
     </application>
 
 </manifest>

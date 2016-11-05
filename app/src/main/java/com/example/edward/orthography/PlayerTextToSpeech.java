@@ -167,16 +167,14 @@ public class PlayerTextToSpeech extends AppCompatActivity implements TextToSpeec
     }
 
 
-    private void speak( String str )
-    {
+    private void speak( String str ) {
         textToSpeech.speak( str, TextToSpeech.QUEUE_FLUSH, null );
         textToSpeech.setSpeechRate( 0.0f );
         textToSpeech.setPitch( 0.0f );
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         if ( textToSpeech != null )
         {
             textToSpeech.stop();

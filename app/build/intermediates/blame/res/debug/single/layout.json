@@ -252,6 +252,10 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/activity_playpuntuacion.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/activity_playpuntuacion.xml"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/layout_msjpersonalizado.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/layout_msjpersonalizado.xml"
     },

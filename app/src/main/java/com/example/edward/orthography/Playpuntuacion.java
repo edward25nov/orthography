@@ -1,14 +1,12 @@
 package com.example.edward.orthography;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -27,10 +25,9 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutionException;
 
+public class Playpuntuacion extends AppCompatActivity {
 
-public class PlayContexto extends AppCompatActivity {
     sessionManager manager;
-
     //variables que vienen del fragmento
     String fcorreo;
     int fnivel;
@@ -39,37 +36,38 @@ public class PlayContexto extends AppCompatActivity {
     double festrellas;
     String fnombre;
     int fidimagen;
-    TextView txtContextoParrafo;
-    Button opcionA;
-    Button opcionB;
-    Button opcionC;
-    Button btnContexto;
+    //
+    TextView txtOracion;
+    Button itemA;
+    Button itemB;
+    Button itemC;
+    Button btnPuntuacion;
     int PartidaActual;
-    //variables que usare aquó
+    ProgressBar barra;
+    //variables que usare aquí
     String seleccionUsuario;
     String correctaActual;
     String Oracion;
-    ArrayList<String>Opciones;
+    ArrayList<String> Opciones;
     int malas;
     int buenas;
     int avance;
-    ProgressBar barra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play_contexto);
+        setContentView(R.layout.activity_playpuntuacion);
 
         manager = new sessionManager();
 
         //componenetes del activity
-        txtContextoParrafo = (TextView)findViewById(R.id.txtContextoA);
-        opcionA = (Button)findViewById(R.id.opcionA);
-        opcionB = (Button)findViewById(R.id.opcionB);
-        opcionC = (Button)findViewById(R.id.opcionC);
-        btnContexto = (Button)findViewById(R.id.btnContexto);
-        btnContexto.setEnabled(false);
-        barra = (ProgressBar)findViewById(R.id.progressBar2);
+        txtOracion = (TextView)findViewById(R.id.txtspuntuacion);
+        itemA = (Button)findViewById(R.id.itemA);
+        itemB = (Button)findViewById(R.id.itemB);
+        itemC = (Button)findViewById(R.id.itemC);
+        btnPuntuacion = (Button)findViewById(R.id.btnPuntuacion);
+        btnPuntuacion.setEnabled(false);
+        barra = (ProgressBar)findViewById(R.id.progreso5);
         barra.setProgress(0);
 
         //variables
@@ -81,6 +79,7 @@ public class PlayContexto extends AppCompatActivity {
         fnombre = getIntent().getStringExtra("Nombre");
         fidimagen = getIntent().getIntExtra("Imagen",-1);
 
+
         try {
             CrearPartida actual = new CrearPartida();
             SoapPrimitive idp = actual.execute(fidUsuario,fnivel).get();
@@ -89,46 +88,18 @@ public class PlayContexto extends AppCompatActivity {
                         " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
             }else{
                 PartidaActual = Integer.valueOf(idp.toString());
-
-                juegoContexto play= new juegoContexto();
-                SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
-
-                if(resSoap==null){
-                    MensajeBox("No se ha podido conectar con el servidor." +
-                            " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
-                }else{
-                    Oracion = resSoap.getProperty(0).toString();
-
-                    StringTokenizer partes = new StringTokenizer(Oracion, "|");
-                    String parte1 = partes.nextToken();
-                    String parte2 = partes.nextToken();
-
-
-                    SoapObject items = (SoapObject)resSoap.getProperty(1);
-                    Opciones = new ArrayList<>(items.getPropertyCount());
-                    for(int i=0;i<items.getPropertyCount();i++){
-                        Opciones.add(String.valueOf(items.getProperty(i)));
-                    }
-                    correctaActual = resSoap.getProperty(2).toString();
-
-
-                    opcionA.setText(Opciones.get(0));
-                    opcionB.setText(Opciones.get(1));
-                    opcionC.setText(Opciones.get(2));
-
-                    txtContextoParrafo.setText(parte1 +" ____________________ " +parte2 );
-                    avance = 10;
-                    barra.setProgress(avance);
-                }
+                generarEscenario();
             }
 
         } catch (InterruptedException |ExecutionException e) {
-           // e.printStackTrace();
+            // e.printStackTrace();
             MensajeBox("No se ha podido conectar con el servidor." +
                     " Compruebe su conexión a Internet y vuelve a intentarlo.","Error de conexión");
         }
 
-        btnContexto.setOnClickListener(new View.OnClickListener() {
+
+
+        btnPuntuacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(avance==100){
@@ -153,56 +124,59 @@ public class PlayContexto extends AppCompatActivity {
                     }
                 }else{
                     validarRespuesta(false);
-                    btnContexto.setEnabled(false);
+                    btnPuntuacion.setEnabled(false);
                 }
 
 
             }
         });
 
-        opcionA.setOnClickListener(new View.OnClickListener() {
+
+        itemA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnContexto.setEnabled(true);
-                seleccionUsuario = opcionA.getText().toString();
-                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
-                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                btnPuntuacion.setEnabled(true);
+                seleccionUsuario = itemA.getText().toString();
+                itemA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                itemB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 YoYo.with(Techniques.Bounce)
                         .duration(1000)
-                        .playOn(findViewById(opcionA.getId()));
+                        .playOn(findViewById(itemA.getId()));
             }
         });
 
-        opcionB.setOnClickListener(new View.OnClickListener() {
+        itemB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnContexto.setEnabled(true);
-                seleccionUsuario = opcionB.getText().toString();
-                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
-                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                btnPuntuacion.setEnabled(true);
+                seleccionUsuario = itemB.getText().toString();
+                itemB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                itemA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 YoYo.with(Techniques.Bounce)
                         .duration(1000)
-                        .playOn(findViewById(opcionB.getId()));
+                        .playOn(findViewById(itemB.getId()));
             }
         });
 
 
-        opcionC.setOnClickListener(new View.OnClickListener() {
+        itemC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnContexto.setEnabled(true);
-                seleccionUsuario = opcionC.getText().toString();
-                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
-                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                btnPuntuacion.setEnabled(true);
+                seleccionUsuario = itemC.getText().toString();
+                itemC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionseleccion));
+                itemA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 YoYo.with(Techniques.Bounce)
                         .duration(1000)
-                        .playOn(findViewById(opcionC.getId()));
+                        .playOn(findViewById(itemC.getId()));
 
             }
         });
+
+
 
 
     }
@@ -213,13 +187,13 @@ public class PlayContexto extends AppCompatActivity {
             if(seleccionUsuario.equals(correctaActual)){
                 buenas = buenas +1;
                 MsjCorrecto dialogFragment = MsjCorrecto
-                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,2);
+                        .newInstance("Tu respuesta es\ncorrecta",true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,5);
                 dialogFragment.show(getFragmentManager(), "Buena");
 
             }else{
                 malas = malas + 1;
                 MsjNegativo dialogFragment = MsjNegativo
-                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,2);
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,true,"Score\nBuenas: " +buenas +"\nMalas: "+malas,5);
                 dialogFragment.show(getFragmentManager(),"Mala");
 
             }
@@ -227,38 +201,23 @@ public class PlayContexto extends AppCompatActivity {
             if(seleccionUsuario.equals(correctaActual)){
                 buenas = buenas +1;
                 MsjCorrecto dialogFragment = MsjCorrecto
-                        .newInstance("Tu respuesta es\ncorrecta",2);
+                        .newInstance("Tu respuesta es\ncorrecta",5);
                 dialogFragment.show(getFragmentManager(), "Buena");
 
             }else{
                 malas = malas + 1;
                 MsjNegativo dialogFragment = MsjNegativo
-                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,2);
+                        .newInstance("La respuesta\ncorrecta es:\n"+correctaActual,5);
                 dialogFragment.show(getFragmentManager(),"Mala");
 
             }
         }
     }
 
-    public void FinalizarEscenario(){
-        Intent i = new Intent(PlayContexto.this,MainActivity.class);
-        i.putExtra("correo",fcorreo);
-        i.putExtra("nivel",fnivel);
-        i.putExtra("idUsuario",fidUsuario);
-        i.putExtra("puntos",fpuntos);
-        i.putExtra("Estrellas",festrellas);
-        i.putExtra("Nombre",fnombre);
-        i.putExtra("Imagen",fidimagen);
-        startActivity(i);
 
-        //tengo que revisar esto......
-        manager.setPreferences(PlayContexto.this,"puntos",fpuntos+"");
-        manager.setPreferences(PlayContexto.this,"Estrellas",festrellas+"");
-        manager.setPreferences(PlayContexto.this,"nivel",fnivel+"");
-    }
 
     public void generarEscenario(){
-        juegoContexto play= new juegoContexto();
+        juegoleccion5 play= new juegoleccion5();
 
         try {
             SoapObject resSoap = play.execute(fnivel,PartidaActual).get();
@@ -268,9 +227,9 @@ public class PlayContexto extends AppCompatActivity {
             }else{
                 avance = avance + 10;
                 barra.setProgress(avance);
-                opcionA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                opcionB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
-                opcionC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemA.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemB.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
+                itemC.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.boton_opcionesnormal));
                 Oracion = resSoap.getProperty(0).toString();
 
                 StringTokenizer partes = new StringTokenizer(Oracion, "|");
@@ -285,11 +244,11 @@ public class PlayContexto extends AppCompatActivity {
                 correctaActual = resSoap.getProperty(2).toString();
 
 
-                opcionA.setText(Opciones.get(0));
-                opcionB.setText(Opciones.get(1));
-                opcionC.setText(Opciones.get(2));
+                itemA.setText(Opciones.get(0));
+                itemB.setText(Opciones.get(1));
+                itemC.setText(Opciones.get(2));
 
-                txtContextoParrafo.setText(parte1 +" ____________________ " +parte2 );
+                txtOracion.setText(parte1 +" ____________________ " +parte2 );
             }
 
         } catch (InterruptedException | ExecutionException e) {
@@ -297,6 +256,68 @@ public class PlayContexto extends AppCompatActivity {
         }
     }
 
+
+
+
+
+    public void FinalizarEscenario5(){
+        Intent i = new Intent(Playpuntuacion.this,MainActivity.class);
+        i.putExtra("correo",fcorreo);
+        i.putExtra("nivel",fnivel);
+        i.putExtra("idUsuario",fidUsuario);
+        i.putExtra("puntos",fpuntos);
+        i.putExtra("Estrellas",festrellas);
+        i.putExtra("Nombre",fnombre);
+        i.putExtra("Imagen",fidimagen);
+        startActivity(i);
+
+        //tengo que revisar esto......
+        manager.setPreferences(Playpuntuacion.this,"puntos",fpuntos+"");
+        manager.setPreferences(Playpuntuacion.this,"Estrellas",festrellas+"");
+        manager.setPreferences(Playpuntuacion.this,"nivel",fnivel+"");
+    }
+
+
+
+
+
+    public class juegoleccion5 extends AsyncTask<Integer,String,SoapObject> {
+
+        SoapObject retorno;
+        //http://www.tesis2016.somee.com/ManejoJuegos.asmx?WSDL
+        @Override
+        protected SoapObject doInBackground(Integer... params) {
+            //para poder debuggear
+            if(android.os.Debug.isDebuggerConnected())
+                android.os.Debug.waitForDebugger();
+
+            final String SOAP_ACTION = "http://tempuri.org/obtenerPuntuacion";
+            final String METHOD_NAME = "obtenerPuntuacion";
+            final String NAMESPACE = "http://tempuri.org/";
+            final String URL = "http://www.tesis2016g1.somee.com/ManejoJuegos.asmx";
+            try {
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+
+                request.addProperty("nivel", 1);
+                request.addProperty("idPartida",params[1]);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
+                envelope.setOutputSoapObject(request);
+
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                androidHttpTransport.call(SOAP_ACTION, envelope);
+
+                // Esta sección está destina si el Métdo del WS retorna valores
+                retorno =(SoapObject)envelope.getResponse();
+
+            }catch (Exception e){
+                //dafadsfasdf
+            }
+            return retorno;
+        }
+
+    }
 
 
 
@@ -317,58 +338,6 @@ public class PlayContexto extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
-
-
-
-
-
-
-
-    public class juegoContexto extends AsyncTask<Integer,String,SoapObject> {
-
-        SoapObject retorno;
-        //http://www.tesis2016.somee.com/ManejoJuegos.asmx?WSDL
-        @Override
-        protected SoapObject doInBackground(Integer... params) {
-            //para poder debuggear
-            if(android.os.Debug.isDebuggerConnected())
-                android.os.Debug.waitForDebugger();
-
-            final String SOAP_ACTION = "http://tempuri.org/obtenerContexto";
-            final String METHOD_NAME = "obtenerContexto";
-            final String NAMESPACE = "http://tempuri.org/";
-            final String URL = "http://www.tesis2016g1.somee.com/ManejoJuegos.asmx";
-            try {
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("nivel", params[0]);
-                request.addProperty("idPartida",params[1]);
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet = true; // para WS ASMX, sólo si fue construido con .Net
-                envelope.setOutputSoapObject(request);
-
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                androidHttpTransport.call(SOAP_ACTION, envelope);
-
-                // Esta sección está destina si el Métdo del WS retorna valores
-                retorno =(SoapObject)envelope.getResponse();
-
-            } catch (Exception e) {
-                //dafadsfasdf
-            }
-            return retorno;
-        }
-
-    }
-
-
-
-
-
-
-
 
 
 }
