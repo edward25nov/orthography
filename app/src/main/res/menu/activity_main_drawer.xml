@@ -18,9 +18,9 @@
 
     <group android:id="@+id/group_id">
         <item
-            android:id="@+id/nav_acercade"
+            android:id="@+id/nav_Ayuda"
             android:icon="@drawable/about"
-            android:title="@string/about" />
+            android:title="@string/ayuda" />
         <item
             android:id="@+id/nav_salir"
             android:icon="@drawable/cerrar"

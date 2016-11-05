@@ -52,6 +52,10 @@
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/content_main.xml"
     },
     {
+        "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/fragment_ayuda.xml",
+        "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/fragment_ayuda.xml"
+    },
+    {
         "merged": "/home/edward/AndroidStudioProjects/Orthography/app/build/intermediates/res/merged/debug/layout/layout_entrada.xml",
         "source": "/home/edward/AndroidStudioProjects/Orthography/app/src/main/res/layout/layout_entrada.xml"
     },

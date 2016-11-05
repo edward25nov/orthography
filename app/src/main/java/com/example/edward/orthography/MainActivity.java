@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -141,6 +142,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
+
+
             return true;
         }
 
@@ -206,10 +210,14 @@ public class MainActivity extends AppCompatActivity
             FragmentManager mg = getSupportFragmentManager();
             mg.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
 
-        }else if (id == R.id.nav_acercade) {
+        }else if (id == R.id.nav_Ayuda) {
             if(getSupportActionBar() != null){
-                getSupportActionBar().setTitle("Acerca de");
+                getSupportActionBar().setTitle("Ayuda");
             }
+            ayuda m = new ayuda();
+            FragmentManager mg = getSupportFragmentManager();
+            mg.beginTransaction().replace(R.id.ContenedorPrincipal,m,m.getTag()).commit();
+
         } else if (id == R.id.nav_salir) {
             manager.setPreferences(this, "status", "0");
             this.finish();

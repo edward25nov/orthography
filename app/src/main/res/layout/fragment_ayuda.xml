@@ -1,0 +1,135 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.edward.orthography.ayuda">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/contenedorGeneral"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenedor1">
+
+            <TextView
+                android:text="Lección 1:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt1"
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt11"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenedor2">
+
+            <TextView
+                android:text="Lección 2:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt2"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt22"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenedor3">
+
+            <TextView
+                android:text="Lección 3:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt3"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt33"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenedor4">
+
+            <TextView
+                android:text="Lección 4:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt4"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt44"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenedor5">
+
+            <TextView
+                android:text="Lección 5:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt5"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt55"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
